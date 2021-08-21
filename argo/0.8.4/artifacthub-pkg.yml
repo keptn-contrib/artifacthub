@@ -1,22 +1,18 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
-version: 0.3.1
-name: artillery-service
-displayName: Artillery Keptn service
+version: 0.8.4
+name: argo-service
+displayName: Argo Keptn service
 createdAt: 2021-08-21T21:00:00Z
-description: Keptn service for artillery.io load testing tool.
+description: Keptn service for Argo CD - Declarative GitOps CD for Kubernetes.
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
-  - artillery
-  - load testing
+  - argo
 links:
   - name: Source
-    url: https://github.com/keptn-sandbox/artillery-service
-install: |
-  ## Execute the following steps to install artillery-service:
-  The *artillery-service* can be installed as a part of [Keptn's uniform](https://keptn.sh).
+    url: https://github.com/keptn-contrib/argo-service
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:

@@ -1,0 +1,16 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.3.1
+name: notification-service
+displayName: Keptn Notification Service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service responsible for sending specific events as a notification to MS Teams, Slack and Webex Teams
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+links:
+  - name: Source
+    url: https://github.com/keptn-contrib/notification-service
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn

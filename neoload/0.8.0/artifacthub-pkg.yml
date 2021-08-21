@@ -1,0 +1,49 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.8.0
+name: neoload-service
+displayName: Keptn NeoLoad service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service for artillery.io load testing tool.
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - neoload
+  - load testing
+links:
+  - name: Source
+    url: https://github.com/keptn-contrib/neoload-service/tree/0.8.0
+install: |
+  1. To install the service, you need to run :
+    * installer/defineNeoLoadWebCredentials.sh to configure the required parameters :
+        1. NL_WEB_HOST : host of the web ui of NeoLoad web
+        1. NL_API_HOST : host of the api of NeoLoad web
+        1. NL_UPLOAD_HOST : host of upload api of NeoLoad Web
+        1. NL_API_TOKEN: api token of your NeoLoad account
+        1. NL_WEB_ZONEID : NeoLoad Web Zone id that would be used by Keptn
+
+  you can also take advantage of the native dyntrace integration by running the dedicated installer.*
+
+  2. Run the installer script
+    * there are 2 type of installation
+      1. installing the neoload-service with dynatrace
+      If the dynatrace-service has been previously installed then you can run:
+  `installer/deployNeoLoadWebWithDynatrace.sh <args>`    
+      Once deployed the neoload-service will had the right project settings to run a test with the dynatrace integration.
+      The Enduser will still need to configure the tags in each scenario.
+      
+      2. Installing the neoload-service
+  `installer/deployNeoLoadWeb.sh <Args>`    
+      
+      
+    * Here are the following parameters for the deployment bash scripts :
+      1.  -n : namespace name where Keptn is installed ( default value : keptn)
+      2.  -c : custom NeoLoad Controller image name ( by default keptn will pick the latest version)
+      3.  -l : custom NeoLoad LoadGenerator image name 
+      4.  -u : git login user ( if the git repository require authentification with user/password)
+      5.  -p : git password ( if the git repository require authentification with user/password)
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "service,sli-provider"

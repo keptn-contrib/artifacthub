@@ -1,0 +1,29 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.2.1
+name: limitus-service
+displayName: Limitus Keptn service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service to perform chaos tests on your applications triggered by Keptn using the LitmusChaos framework.
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+links:
+  - name: Source
+    url: https://github.com/keptn-sandbox/litmus-service
+install: |
+  To deploy the current version of the *litmus-service* in your Keptn Kubernetes cluster, clone the repo and apply the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+  ```console
+  kubectl apply -f deploy/service.yaml
+  ```
+
+  This will install the `litmus-service` into the `keptn` namespace, which you can verify using:
+
+  ```console
+  kubectl -n keptn get deployment litmus-service -o wide
+  kubectl -n keptn get pods -l run=litmus-service
+  ```
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
