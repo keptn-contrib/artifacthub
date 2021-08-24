@@ -1,0 +1,66 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.8.5
+name: jira-service
+displayName: Jira Keptn service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service for creating JIRA tickets upon problems and quality gate evaluations.
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - jira
+links:
+  - name: Source
+    url: https://github.com/keptn-sandbox/jira-service
+install: |
+  ## Installation
+
+  The *jira-service* can be installed as a part of [Keptn's uniform](https://keptn.sh).
+
+  Do not deploy from `master` branch. Please switch to the release branch that matches your Keptn version.
+
+  ### Deploy in your Kubernetes cluster
+
+  To deploy the current version of the *jira-service* in your Keptn Kubernetes cluster, apply the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+  ```console
+  kubectl apply -f deploy/service.yaml
+  ```
+
+  This should install the `jira-service` together with a Keptn `distributor` into the `keptn` namespace, which you can verify using
+
+  ```console
+  kubectl -n keptn get deployment jira-service -o wide
+  kubectl -n keptn get pods -l run=jira-service
+  ```
+
+  ### Logs
+  Retrieve container logs with:
+
+  ```
+  kubectl logs -n keptn -l run=jira-service -c jira-service
+  ```
+
+  Retrieve distributor logs with:
+  ```
+  kubectl logs -n keptn -l run=jira-service -c distributor
+  ```
+
+  ### Up- or Downgrading
+
+  Adapt and use the following command in case you want to up- or downgrade your installed version (specified by the `$VERSION` placeholder):
+
+  ```console
+  kubectl -n keptn set image deployment/jira-service jira-service=keptnsandbox/jira-service:$VERSION --record
+  ```
+
+  ### Uninstall
+
+  To delete a deployed *jira-service*, use the file `deploy/*.yaml` files from this repository and delete the Kubernetes resources:
+
+  ```console
+  kubectl delete -f deploy/service.yaml
+  ```
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
