@@ -1,0 +1,105 @@
+# Litmus Service
+
+![](https://raw.githubusercontent.com/keptn-sandbox/litmus-service/master/assets/litmus-keptn.png)
+
+This service provides a way to perform chaos tests on your applications triggered by [Keptn](https://keptn.sh) using 
+the [LitmusChaos](https://litmuschaos.io) framework. 
+Learn more about this integration in our 2-part blog series: [part 1](https://medium.com/keptn/evaluating-kubernetes-resiliency-with-keptn-and-litmuschaos-66bdfb35cbdd?source=friends_link&sk=86b269ad3cec917ba0976328a20e914f), [part 2](https://medium.com/keptn/part-2-evaluating-application-resiliency-with-keptn-and-litmuschaos-use-case-and-demo-f43b264a2294?source=friends_link&sk=9a6810624fb5c85822c9e9484678722c).
+
+## Prerequisites
+
+The Keptn *litmus-service* requires the following prerequisites to be setup on the Kubernetes cluster for it to run the chaos tests:  
+
+- LitmusChaos custom resource definitions (CRDs)
+- The Chaos Operator 
+- The `ChaosExperiment` custom resources (CRs)
+- The RBAC (`serviceaccount`, `role`, `rolebinding`) associated with the chaos test 
+
+Execute the following commands to setup these dependencies for a demo setup: 
+
+```console
+kubectl apply -f ./test-data/litmus/litmus-operator-v1.13.2.yaml
+kubectl apply -f ./test-data/litmus/pod-delete-ChaosExperiment-CR.yaml 
+kubectl apply -f ./test-data/litmus/pod-delete-rbac.yaml 
+```
+
+## Keptn CloudEvents
+
+This service reacts on the following Keptn CloudEvents (see [deploy/service.yaml](deploy/service.yaml)):
+* `sh.keptn.event.test.triggered` (used to be `sh.keptn.events.deployment-finished`) -> start litmus chaos tests
+* `sh.keptn.event.test.finished` (used to be`sh.keptn.events.tests-finished`) -> clean up residual chaos resources
+
+
+**Notes**: 
+
+- This repo provides the example (yaml specifications) of a [pod-delete](https://docs.litmuschaos.io/docs/pod-delete/) chaos test. 
+You can choose to specify other [experiments](https://hub.litmuschaos.io/) depending on your need, when building your own litmus service. 
+Ensure that the correct `ChaosEngine` spec is provided in the [experiment manifest](./test-data/litmus/experiment.yaml) along with the 
+corresponding `ChaosExperiment` CR & RBAC manifests. 
+
+- This repo uses the sample [*carts*](https://github.com/keptn-sandbox/litmus-service/tree/master/test-data/carts) app as the Application-Under-Test (AUT)   to illustrate the impact of chaos. Hence, the [experiment](./test-data/litmus/experiment.yaml) is populated with the respective attributes for app filtering purposes. Ensure you have the right data placed in the `spec.appinfo` when adopting this for your environments.
+
+## Installation -  Deploy in your Kubernetes cluster
+
+To deploy the current version of the *litmus-service* in your Keptn Kubernetes cluster, clone the repo and apply the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+```console
+kubectl apply -f deploy/service.yaml
+```
+
+This will install the `litmus-service` into the `keptn` namespace, which you can verify using:
+
+```console
+kubectl -n keptn get deployment litmus-service -o wide
+kubectl -n keptn get pods -l run=litmus-service
+```
+
+### Usage
+
+To make use of the Litmus service, a dedicated `experiment.yaml` file with the actual chaos experiment has to be added to Keptn (for the service under test).
+
+You can do this via the Keptn CLI, please replace the values for `project`, `stage`, `service` and `resource` with your actual values. But note that the `resourceUri` has to be set to `litmus/experiment.yaml`.
+
+```
+keptn add-resource --project=litmus --stage=chaos --service=carts --resource=litmus/experiment.yaml --resourceUri=litmus/experiment.yaml 
+```
+
+Please note that it is recommended to run the chaos experiment along with some load testing. 
+Now when a `send-test` event is sent to Keptn, the chaos test will be triggered along with the load tests. Once the load tests are finished, Keptn will do the evaluation and provide you with a result. With this you can then verify if your application is resilient in the way that your SLOs are still met.
+
+
+## How does the service work?
+
+The service implements [handlers](https://github.com/keptn-sandbox/litmus-service/blob/master/eventhandlers.go) for triggering the chaos tests in the "testing phase" of Keptn, that means that Keptn will trigger the chaos tests right after deployment. The test is executed by a set of *chaos pods* (notably, the *chaos-runner* & *experiment* pod) and the test results stored in a `ChaosResult` custom resource. The duration of the test & other tunables can be configured in the `ChaosEngine` resource. Refer to the [Litmus docs](https://docs.litmuschaos.io/docs/chaosengine/) on supported tunables. Litmus ensures that the review app/deployment is restored to it's initial state upon completion of the test.
+
+The Keptn litmus-service also [conditionally](https://github.com/keptn-sandbox/litmus-service/blob/master/deploy/service.yaml#L68) generates & handles the `test.finished` event by cleaning up residual chaos resources (*running* or *completed*) in the cluster. 
+
+It is a standard practice to execute the chaos tests in parallel with other performance/load tests running on the AUT. The subsequent quality gate evaluations
+in such cases are more reflective of real world outcomes. 
+
+**Note**: The sample project provided in this repo (in the `test-data` folder), uses a [jmeter](https://github.com/keptn-sandbox/litmus-service/tree/master/test-data/jmeter) load test 
+against the AUT, *carts*, running in parallel with the pod-delete chaos test.
+
+## Uninstall -  Delete from your Kubernetes cluster
+
+To delete the litmus-service, delete using the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+```console
+kubectl delete -f deploy/service.yaml
+```
+
+## Upgrade or Downgrading
+
+Adapt and use the following command in case you want to upgrade or downgrade your installed version (specified by the `$VERSION` placeholder):
+
+```console
+kubectl -n keptn set image deployment/litmus-service litmus-service=keptnsandbox/litmus-service:$VERSION --record
+```
+
+### Configuring the Service
+
+- The service implements simple handlers for the `sh.keptn.event.test.triggered` & `sh.keptn.event.test.finished` events - i.e., triggers chaos by creating the `ChaosEngine` resource, fetching info from `ChaosResult` resource & eventually deleting them, respectively. In case you would need additional functions/capabilities,  update the [eventhandlers.go](https://github.com/keptn-sandbox/litmus-service/blob/master/eventhandlers.go). For more info around how to go about this, view the **Development** section.
+
+- Considering the litmus-service runs in the keptn namespace & acts on resources/applications on other namespaces (as per the project/stage names), it uses a cluster-wide RBAC. Tune the [permissions](https://github.com/keptn-sandbox/litmus-service/blob/master/deploy/service.yaml#L17) associated with this service based on functionality needed apart from CRUD on `ChaosEngine` & `ChaosResults`. 
+
+- In case you would like to cleanup chaos resources immediately after completion of the chaos test (either because you aren't running other tests of primary significance such as perf tests), set the environment variable `SEND_TEST_FINISHED_EVENT` to `true` in the litmus-service deployment.

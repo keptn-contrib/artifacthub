@@ -1,0 +1,67 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.3.0
+name: servicenow-service
+displayName: ServiceNow Keptn service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service to implement self-healing capabilities
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - servicenow
+links:
+  - name: Source
+    url: https://github.com/keptn-contrib/servicenow-service
+install: |
+  ### Create ServiceNow secret
+
+  - Create a ServiceNow kubernetes secret to allow the ServiceNow keptn service to create events and update alerts in ServiceNow.
+
+  - Export the ServiceNow instance URL, user and password as environment variables:
+
+  ```bash
+  export SERVICENOW_INSTANCE_URL="your_servicenow_instance_url" # https://xxxxxx.service-now.com"
+  export SERVICENOW_USER="your_servicenow_user"
+  export SERVICENOW_PASSWORD="your_servicenow_password"
+  ```
+
+  - Run the following command to create the `servicenow` secret:
+
+  ```bash
+  kubectl -n keptn create secret generic servicenow --from-literal="SERVICENOW_INSTANCE_URL=$SERVICENOW_INSTANCE_URL" --from-literal="SERVICENOW_USER=$SERVICENOW_USER" --from-literal="SERVICENOW_PASSWORD=$SERVICENOW_PASSWORD"
+  ```
+
+  **Note:** The ServiceNow user needs to have the role(s) that matches with the REST API flow trigger.
+
+  ### Install the ServiceNow service on the keptn namespace
+
+  - Subscribe the servicenow-service to keptn sh.keptn.event.problem.open events by applying the distributor manifest:
+
+  - Deploy the servicenow-service by running the following command:
+
+  ```bash
+  kubectl -n keptn apply -f https://github.com/keptn-contrib/servicenow-service/blob/$version/deploy/service.yaml
+  ```
+
+  After running these commands, the `servicenow-service` and distributor are now deployed in your cluster. Execute the following commands to verify the deployment of the servicenow-service.
+
+  ```bash
+  kubectl get svc servicenow-service -n keptn
+  ```
+
+  ```bash
+  NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+  servicenow-service   ClusterIP   10.51.246.134   <none>        8080/TCP   18m
+  ```
+
+  ```bash
+  kubectl get po -n keptn | grep "servicenow"
+  ```
+
+  ```bash
+  NAME                                                              READY   STATUS    RESTARTS   AGE
+  servicenow-service-5b67cc545c-c2452                               2/2     Running   0          17m
+  ```
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn

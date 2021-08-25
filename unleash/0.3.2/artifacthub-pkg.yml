@@ -1,0 +1,32 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.3.2
+name: unleash-service
+displayName: Unleash Keptn service
+createdAt: 2021-08-21T21:00:00Z
+description: Keptn service for interacting with the open source feature toggle system unleash
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - unleash
+links:
+  - name: Source
+    url: https://github.com/keptn-contrib/unleash-service
+install: |
+  ## To deploy the `unleash-service` in version 0.3.2, execute the following command:
+
+  ```bash
+  kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml -n keptn
+  ```
+
+  ## Uninstall the unleash-service
+
+  ```bash
+  kubectl delete -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml -n keptn
+  ```
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "service"
+  keptn/version: "0.8.3-0.8.7"

@@ -1,0 +1,69 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.1.0
+name: grafana-service
+displayName: Grafana Keptn service
+createdAt: 2021-08-21T21:00:00Z
+description: Service that automates the generation of dashboards based on the SRE files of Keptn.
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - grafana
+links:
+  - name: Source
+    url: https://github.com/keptn-sandbox/grafana-service
+install: |
+  ## Installation
+
+  The *grafana-service* can be installed as a part of [Keptn's uniform](https://keptn.sh).
+
+  ### Configure Grafana environment & token
+
+  Open the `deploy/service.yaml` file and edit the environment variables accordingly to your environment.
+  ```yaml
+  env:
+    - name: EVENTBROKER 
+      value: 'http://event-broker.keptn.svc.cluster.local/keptn' # usually NO edit needed
+    - name: CONFIGURATION_SERVICE
+      value: 'http://configuration-service.keptn.svc.cluster.local:8080' # usually NO edit needed
+    - name: GRAFANA_URL
+      value: http://yourgrafana-url # change to your grafana URL
+    - name: GRAFANA_TOKEN
+      value: yourtoken # add your Grafana token here
+    - name: PROMETHEUS_URL
+      value: http://yourprometheus-url # add your Prometheus URL here for grafana to fetch the data
+  ```
+
+  ### Deploy in your Kubernetes cluster
+
+  To deploy the current version of the *grafana-service* in your Keptn Kubernetes cluster, apply the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+  ```console
+  kubectl apply -f deploy/service.yaml
+  ```
+
+  This should install the `grafana-service` together with a Keptn `distributor` into the `keptn` namespace, which you can verify using
+
+  ```console
+  kubectl -n keptn get deployment grafana-service -o wide
+  kubectl -n keptn get pods -l run=grafana-service
+  ```
+
+  ### Up- or Downgrading
+
+  Adapt and use the following command in case you want to up- or downgrade your installed version (specified by the `$VERSION` placeholder):
+
+  ```console
+  kubectl -n keptn set image deployment/grafana-service grafana-service=keptnsandbox/grafana-service:$VERSION --record
+  ```
+
+  ### Uninstall
+
+  To delete a deployed *grafana-service*, use the file `deploy/*.yaml` files from this repository and delete the Kubernetes resources:
+
+  ```console
+  kubectl delete -f deploy/service.yaml
+  ```
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
