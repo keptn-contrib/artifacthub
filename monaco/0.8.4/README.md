@@ -4,6 +4,16 @@ This is a Sandbox Keptn Services that enables calling the Dynatrace Monaco (Moni
 
 For more information on Dynatrace Monaco, visit the git repository https://github.com/dynatrace-oss/dynatrace-monitoring-as-code
 
+## Compatibility Matrix
+
+|Authors | Keptn Version    | [monaco-service Docker Image](https://hub.docker.com/r/keptnsandbox/monaco-service/tags) | Comment |
+|:----------------:|:----------------:|:----------------------------------------:|:----------------:|
+|[@kristofre](https://github.com/kristofre)|       0.7.3      | keptnsandbox/monaco-service:0.1.0 | Initial release |
+|[@grabnerandi](https://github.com/grabnerandi)|       0.7.3      | keptnsandbox/monaco-service:0.2.0 | Support for monaco folder structure |
+|[@grabnerandi](https://github.com/grabnerandi)|       0.7.3      | keptnsandbox/monaco-service:0.2.1 | Fixes & Label Env Variable Support |
+|[@grabnerandi](https://github.com/grabnerandi)|       0.8.0-0.8.3      | keptnsandbox/monaco-service:0.8.0 | Upgrade to support Keptn 0.8.0 |
+|[@grabnerandi](https://github.com/grabnerandi)|       0.8.4      | keptnsandbox/monaco-service:0.8.4 | Upgrade to support Keptn 0.8.4 |
+
 ## Installation
 
 The *monaco-service* can be installed as a part of [Keptn's uniform](https://keptn.sh).

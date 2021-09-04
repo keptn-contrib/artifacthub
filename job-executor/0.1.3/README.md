@@ -360,7 +360,7 @@ actions:
 ### Resource quotas for jobs
 
 The `initcontainer` and the `job` container will use the default resource quotas defined as environment variables. They
-can be set in [`deploy/service.yaml`](deploy/service.yaml):
+can be set in [`deploy/service.yaml`](https://github.com/keptn-sandbox/job-executor-service/blob/main/deploy/service.yaml):
 
 ```yaml
 - name: DEFAULT_RESOURCE_LIMITS_CPU
@@ -373,7 +373,7 @@ can be set in [`deploy/service.yaml`](deploy/service.yaml):
   value: "128Mi"
 ```
 
-or for helm in [`helm/templates/configmap.yaml`](helm/templates/configmap.yaml):
+or for helm in [`helm/templates/configmap.yaml`](https://github.com/keptn-sandbox/job-executor-service/blob/main/helm/templates/configmap.yaml):
 
 ```yaml
 default_resource_limits_cpu: "1"
@@ -457,3 +457,94 @@ For each release beginning with `0.1.3` compatible binaries are attached.
 ## Credits
 
 The credits of this service heavily go to @thschue and @yeahservice who originally came up with this idea. :rocket:
+
+## Compatibility Matrix
+
+| Keptn Version | [Job-Executor-Service Docker Image](https://hub.docker.com/r/keptnsandbox/job-executor-service/tags) | Config version |
+| :-----------: | :--------------------------------------------------------------------------------------------------: | :------------: |
+|     0.8.3     |                               keptnsandbox/job-executor-service:0.1.0                                |       -        |
+|     0.8.3     |                               keptnsandbox/job-executor-service:0.1.1                                |       -        |
+|     0.8.4     |                               keptnsandbox/job-executor-service:0.1.2                                |       v1       |
+|     0.8.6     |                               keptnsandbox/job-executor-service:0.1.3                                |       v2       |
+
+## Development
+
+Development can be conducted using any GoLang compatible IDE/editor (e.g., Jetbrains GoLand, VSCode with Go plugins).
+
+It is recommended to make use of branches as follows:
+
+* `master` contains the latest potentially unstable version
+* `release-*` contains a stable version of the service (e.g., `release-0.1.0` contains version 0.1.0)
+* create a new branch for any changes that you are working on, e.g., `feature/my-cool-stuff` or `bug/overflow`
+* once ready, create a pull request from that branch back to the `master` branch
+
+When writing code, it is recommended to follow the coding style suggested by
+the [Golang community](https://github.com/golang/go/wiki/CodeReviewComments).
+
+### Common tasks
+
+* Build the binary: `go build -ldflags '-linkmode=external' -v -o job-executor-service`
+* Run tests: `go test -race -v ./...`
+* Build the docker image: `docker build . -t keptnsandbox/job-executor-service:dev` (Note: Ensure that you use the
+  correct DockerHub account/organization)
+* Run the docker image locally: `docker run --rm -it -p 8080:8080 keptnsandbox/job-executor-service:dev`
+* Push the docker image to DockerHub: `docker push keptnsandbox/job-executor-service:dev` (Note: Ensure that you use the
+  correct DockerHub account/organization)
+* Deploy the service using `kubectl`: `kubectl apply -f deploy/`
+* Delete/undeploy the service using `kubectl`: `kubectl delete -f deploy/`
+* Watch the deployment using `kubectl`: `kubectl -n keptn get deployment job-executor-service -o wide`
+* Get logs using `kubectl`: `kubectl -n keptn logs deployment/job-executor-service -f`
+* Watch the deployed pods using `kubectl`: `kubectl -n keptn get pods -l run=job-executor-service`
+* Deploy the service
+  using [Skaffold](https://skaffold.dev/): `skaffold run --default-repo=your-docker-registry --tail` (Note:
+  Replace `your-docker-registry` with your DockerHub username; also make sure to adapt the image name
+  in [skaffold.yaml](https://github.com/keptn-sandbox/job-executor-service/blob/main/skaffold.yaml))
+
+### Testing Cloud Events
+
+We have dummy cloud-events in the form of [RFC 2616](https://ietf.org/rfc/rfc2616.txt) requests in
+the [test-events/](https://github.com/keptn-sandbox/job-executor-service/tree/main/test-events) directory. These can be easily executed using third party plugins such as
+the [Huachao Mao REST Client in VS Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+
+## Automation
+
+### GitHub Actions: Automated Pull Request Review
+
+This repo uses [reviewdog](https://github.com/reviewdog/reviewdog) for automated reviews of Pull Requests.
+
+You can find the details in [.github/workflows/reviewdog.yml](https://github.com/keptn-sandbox/job-executor-service/blob/main/.github/workflows/reviewdog.yml).
+
+### GH Actions/Workflow: Build Docker Images
+
+This repo uses GH Actions and Workflows to test the code and automatically build docker images.
+
+Docker Images are automatically pushed based on the configuration done in [.ci_env](https://github.com/keptn-sandbox/job-executor-service/blob/main/.ci_env) and the
+two [GitHub Secrets](https://github.com/keptn-sandbox/job-executor-service/settings/secrets/actions)
+
+* `REGISTRY_USER` - your DockerHub username
+* `REGISTRY_PASSWORD` - a DockerHub [access token](https://hub.docker.com/settings/security) (alternatively, your
+  DockerHub password)
+
+## How to release a new version of this service
+
+It is assumed that the current development takes place in the master branch (either via Pull Requests or directly).
+
+To make use of the built-in automation using GH Actions for releasing a new version of this service, you should
+
+* branch away from master to a branch called `release-x.y.z` (where `x.y.z` is your version),
+* write release notes in the [releasenotes/](https://github.com/keptn-sandbox/job-executor-service/blob/main/releasenotes/) folder,
+* update the compatibility matrix,
+* check the output of GH Actions builds for the release branch,
+* verify that your image was built and pushed to DockerHub with the right tags,
+* update the image tags for `job-executor-service` and `job-executor-service-initcontainer`
+  in [`deploy/service.yaml`](https://github.com/keptn-sandbox/job-executor-service/blob/main/deploy/service.yaml), [`helm/Chart.yaml`](https://github.com/keptn-sandbox/job-executor-service/blob/main/helm/Chart.yaml) and
+  the `app.kubernetes.io/version` in [`deploy/service.yaml`](https://github.com/keptn-sandbox/job-executor-service/blob/main/deploy/service.yaml)
+* test your service against a working Keptn installation.
+
+If any problems occur, fix them in the release branch and test them again.
+
+Once you have confirmed that everything works and your version is ready to go, you should
+
+* create a new release on the release branch using
+  the [GitHub releases page](https://github.com/keptn-sandbox/job-executor-service/releases), and
+* merge any changes from the release branch back to the master branch.

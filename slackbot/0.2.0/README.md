@@ -110,6 +110,16 @@ This repository comes with a manifest that will be used to install this integrat
 
 1. Now, whenever there is a new approval request you will be notified in your Slack channel and can approve or decline the request directly via Slack, either on your desktop or mobile device!
 
+### Compatibility Matrix
+
+Please always double check the version of Keptn you are using compared to the version of this service, and follow the compatibility matrix below.
+
+
+| Keptn Version    | [Slackbot Service Image](https://hub.docker.com/r/keptncontrib/slackbot-service/tags) |
+|:----------------:|:----------------------------------------:|
+|       0.6.x      | keptncontrib/slackbot-service:0.1.0  |
+|       0.7.x      | keptncontrib/slackbot-service:0.2.0  |
+
 ## Usage
 
 - Ask the bot what you can do:

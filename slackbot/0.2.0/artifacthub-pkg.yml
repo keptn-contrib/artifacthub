@@ -3,10 +3,12 @@
 version: 0.2.0
 name: slackbot-service
 displayName: Slackbot Keptn service
-createdAt: 2021-08-21T21:00:00Z
+createdAt: 2020-08-21T00:00:00Z
 description: Keptn service responsible for interacting with Keptn via a Slack app.
+logoURL: https://logosmarken.com/wp-content/uploads/2020/11/Slack-Logo.png
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
+deprecated: true
 keywords:
   - keptn
   - slack
@@ -51,3 +53,6 @@ install: |
   1. The link will look similar to *https://your-workspace.slack.com/archives/C018WDNTZKN* - please copy the last part of the URL after the last `/` as this is the channel ID that we'll need in a minute. In this example the channel ID is `C018WDNTZKN`.
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "notification"
+  keptn/version: "0.7.x"

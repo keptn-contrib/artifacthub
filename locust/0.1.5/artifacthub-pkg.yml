@@ -3,14 +3,18 @@
 version: 0.1.5
 name: locust-service
 displayName: Keptn Locust Service
-createdAt: 2021-08-21T21:00:00Z
+createdAt: 2021-08-04T00:00:00Z
 description: Keptn service to perform performance test on your application triggered by Keptn using the Locust performance testing tool.
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
+  - testing
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/locust-service
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/version: "0.8.6-0.8.7"

@@ -1,6 +1,17 @@
 # Jira Keptn Service
 
-This implements a jira-service for Keptn. If you want to learn more about Keptn visit us on keptn.sh
+This implements a jira-service for Keptn. If you want to learn more about Keptn visit us on [keptn.sh](https://keptn.sh)
+
+## Compatibility Matrix
+
+| Keptn Version    | [jira-service Docker Image](https://hub.docker.com/r/keptnsandbox/jira-service/tags) |
+|:----------------:|:----------------------------------------:|
+|       0.8.5      | keptnsandbox/jira-service:0.8.5 |
+|       0.8.4      | keptnsandbox/jira-service:0.8.4 |
+|       0.8.3      | keptnsandbox/jira-service:0.8.3 |
+|       0.8.2      | keptnsandbox/jira-service:0.8.2 |
+|       0.8.1      | keptnsandbox/jira-service:0.8.1 |
+|       0.8.0      | keptnsandbox/jira-service:0.8.0 |
 
 # Gather JIRA Information
 You'll need the following information to use this plugin.
