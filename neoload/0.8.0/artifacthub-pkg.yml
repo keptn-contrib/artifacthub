@@ -3,10 +3,12 @@
 version: 0.8.0
 name: neoload-service
 displayName: Keptn NeoLoad service
-createdAt: 2021-08-21T21:00:00Z
-description: Keptn service for artillery.io load testing tool.
+createdAt: 2021-07-16T00:00:00Z
+description: Keptn service for the NeoLoad load testing tool.
+logoURL: https://www.neotys.com/wp-content/uploads/2020/02/Logo_NeoLoad_2017_LegacyColor.png
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
+prerelease: true
 keywords:
   - keptn
   - neoload
@@ -46,4 +48,4 @@ install: |
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
-  keptn/kind: "service,sli-provider"
+  keptn/kind: "sli-provider,testing"

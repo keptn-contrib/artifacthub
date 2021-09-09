@@ -2,6 +2,17 @@
 
 This service provides a way to performance test on your application triggered by [Keptn](https://keptn.sh) using the [Locust](https://locust.io/) performance testing tool.
 
+## Compatibility Matrix
+
+| Keptn Version    | [locust-service Docker Image](https://hub.docker.com/r/keptnsandbox/locust-service/tags?page=1&ordering=last_updated) |
+|:----------------:|:----------------------------------------:|
+|       0.8.0      | keptnsandbox/locust-service:0.1.0 |
+|       0.8.1      | keptnsandbox/locust-service:0.1.1 |
+|       0.8.2      | keptnsandbox/locust-service:0.1.2 |
+|       0.8.3      | keptnsandbox/locust-service:0.1.3 | 
+|       0.8.4-0.8.5      | keptnsandbox/locust-service:0.1.4 | 
+|       0.8.6-0.8.7      | keptnsandbox/locust-service:0.1.5 (upgrade to Locust v2) | 
+
 ## Keptn CloudEvents
 
 This service reacts on the following Keptn CloudEvents (see [deploy/service.yaml](deploy/service.yaml)):

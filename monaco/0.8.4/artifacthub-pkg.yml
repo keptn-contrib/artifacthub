@@ -3,7 +3,7 @@
 version: 0.8.4
 name: monaco-service
 displayName: Monaco Keptn service
-createdAt: 2021-08-21T21:00:00Z
+createdAt: 2021-06-21T00:00:00Z
 description: Keptn Services that enables calling the Dynatrace Monaco (Monitoring as Code) toolset for individual Keptn Events.
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
@@ -49,3 +49,5 @@ install: |
   ```
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/version: "0.8.4-0.8.7"

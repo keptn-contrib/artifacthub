@@ -3,12 +3,13 @@
 version: 0.0.1
 name: onechart-service
 displayName: OneChart Keptn service
-createdAt: 2021-08-21T21:00:00Z
+createdAt: 2021-04-01T00:00:00Z
 description: This is a Keptn Service that provides a default Helm Chart template that can be used to deploy a service. The default Helm chart is OneChart from the Gimlet project.
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
+  - helm
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/onechart-service
@@ -39,3 +40,6 @@ install: |
   ```
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "deployment"
+  keptn/version: "0.8.x"

@@ -5,6 +5,16 @@ The Argo Service currently supports:
 
 Future versions of this service may support additional integrations with other capabilities of the Argo suite of projects.
 
+## Compatibility Matrix
+
+| Keptn Version    | [Argo-service Service Image](https://hub.docker.com/r/keptncontrib/argo-service/tags) |
+|:----------------:|:----------------------------------------:|
+|   0.6.2    | keptncontrib/argo-service:0.1.0 |
+|   0.7.0, 0.7.1    | keptncontrib/argo-service:0.1.1 |
+|   0.7.2, 0.7.3    | keptncontrib/argo-service:0.1.2 |
+|   0.8.0 - 0.8.3   | keptncontrib/argo-service:0.8.0 |
+|   0.8.4   | keptncontrib/argo-service:0.8.4 |
+
 ## Argo Rollout Support Explained
 
 For a working example check out the tutorial [Keptn on k3s](https://github.com/keptn-sandbox/keptn-on-k3s/tree/release-0.8.0)

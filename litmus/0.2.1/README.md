@@ -6,6 +6,16 @@ This service provides a way to perform chaos tests on your applications triggere
 the [LitmusChaos](https://litmuschaos.io) framework. 
 Learn more about this integration in our 2-part blog series: [part 1](https://medium.com/keptn/evaluating-kubernetes-resiliency-with-keptn-and-litmuschaos-66bdfb35cbdd?source=friends_link&sk=86b269ad3cec917ba0976328a20e914f), [part 2](https://medium.com/keptn/part-2-evaluating-application-resiliency-with-keptn-and-litmuschaos-use-case-and-demo-f43b264a2294?source=friends_link&sk=9a6810624fb5c85822c9e9484678722c).
 
+## Compatibility Matrix
+
+| Keptn Version    | [litmus-service Docker Image](https://hub.docker.com/r/keptnsandbox/litmus-service/tags) |
+|:----------------:|:----------------------------------------:|
+|       0.7.1      | keptnsandbox/litmus-service:0.1.0 |
+|       0.7.2      | keptnsandbox/litmus-service:0.1.0 |
+|       0.7.3      | keptnsandbox/litmus-service:0.1.1 |
+|       0.8.0-0.8.3      | keptnsandbox/litmus-service:0.2.0 |
+|       0.8.4-0.8.5      | keptnsandbox/litmus-service:0.2.1 |
+
 ## Prerequisites
 
 The Keptn *litmus-service* requires the following prerequisites to be setup on the Kubernetes cluster for it to run the chaos tests:  

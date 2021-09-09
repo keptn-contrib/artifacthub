@@ -38,3 +38,32 @@ As highlighted above, the *dynatrace-service* also provides the following capabi
 * Defining a custom list of SLIs based on the Dynatrace Metrics API v2. This allows SLIs to reference any metric in Dynatrace: Application, Service, Process Groups, Host, Custom Devices, Calculated Service Metrics, External Metrics ...
 
 * Visually defining SLIs & SLOs through a Dynatrace Dashboard instead of `sli.yaml` and `slo.yaml`
+
+## Compatibility Matrix
+
+| Keptn Version    | [Dynatrace Service](https://hub.docker.com/r/keptncontrib/dynatrace-service/tags?page=1&ordering=last_updated) | Kubernetes Versions                      |
+|:----------------:|:----------------------------------------:|:----------------------------------------:|
+|       0.6.1      | keptn/dynatrace-service:0.6.2            | 1.13 - 1.15                              |
+|       0.6.1      | keptncontrib/dynatrace-service:0.6.9     | 1.13 - 1.15                              |
+|       0.6.2      | keptncontrib/dynatrace-service:0.7.1     | 1.13 - 1.15                              |
+|       0.7.0      | keptncontrib/dynatrace-service:0.8.0     | 1.14 - 1.18                              |
+|       0.7.1      | keptncontrib/dynatrace-service:0.9.0     | 1.14 - 1.18                              |
+|       0.7.2      | keptncontrib/dynatrace-service:0.10.0     | 1.14 - 1.18                             |
+|       0.7.3      | keptncontrib/dynatrace-service:0.10.1     | 1.14 - 1.18                            |
+|       0.7.3      | keptncontrib/dynatrace-service:0.10.2     | 1.14 - 1.18                            |
+|       0.7.3      | keptncontrib/dynatrace-service:0.10.3     | 1.14 - 1.18                            |
+|       0.8.0, 0.8.1      | keptncontrib/dynatrace-service:0.11.0 (*)    | 1.14 - 1.19                            |
+|       0.8.0, 0.8.1      | keptncontrib/dynatrace-service:0.12.0    | 1.14 - 1.19                            |
+|       0.8.0 - 0.8.3     | keptncontrib/dynatrace-service:0.13.1    | 1.14 - 1.19                            |
+|       0.8.0 - 0.8.3     | keptncontrib/dynatrace-service:0.14.0    | 1.14 - 1.19                            |
+|       0.8.4 - 0.8.6     | keptncontrib/dynatrace-service:0.15.0    | 1.15 - 1.20                        |
+|       0.8.4 - 0.8.6     | keptncontrib/dynatrace-service:0.15.1    | 1.15 - 1.20                        |
+|       0.8.4 - 0.8.7     | keptncontrib/dynatrace-service:0.16.0    | 1.15 - 1.20                        |
+
+(*) *Note:* 0.11.0 is feature-complete with 0.10.0. Changes and fixes made from 0.10.1 to 0.10.3 will be incorporated in 0.12.0
+
+## Overview
+- [Installation](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/installation.md)
+- [Configuration](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/configuration.md)
+- [SLI and SLO configuration](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/sli-configuration.md)
+- [Development](https://github.com/keptn-contrib/dynatrace-service/blob/master/documentation/development.md)

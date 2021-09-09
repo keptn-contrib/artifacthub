@@ -1,14 +1,16 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.2.1
-name: limitus-service
-displayName: Limitus Keptn service
-createdAt: 2021-08-21T21:00:00Z
+name: litmus-service
+displayName: Litmus Keptn service
+createdAt: 2021-07-06T00:00:00Z
 description: Keptn service to perform chaos tests on your applications triggered by Keptn using the LitmusChaos framework.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/litmus/stacked/color/litmus-stacked-color.svg
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
+  - testing
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/litmus-service
@@ -27,3 +29,6 @@ install: |
   ```
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/version: "0.8.4-0.8.7"

@@ -63,3 +63,15 @@ spec:
             httpMethod: POST # mandatory parameter
             retries: 10
 ```
+
+## Compatibility Matrix
+
+Please always double check the version of Keptn you are using compared to the version of this service, and follow the compatibility matrix below.
+
+| Keptn Version    | [ServiceNow Service Image](https://hub.docker.com/r/keptncontrib/servicenow-service/tags) |
+|:----------------:|:----------------------------------------:|
+|       0.4.x      | keptn/servicenow-service:0.1.3  |
+|       0.5.x      | keptn/servicenow-service:0.1.4  |
+|       0.6.x      | keptn/servicenow-service:0.2.0  |
+|       0.7.x      | keptn/servicenow-service:0.2.1  |
+|      0.8.0-0.3   | keptn/servicenow-service:0.3.0  |

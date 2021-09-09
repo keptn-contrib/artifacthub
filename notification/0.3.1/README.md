@@ -24,6 +24,18 @@ The service will send a notification to the configured notification provider (MS
 
 _**NOTE: The service will not send test-finished notification if teststrategy is empty**_
 
+## Compatibility Matrix
+
+Please always double check the version of Keptn you are using compared to the version of this service, and follow the compatibility matrix below.
+
+
+| Keptn Version    | [Notification Service Image](https://hub.docker.com/r/keptncontrib/notification-service/tags) |
+|:----------------:|:----------------------------------------:|
+|       0.5.x      | keptncontrib/notification-service:0.2.0  |
+|       0.6.x      | keptncontrib/notification-service:0.3.0  |
+|       0.7.x      | keptncontrib/notification-service:0.3.1  |
+|      develop     | keptncontrib/notification-service:latest |
+
 # Setup
 ## 1. Setup your Notification Provider
 
