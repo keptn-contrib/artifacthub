@@ -6,6 +6,7 @@ displayName: ServiceNow Keptn service
 createdAt: 2021-08-10T21:00:00Z
 description: Keptn service to implement self-healing capabilities
 logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/ServiceNow_logo.svg/2560px-ServiceNow_logo.svg.png
+digest: 2021-09-10T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
