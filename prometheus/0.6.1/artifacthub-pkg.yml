@@ -6,6 +6,7 @@ displayName: Prometheus Keptn service
 createdAt: 2021-06-18T00:00:00Z
 description: Keptn service for utilizing Prometheus monitoring and alerting in keptn
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/stacked/color/prometheus-stacked-color.svg
+digest: 2021-09-10T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:

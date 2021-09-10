@@ -6,6 +6,7 @@ displayName: Grafana Keptn service
 createdAt: 2021-08-21T21:00:00Z
 description: Service that automates the generation of dashboards based on the SRE files of Keptn.
 logoURL: https://grafana.com/static/img/about/grafana_logo_swirl_fullcolor.jpg
+digest: 2021-09-10T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 deprecated: true
