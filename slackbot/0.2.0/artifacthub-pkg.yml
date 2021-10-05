@@ -2,11 +2,11 @@
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.2.0
 name: slackbot-service
-displayName: Slackbot Keptn service
+displayName: Slackbot Service
 createdAt: 2020-08-21T00:00:00Z
 description: Keptn service responsible for interacting with Keptn via a Slack app.
 logoURL: https://logosmarken.com/wp-content/uploads/2020/11/Slack-Logo.png
-digest: 2021-10-05T00:00:00Z
+digest: 2021-10-05T15:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 deprecated: true

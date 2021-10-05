@@ -2,10 +2,10 @@
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.9.1
 name: monaco-service
-displayName: Monaco Keptn service
+displayName: Monaco service
 createdAt: 2021-09-28T00:00:00Z
 description: Keptn Services that enables calling the Dynatrace Monaco (Monitoring as Code) toolset for individual Keptn Events.
-digest: 2021-10-05T00:00:00Z
+digest: 2021-10-05T15:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:

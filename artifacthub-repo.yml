@@ -15,3 +15,5 @@ owners:
     email: juergen.etzlstorfer@dynatrace.com
   - name: Gilbert Tanner
     email: gilbert.tanner@dynatrace.com
+ignore:
+  - name: onechart-service
