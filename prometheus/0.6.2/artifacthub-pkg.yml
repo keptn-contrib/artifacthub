@@ -2,11 +2,11 @@
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.6.2
 name: prometheus-service
-displayName: Prometheus Keptn service
+displayName: Prometheus Service
 createdAt: 2021-09-03T00:00:00Z
 description: Keptn service for utilizing Prometheus monitoring and alerting in keptn
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/stacked/color/prometheus-stacked-color.svg
-digest: 2021-10-05T00:00:00Z
+digest: 2021-10-05T15:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
