@@ -23,7 +23,10 @@ def get_yaml_content(repo, release):
         'links': [{
             'name': 'Source',
             'url': f'https://github.com/{repo.owner.login}/{repo.name}/tree/{release.target_commitish}'
-        }]
+        }],
+        'annotations': {
+            'keptn/org': repo.owner.login.split('-')[1]
+        }
     }
 
     return content

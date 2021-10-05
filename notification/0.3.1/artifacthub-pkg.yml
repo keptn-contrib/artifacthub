@@ -13,6 +13,7 @@ deprecated: true
 keywords:
   - keptn
   - notification
+  - contrib
 links:
   - name: Source
     url: https://github.com/keptn-contrib/notification-service
@@ -20,4 +21,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "notification"
+  keptn/org: "contrib"
   keptn/version: "0.7.x"

@@ -12,6 +12,7 @@ homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - jira
+  - sandbox
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/jira-service
@@ -68,3 +69,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/version: "0.8.5-0.8.7"
+  keptn/org: "sandbox"

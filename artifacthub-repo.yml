@@ -9,13 +9,9 @@
 # when the hash of the last commit in the branch you set up changes. This does
 # NOT apply to ownership claim operations, which are processed immediately.
 #
-repositoryID: The ID of the Artifact Hub repository where the packages will be published to (optional, but it enables verified publisher)
-owners: # (optional, used to claim repository ownership)
-  - name: user1
-    email: user1@email.com
-  - name: user2
-    email: user2@email.com
-ignore: # (optional, packages that should not be indexed by Artifact Hub)
-  - name: package1
-  - name: package2 # Exact match
-    version: beta # Regular expression (when omitted, all versions are ignored)
+repositoryID: 9ddebebc-652d-455e-916f-e8b73d8fea79
+owners:
+  - name: Juergen Etzlstorfer
+    email: juergen.etzlstorfer@dynatrace.com
+  - name: Gilbert Tanner
+    email: gilbert.tanner@dynatrace.com

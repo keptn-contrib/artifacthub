@@ -12,6 +12,7 @@ homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - servicenow
+  - contrib
 links:
   - name: Source
     url: https://github.com/keptn-contrib/servicenow-service
@@ -69,3 +70,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/version: "0.8.0-0.8.3"
+  keptn/org: "contrib"
