@@ -6,7 +6,7 @@ displayName: Slackbot Keptn service
 createdAt: 2020-08-21T00:00:00Z
 description: Keptn service responsible for interacting with Keptn via a Slack app.
 logoURL: https://logosmarken.com/wp-content/uploads/2020/11/Slack-Logo.png
-digest: 2021-09-10T00:00:00Z
+digest: 2021-10-05T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 deprecated: true
