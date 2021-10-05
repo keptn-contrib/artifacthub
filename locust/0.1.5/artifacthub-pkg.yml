@@ -5,7 +5,7 @@ name: locust-service
 displayName: Keptn Locust Service
 createdAt: 2021-08-04T00:00:00Z
 description: Keptn service to perform performance test on your application triggered by Keptn using the Locust performance testing tool.
-digest: 2021-09-10T00:00:00Z
+digest: 2021-10-05T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
