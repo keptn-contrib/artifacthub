@@ -12,6 +12,7 @@ homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - testing
+  - sandbox
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/litmus-service
@@ -32,4 +33,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "testing"
+  keptn/org: "sandbox"
   keptn/version: "0.8.4-0.8.7"

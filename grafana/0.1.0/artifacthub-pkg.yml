@@ -13,6 +13,7 @@ deprecated: true
 keywords:
   - keptn
   - grafana
+  - sandbox
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/grafana-service
@@ -72,4 +73,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "dashboard"
+  keptn/org: "sandbox"
   keptn/version: "0.6.2"

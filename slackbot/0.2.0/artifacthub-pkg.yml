@@ -13,6 +13,7 @@ deprecated: true
 keywords:
   - keptn
   - slack
+  - sandbox
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/slackbot-service
@@ -56,4 +57,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "notification"
+  keptn/org: "sandbox"
   keptn/version: "0.7.x"
