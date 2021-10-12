@@ -6,7 +6,7 @@ displayName: Dynatrace Service
 createdAt: 2021-09-27T00:00:00Z
 description: Keptn service that forwards Keptn events - occurring during a delivery workflow - to Dynatrace.
 logoURL: https://avatars.githubusercontent.com/u/6412311
-digest: 2021-10-05T15:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -86,7 +86,7 @@ install: |
 
   **Notes**: 
   * Replace `$VERSION` with the desired version number (e.g. 0.15.1) you want to install.
-  * Variables may be set by appending key-value pairs with the syntax `--set key=value`
+  * Variables may be set by appending key-val2021-10-05T15:00:00Z pairs with the syntax `--set key=value`
   * If the `KEPTN_API_URL` and optionally `KEPTN_BRIDGE_URL` were not provided via a secret (see above) they should be provided using the variables `dynatraceService.config.keptnApiUrl` and `dynatraceService.config.keptnBridgeUrl`, i.e. by appending `--set dynatraceService.config.keptnApiUrl=$KEPTN_API_URL --set dynatraceService.config.keptnBridgeUrl=$KEPTN_BRIDGE_URL`.
   * The `dynatrace-service` can automatically generate tagging rules, problem notifications, management zones, dashboards, and custom metric events in your Dynatrace tenant. You can configure whether these entities should be generated within your Dynatrace tenant by the environment variables specified in the provided `chart/values.yaml`, i.e. using the variables `dynatraceService.config.generateTaggingRules` (default `false`), `dynatraceService.config.generateProblemNotifications` (default `false`), `dynatraceService.config.generateManagementZones` (default `false`), `dynatraceService.config.generateDashboards` (default `false`), `dynatraceService.config.generateMetricEvents` (default `false`), and `dynatraceService.config.synchronizeDynatraceServices` (default `true`).
   

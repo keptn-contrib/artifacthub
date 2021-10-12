@@ -6,12 +6,13 @@ displayName: Job Executor Service
 createdAt: 2021-07-16T00:00:00Z
 description: Keptn service to run any container as a Kubernetes Job orchestrated by keptn.
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
-digest: 2021-10-05T15:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - kubernetes
+  - sandbox
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/job-executor-service
@@ -55,4 +56,5 @@ install: |
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
+  keptn/org: "sandbox"
   keptn/version: "0.8.6-0.8.7"
