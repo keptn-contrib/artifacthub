@@ -6,7 +6,7 @@ displayName: Dynatrace Service
 createdAt: 2021-08-09T00:00:00Z
 description: Keptn service that forwards Keptn events - occurring during a delivery workflow - to Dynatrace.
 logoURL: https://avatars.githubusercontent.com/u/6412311
-digest: 2021-10-08T00:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -185,4 +185,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "sli-provider"
+  keptn/org: "contrib"
   keptn/version: "0.8.4-0.8.7"

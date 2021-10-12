@@ -6,7 +6,7 @@ displayName: Jira Service
 createdAt: 2021-07-02T00:00:00Z
 description: Keptn service for creating JIRA tickets upon problems and quality gate evaluations.
 logoURL: https://cdn.icon-icons.com/icons2/2699/PNG/512/atlassian_jira_logo_icon_170511.png
-digest: 2021-10-05T15:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:

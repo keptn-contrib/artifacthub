@@ -5,11 +5,12 @@ name: monaco-service
 displayName: Monaco service
 createdAt: 2021-06-21T00:00:00Z
 description: Keptn Services that enables calling the Dynatrace Monaco (Monitoring as Code) toolset for individual Keptn Events.
-digest: 2021-10-05T15:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
+  - monitoring
 links:
   - name: Source
     url: https://github.com/keptn-sandbox/monaco-service

@@ -6,7 +6,7 @@ displayName: Litmus Service
 createdAt: 2021-07-06T00:00:00Z
 description: Keptn service to perform chaos tests on your applications triggered by Keptn using the LitmusChaos framework.
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/litmus/stacked/color/litmus-stacked-color.svg
-digest: 2021-10-05T15:00:00Z
+digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
