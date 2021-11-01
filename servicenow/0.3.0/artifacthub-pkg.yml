@@ -6,13 +6,14 @@ displayName: ServiceNow Service
 createdAt: 2021-08-10T21:00:00Z
 description: Keptn service to implement self-healing capabilities
 logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/ServiceNow_logo.svg/2560px-ServiceNow_logo.svg.png
-digest: 2021-10-12T00:00:00Z
+digest: 2021-10-22T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - servicenow
   - contrib
+  - observability
 links:
   - name: Source
     url: https://github.com/keptn-contrib/servicenow-service
@@ -69,5 +70,6 @@ install: |
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
+  keptn/kind: "observability"
   keptn/version: "0.8.0-0.8.3"
   keptn/org: "contrib"

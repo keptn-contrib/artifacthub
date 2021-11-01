@@ -6,13 +6,14 @@ displayName: Prometheus Service
 createdAt: 2021-09-03T00:00:00Z
 description: Keptn service for utilizing Prometheus monitoring and alerting in keptn
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/stacked/color/prometheus-stacked-color.svg
-digest: 2021-10-12T13:00:00Z
+digest: 2021-10-22T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - prometheus
   - contrib
+  - observability
 links:
   - name: Source
     url: https://github.com/keptn-contrib/prometheus-service
@@ -37,6 +38,6 @@ install: |
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
-  keptn/kind: "prometheus"
+  keptn/kind: "observability"
   keptn/org: "contrib"
   keptn/version: "0.9.0"
