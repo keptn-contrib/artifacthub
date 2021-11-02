@@ -67,10 +67,16 @@ if __name__ == '__main__':
 
     # Replace relative image paths with absolute paths pointing to the github repo
     for match in re.finditer(image_regex, readme, re.IGNORECASE | re.MULTILINE):
+        m = match.group()
         caption, path = match.group('caption', 'path')
-        absolute_path = urljoin(
-            f'https://raw.githubusercontent.com/{args.repository}/{branch_name}/', path)
-        readme = readme.replace(path, absolute_path)
+        if path.startswith('#'):
+            absolute_path = urljoin(
+            f'https://github.com/{args.repository}/blob/{branch_name}/README.md', path)
+        else:
+            absolute_path = urljoin(
+                f'https://raw.githubusercontent.com/{args.repository}/{branch_name}/', path)
+        readme = readme.replace(m, m.replace(path, absolute_path))
+
 
     with open(os.path.join(folder_path, 'README.md'), 'w') as f:
         f.write(readme)

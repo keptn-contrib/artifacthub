@@ -1,5 +1,44 @@
 # Job Executor Service
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/keptn-contrib/job-executor-service)
+[![Go Report Card](https://goreportcard.com/badge/github.com/keptn-contrib/job-executor-service)](https://goreportcard.com/report/github.com/keptn-contrib/job-executor-service)
+
+- [Job Executor Service](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#job-executor-service)
+    - [Why?](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#why)
+    - [How?](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#how)
+        - [Specifying the working directory](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#specifying-the-working-directory)
+        - [Event Matching](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#event-matching)
+        - [Kubernetes Job](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#kubernetes-job)
+        - [Kubernetes Job Environment Variables](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#kubernetes-job-environment-variables)
+            - [From Events](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#from-events)
+            - [From Kubernetes Secrets](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#from-kubernetes-secrets)
+            - [From String Literal](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#from-string-literal)
+        - [File Handling](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#file-handling)
+        - [Silent mode](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#silent-mode)
+        - [Resource quotas](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#resource-quotas)
+        - [Poll duration](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#poll-duration)
+        - [Job namespace](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#job-namespace)
+        - [Send start/finished event if the job config.yaml can't be found](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#send-startfinished-event-if-the-job-configyaml-cant-be-found)
+        - [Additional Event Data](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#additional-event-data)
+        - [Remote Control Plane](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#remote-control-plane)
+    - [How to validate a job configuration](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#how-to-validate-a-job-configuration)
+    - [Endless Possibilities](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#endless-possibilities)
+    - [Credits](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#credits)
+    - [Compatibility Matrix](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#compatibility-matrix)
+    - [Installation](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#installation)
+        - [Deploy in your Kubernetes cluster](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#deploy-in-your-kubernetes-cluster)
+        - [Up- or Downgrading](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#up--or-downgrading)
+        - [Uninstall](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#uninstall)
+    - [Development](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#development)
+        - [Common tasks](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#common-tasks)
+        - [Testing Cloud Events](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#testing-cloud-events)
+    - [Automation](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#automation)
+        - [GitHub Actions: Automated Pull Request Review](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#github-actions-automated-pull-request-review)
+        - [GitHub Actions: Unit Tests](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#github-actions-unit-tests)
+        - [GH Actions/Workflow: Build Docker Images](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#gh-actionsworkflow-build-docker-images)
+    - [How to release a new version of this service](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#how-to-release-a-new-version-of-this-service)
+    - [License](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#license)
+
 This Keptn service introduces a radical new approach to running tasks with keptn. It provides the means to run any
 container as a Kubernetes Job orchestrated by keptn.
 
@@ -256,7 +295,7 @@ If the `as` keyword is omitted the job executor defaults to `string` for a singl
 The following configuration looks up a kubernetes secret with the name `locust-secret` and all key/value pairs of the
 secret will be available as separate environment variables in the job.
 
-The kubernetes secret is always looked up in the [namespace](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/#job-namespace) the respective task runs in.
+The kubernetes secret is always looked up in the [namespace](https://github.com/keptn-sandbox/job-executor-service/blob/main/README.md#job-namespace) the respective task runs in.
 
 ```yaml
 cmd:
@@ -369,7 +408,7 @@ actions:
 ### Resource quotas
 
 The `initcontainer` and the `job` container will use the default resource quotas defined as environment variables. They
-can be set in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml):
+can be set in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml):
 
 ```yaml
 - name: DEFAULT_RESOURCE_LIMITS_CPU
@@ -522,13 +561,13 @@ The credits of this service heavily go to @thschue and @yeahservice who original
 
 ## Compatibility Matrix
 
-| Keptn Version | [Job-Executor-Service Docker Image](https://hub.docker.com/r/keptnsandbox/job-executor-service/tags) | Config version |
+| Keptn Version | [Job-Executor-Service Docker Image](https://hub.docker.com/r/keptncontrib/job-executor-service/tags) | Config version |
 | :-----------: | :--------------------------------------------------------------------------------------------------: | :------------: |
-|     0.8.3     |                               keptnsandbox/job-executor-service:0.1.0                                |       -        |
-|     0.8.3     |                               keptnsandbox/job-executor-service:0.1.1                                |       -        |
-|     0.8.4     |                               keptnsandbox/job-executor-service:0.1.2                                |       v1       |
-|     0.8.6     |                               keptnsandbox/job-executor-service:0.1.3                                |       v2       |
-|     0.9.0     |                               keptnsandbox/job-executor-service:0.1.4                                |       v2       |
+|     0.8.3     |                               keptncontrib/job-executor-service:0.1.0                                |       -        |
+|     0.8.3     |                               keptncontrib/job-executor-service:0.1.1                                |       -        |
+|     0.8.4     |                               keptncontrib/job-executor-service:0.1.2                                |       v1       |
+|     0.8.6     |                               keptncontrib/job-executor-service:0.1.3                                |       v2       |
+|     0.9.0     |                               keptncontrib/job-executor-service:0.1.4                                |       v2       |
 
 ## Installation
 
@@ -537,10 +576,10 @@ The *job-executor-service* can be installed as a part of [Keptn's uniform](https
 ### Deploy in your Kubernetes cluster
 
 To deploy the current version of the *job-executor-service* in your Keptn Kubernetes cluster, apply
-the [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml) file:
+the [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml) file:
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml
+kubectl apply -f deploy/service.yaml
 ```
 
 This should install the `job-executor-service` together with a Keptn `distributor` into the `keptn` namespace, which you
@@ -557,7 +596,7 @@ Adapt and use the following command in case you want to up- or downgrade your in
 the `$VERSION` placeholder):
 
 ```console
-kubectl -n keptn set image deployment/job-executor-service job-executor-service=keptnsandbox/job-executor-service:$VERSION --record
+kubectl -n keptn set image deployment/job-executor-service job-executor-service=keptncontrib/job-executor-service:$VERSION --record
 ```
 
 ### Uninstall
@@ -566,7 +605,7 @@ To delete a deployed *job-executor-service*, use the file `deploy/*.yaml` files 
 Kubernetes resources:
 
 ```console
-kubectl delete -f https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml
+kubectl delete -f deploy/service.yaml
 ```
 
 ## Development
@@ -587,10 +626,10 @@ the [Golang community](https://github.com/golang/go/wiki/CodeReviewComments).
 
 * Build the binary: `go build -ldflags '-linkmode=external' -v -o job-executor-service`
 * Run tests: `go test -race -v ./...`
-* Build the docker image: `docker build . -t keptnsandbox/job-executor-service:dev` (Note: Ensure that you use the
+* Build the docker image: `docker build . -t keptncontrib/job-executor-service:dev` (Note: Ensure that you use the
   correct DockerHub account/organization)
-* Run the docker image locally: `docker run --rm -it -p 8080:8080 keptnsandbox/job-executor-service:dev`
-* Push the docker image to DockerHub: `docker push keptnsandbox/job-executor-service:dev` (Note: Ensure that you use the
+* Run the docker image locally: `docker run --rm -it -p 8080:8080 keptncontrib/job-executor-service:dev`
+* Push the docker image to DockerHub: `docker push keptncontrib/job-executor-service:dev` (Note: Ensure that you use the
   correct DockerHub account/organization)
 * Deploy the service using `kubectl`: `kubectl apply -f deploy/`
 * Delete/undeploy the service using `kubectl`: `kubectl delete -f deploy/`
@@ -627,7 +666,7 @@ You can find the details in [https://raw.githubusercontent.com/keptn-sandbox/job
 This repo uses GH Actions and Workflows to test the code and automatically build docker images.
 
 Docker Images are automatically pushed based on the configuration done in [https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/.ci_env](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/.ci_env) and the
-two [GitHub Secrets](https://github.com/keptn-sandbox/job-executor-service/settings/secrets/actions)
+two [GitHub Secrets](https://github.com/keptn-contrib/job-executor-service/settings/secrets/actions)
 
 * `REGISTRY_USER` - your DockerHub username
 * `REGISTRY_PASSWORD` - a DockerHub [access token](https://hub.docker.com/settings/security) (alternatively, your
@@ -645,8 +684,8 @@ To make use of the built-in automation using GH Actions for releasing a new vers
 * check the output of GH Actions builds for the release branch,
 * verify that your image was built and pushed to DockerHub with the right tags,
 * update the image tags for `job-executor-service`, `job-executor-service-initcontainer` and `distributor`
-  in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml), [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/helm/Chart.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/helm/Chart.yaml) and
-  the `app.kubernetes.io/version` in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml)
+  in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml), [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/helm/Chart.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/helm/Chart.yaml) and
+  the `app.kubernetes.io/version` in [`https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml`](https://raw.githubusercontent.com/keptn-sandbox/job-executor-service/main/deploy/service.yaml)
 * test your service against a working Keptn installation.
 
 If any problems occur, fix them in the release branch and test them again.
@@ -654,7 +693,7 @@ If any problems occur, fix them in the release branch and test them again.
 Once you have confirmed that everything works and your version is ready to go, you should
 
 * create a new release on the release branch using
-  the [GitHub releases page](https://github.com/keptn-sandbox/job-executor-service/releases), and
+  the [GitHub releases page](https://github.com/keptn-contrib/job-executor-service/releases), and
 * merge any changes from the release branch back to the master branch.
 
 ## License
