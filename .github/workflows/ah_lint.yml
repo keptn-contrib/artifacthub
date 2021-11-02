@@ -22,14 +22,10 @@ jobs:
         with:
           go-version: '^1.13.1'
       
-      - name: Download and compile ArtifactHUB CLI
+      - name: Download ArtifactHUB CLI
         run: |
-          git clone https://github.com/artifacthub/hub
-          cd hub/cmd/ah
-          go build
-          mv ./ah $GITHUB_WORKSPACE
-          cd $GITHUB_WORKSPACE
-          rm -r hub
+          wget https://github.com/artifacthub/hub/releases/download/v1.4.0/ah_1.4.0_linux_amd64.tar.gz
+          tar -xvf ah_1.4.0_linux_amd64.tar.gz
       
       - name: Run linter
         run: ./ah lint --kind keptn .
