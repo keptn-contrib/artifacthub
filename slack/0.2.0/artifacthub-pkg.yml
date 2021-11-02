@@ -9,7 +9,6 @@ logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technol
 digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
-deprecated: true
 keywords:
   - keptn
   - slack
