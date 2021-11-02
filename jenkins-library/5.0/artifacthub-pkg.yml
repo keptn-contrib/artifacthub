@@ -1,0 +1,21 @@
+version: '5.0'
+name: jenkins-library
+displayName: Jenkins Shared Library
+createdAt: '2021-10-10T07:27:14Z'
+description: Jenkins shared library for integrating Keptn Use Cases with your Jenkins
+  Pipelines
+digest: '2021-11-11T10:11:44Z'
+license: Apache-2.0
+logoURL: https://landscape.cd.foundation/logos/jenkins.svg
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- sandbox
+- testing
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/keptn-jenkins-library/tree/master
+annotations:
+  keptn/kind: "testing"
+  keptn/org: sandbox
+  keptn/version: "0.9.0-0.10.0"
