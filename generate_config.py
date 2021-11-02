@@ -19,7 +19,7 @@ def get_yaml_content(repo, release):
         'digest': datetime.datetime.now().strftime(datetime_format),
         'license': repo.get_license().license.spdx_id,
         'homeURL': 'https://keptn.sh/docs/integrations/',
-        'keywords': ['keptn'],
+        'keywords': ['keptn', repo.owner.login.split('-')[1]],
         'links': [{
             'name': 'Source',
             'url': f'https://github.com/{repo.owner.login}/{repo.name}/tree/{release.target_commitish}'
@@ -43,14 +43,17 @@ if __name__ == '__main__':
     g = Github()
 
     repo = g.get_repo(args.repository)
-
+    
     if args.version == '':
-        release = repo.get_latest_release()
+        if repo.get_releases().totalCount != 0:
+            release = repo.get_latest_release()
+        else:
+            raise Exception('No release available')
     else:
-        release = repo.get_release(args.version)
-
-        if release == None:
-            raise SystemExit
+        try:
+            release = repo.get_release(args.version)
+        except:
+            raise Exception(f'Release {args.version} not found.')
 
     folder_path = os.path.join(repo.name, release.tag_name)
 
