@@ -1,0 +1,37 @@
+name: New Release check
+
+on:
+  # Triggers the workflow every day
+  schedule:
+    - cron: '0 0 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Check for new releases
+        run: |
+          sudo apt update 
+          sudo apt install -y python3-pip
+          pip3 install -r requirements.txt
+          python check_for_new_releases.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "build(deps): Update keptn/kubernetes-utils to ${{ env.K8S_UTILS_TARGET }}"
+          signoff: true
+          delete-branch: true
+          base: main
+          title: "New releases"
+          body: |
+            :robot: **This is an automated PR!** :robot:
+            This is an automatically created PR that was created because one of the Keptn contrib or Sandbox services has a new release.
+
+
