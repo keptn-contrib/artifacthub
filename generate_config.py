@@ -3,19 +3,17 @@ import yaml
 import argparse
 from github import Github
 import datetime
-from utils import replace_relative_paths
+from utils import replace_relative_paths, DATETIME_FORMAT
 
 
 def get_yaml_content(repo, release):
-    datetime_format = '%Y-%m-%mT%H:%M:%SZ'
-
     content = {
         'version': release.tag_name,
         'name': repo.name,
         'displayName': repo.name,
-        'createdAt': release.created_at.strftime(datetime_format),
+        'createdAt': release.created_at.strftime(DATETIME_FORMAT),
         'description': repo.description,
-        'digest': datetime.datetime.now().strftime(datetime_format),
+        'digest': datetime.datetime.now().strftime(DATETIME_FORMAT),
         'license': repo.get_license().license.spdx_id,
         'homeURL': 'https://keptn.sh/docs/integrations/',
         'keywords': ['keptn', repo.owner.login.split('-')[1]],

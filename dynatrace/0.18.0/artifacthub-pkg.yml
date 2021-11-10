@@ -1,11 +1,11 @@
 version: 0.18.0
 name: dynatrace-service
 displayName: Dynatrace Service
-createdAt: '2021-11-11T11:46:40Z'
+createdAt: '2021-11-10T11:46:40Z'
 description: Keptn service that forwards Keptn events - occurring during a delivery
   workflow - to Dynatrace.
 logoURL: https://avatars.githubusercontent.com/u/6412311
-digest: '2021-11-11T11:46:40Z'
+digest: '2021-11-11T10:46:40Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
