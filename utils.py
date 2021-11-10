@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 
 
 IMAGE_REGEX = r'(?:\[(?P<caption>.*?)\])\((?P<path>.*?)\)'
-DATETIME_FORMAT = '%Y-%m-%mT%H:%M:%SZ'
+DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
 def replace_relative_paths(readme: str, repository: str, branch_name: str) -> str:
