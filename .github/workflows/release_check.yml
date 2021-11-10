@@ -13,12 +13,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Check for new releases
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
         run: |
-          sudo apt update 
-          sudo apt install -y python3-pip
-          pip3 install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check for new releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           python check_for_new_releases.py
 
       - name: Create Pull Request
@@ -33,5 +41,3 @@ jobs:
           body: |
             :robot: **This is an automated PR!** :robot:
             This is an automatically created PR that was created because one of the Keptn contrib or Sandbox services has a new release.
-
-

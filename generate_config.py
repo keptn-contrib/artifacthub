@@ -1,10 +1,9 @@
 import os
-import re
 import yaml
 import argparse
 from github import Github
-from urllib.parse import urljoin
 import datetime
+from utils import replace_relative_paths
 
 
 def get_yaml_content(repo, release):
@@ -43,7 +42,7 @@ if __name__ == '__main__':
     g = Github()
 
     repo = g.get_repo(args.repository)
-    
+
     if args.version == '':
         if repo.get_releases().totalCount != 0:
             release = repo.get_latest_release()
@@ -66,20 +65,8 @@ if __name__ == '__main__':
     readme = repo.get_contents(
         'README.md', ref=branch_name).decoded_content.decode('utf-8')
 
-    image_regex = r'(?:\[(?P<caption>.*?)\])\((?P<path>.*?)\)'
-
     # Replace relative image paths with absolute paths pointing to the github repo
-    for match in re.finditer(image_regex, readme, re.IGNORECASE | re.MULTILINE):
-        m = match.group()
-        caption, path = match.group('caption', 'path')
-        if path.startswith('#'):
-            absolute_path = urljoin(
-            f'https://github.com/{args.repository}/blob/{branch_name}/README.md', path)
-        else:
-            absolute_path = urljoin(
-                f'https://raw.githubusercontent.com/{args.repository}/{branch_name}/', path)
-        readme = readme.replace(m, m.replace(path, absolute_path))
-
+    readme = replace_relative_paths(readme, args.repository, branch_name)
 
     with open(os.path.join(folder_path, 'README.md'), 'w') as f:
         f.write(readme)
