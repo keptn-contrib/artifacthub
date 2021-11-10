@@ -1,0 +1,43 @@
+name: New Release check
+
+on:
+  # Triggers the workflow every day
+  schedule:
+    - cron: '0 0 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check for new releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python check_for_new_releases.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "New releases"
+          signoff: true
+          delete-branch: true
+          base: main
+          title: "New releases"
+          body: |
+            :robot: **This is an automated PR!** :robot:
+            This is an automatically created PR that was created because one of the Keptn contrib or Sandbox services has a new release.
