@@ -23,7 +23,7 @@ if __name__ == '__main__':
     directories = [d for d in directories if not d.startswith(
         '.') and not d in ['workflow', '__pycache__']]
 
-    github_token = os.environ('GITHUB_TOKEN')
+    github_token = os.environ.get('GITHUB_TOKEN')
     if github_token:
         g = Github(github_token)
     else:
