@@ -47,7 +47,7 @@ The completed form should look as follows:
 
 ## Step 3: Create Keptn project
 
-The examples use case in the next sections below assume you have created a Keptn project with a [shipyard file](https://keptn.sh/docs/0.10.x/manage/shipyard/) as follows:
+You can incorporate GitHub webhooks into any Keptn project, but the example use cases in the next section assume you have created a Keptn project called `demo` with a [shipyard file](https://keptn.sh/docs/0.10.x/manage/shipyard/) as follows and a Keptn service called `casdemoapp`:
 
 ```
 apiVersion: spec.keptn.sh/0.2.2
