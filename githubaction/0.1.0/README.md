@@ -34,16 +34,34 @@ This integration shows how to invoke GitHub Action workflows leveraging [Keptn's
 
 ## Step 2: Store GitHub token as a Keptn secret
 
-To secure the GitHub Access Token, a Keptn secret must be created.
-
-1.	Go to `Uniform page > Secret` and click the `Add Secret` button
-1.	**Name**: name such as `github-secret` 
-1.	**Scope**: `keptn-webhook-service` 
-1.	**Key-value pairs**:  Add a new key-value pair with these values:
+To secure the GitHub Access Token, a Keptn secret must be created.  To do this, go to the Keptn project  `Uniform page > Secret` and click the `Add Secret` button.  On that form fill the following values:
+  * **Name**: Name such as `github-secret` 
+  * **Scope**: `keptn-webhook-service` 
+  * **Key-value pairs**:  Click the `new key-value pair` button and add these values:
+    * **Key** = Name such as `GITHUBTOKEN`
+    * **Value** = The GitHub Access Token from the step from previous section 
 
 The completed form should look as follows:
 
 <img src="images/createsecret.png" width="50%" height="50%">
+
+## Step 3: Create Keptn project
+
+The examples use case in the next sections below assume you have created a Keptn project with a [shipyard file](https://keptn.sh/docs/0.10.x/manage/shipyard/) as follows:
+
+```
+apiVersion: spec.keptn.sh/0.2.2
+kind: "Shipyard"
+metadata:
+  name: "demo-webhook"
+spec:
+  stages:
+    - name: "production"
+      sequences:
+      - name: "mysequence"
+        tasks: 
+        - name: "mytask-interactive"
+```
 
 # GitHub integration Webhook options
 
@@ -122,20 +140,6 @@ This example shows a GitHub workflow that is triggered when a Keptn task called 
 
 The previous use case just triggers a GitHub action workflow. This use case will have the Keptn sequence wait until the GitHub workflow to send back a `finished` event.
 
-1. Create a Keptn project with a [shipyard file](https://keptn.sh/docs/0.10.x/manage/shipyard/) as follows:
-    ```
-    apiVersion: spec.keptn.sh/0.2.2
-    kind: "Shipyard"
-    metadata:
-      name: "demo-webhook"
-    spec:
-      stages:
-        - name: "production"
-          sequences:
-          - name: "mysequence"
-            tasks: 
-            - name: "mytask-interactive"
-    ```
 1. In a Keptn project, go to `Uniform page > Uniform`, select the `webhook-service`, and click the `Add subscription` button.
 1. For the subscription section, fill in the following:
     * **Task**: `mytask-interactive`
