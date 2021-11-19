@@ -2,8 +2,8 @@
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.1.0
 name: githubaction-webhook
-displayName: GitHub Action Webhook Integration
-createdAt: 2021-11-17T00:00:00Z
+displayName: GitHub Actions Webhook Integration
+createdAt: 2021-11-19T00:00:00Z
 description: This integration shows how to invoke GitHub Action workflows leveraging Keptn's webhook service.
 logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/2560px-Slack_Technologies_Logo.svg.png
 license: Apache-2.0
@@ -14,6 +14,7 @@ keywords:
   - github
   - sandbox
   - notification
+  - githubactions
 links:
   - name: Source
     url: https://keptn.sh/docs/0.10.x/integrations/webhooks/
