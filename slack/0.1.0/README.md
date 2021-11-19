@@ -15,7 +15,7 @@ This integration shows you how to send notifications to Slack leveraging [Keptn'
 [WATCH THIS VIDEO TUTORIAL](https://www.youtube.com/watch?v=0vJS7ecayGw&t=7s) to see this in action.
 
 Here is a quick overview of how those messages in Slack can look like (message content and format can be customized):
-![](./images/slack-notifications.png)
+![](https://github.com/keptn-sandbox/artifacthub/blob/b1fddd0bd4b7f336809fbf1024c35c6f43943115/slack/0.1.0/images/slack-notifications.png)
 
 <!-- Prerequisites describe the way of creating the Webhook at the target tooling. -->
 
@@ -62,7 +62,7 @@ bridgeUrl: https://your.keptn.URL
 ```
 
 For reference, here is a screenshot of that secret:
-![](./images/secret-configuration.png)
+![](https://github.com/keptn-sandbox/artifacthub/blob/b1fddd0bd4b7f336809fbf1024c35c6f43943115/slack/0.1.0/images/secret-configuration.png)
 
 ### Step 2: Subscribe to a Keptn event to push notifications to Slack
 
@@ -109,7 +109,7 @@ To create a webhook integration, a subscription needs to be created:
 * Finally, click **Create subscription** to save and enable the webhook for your Slack integration.
 
 * Here is a screenshot for your reference:
-![](./images/evaluation-finished-subscription.png)
+![](https://github.com/keptn-sandbox/artifacthub/blob/b1fddd0bd4b7f336809fbf1024c35c6f43943115/slack/0.1.0/images/evaluation-finished-subscription.png)
 
 **Example 2: Deployment Finished Notifications**
 
