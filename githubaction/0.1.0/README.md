@@ -167,7 +167,7 @@ The previous use case just triggers a GitHub action workflow. This use case will
 1. In order for the GitHub workflow to call the Keptn API, create two [GitHub repository action secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) with the Keptn API URL and Keptn API Token.
 
     * Go to GitHub repos `Settings > Secret` and click add these two secrets:
-      * `KEPTN_BASE_URL` = Use the base URL for your environment such as: `https://[YOUR-TENANT].cloudautomation.dynatrace.com` for the secret value.
+      * `KEPTN_BASE_URL` = Use the base URL for your Keptn environment
       * `KEPTN_API_TOKEN` = From the Bridge UI, click on the profile icon on the top right. From the profile popup window, copy the API token and use that for the secret value
     * The completed secrets should look as follows:
 
