@@ -1,4 +1,4 @@
-# GitHub Actions via Keptn Webhooks
+# GitHub Actions Webhook Integration
 
 This integration shows how to invoke GitHub Action workflows leveraging [Keptn's Webhook Service](https://keptn.sh/docs/0.10.x/integrations/webhooks/).  With a GitHub actions integration, you can call existing GitHub workflows from Keptn sequences. 
 
@@ -45,34 +45,18 @@ The completed form should look as follows:
 
 <img src="images/createsecret.png" width="50%" height="50%">
 
-## Step 3: Create Keptn project
-
-You can incorporate GitHub webhooks into any Keptn project, but the example use cases in the next section assume you have created a Keptn project called `demo` with a [shipyard file](https://keptn.sh/docs/0.10.x/manage/shipyard/) as follows and a Keptn service called `casdemoapp`:
-
-```
-apiVersion: spec.keptn.sh/0.2.2
-kind: "Shipyard"
-metadata:
-  name: "demo-webhook"
-spec:
-  stages:
-    - name: "production"
-      sequences:
-      - name: "mysequence"
-        tasks: 
-        - name: "mytask-interactive"
-```
-
 # GitHub integration Webhook options
 
-There are two use cases for Keptn webhooks:
+You can incorporate GitHub webhooks into any Keptn project, but the example use cases in this section assume you have created a Keptn project called `demo` a stage called `production` and service called `casdemoapp`.
+
+Example use cases:
 
 1. **Silent** - The webhook subscription listens for status events, `started` or `finished`, and calls the GitHub Action API to invoke the GitHub workflow. GitHub does not need to send anything back to Keptn and the Keptn sequence will just continue to process.
-1. **Interactive** -  The webhook subscription listens for`triggered` events, calls the GitHub Action API to invoke the GitHub workflow. Once it does the  Keptn sequence will wait until the GitHub workflow to send back a `finished` event.
+1. **Interactive** -  The webhook subscription listens for `triggered` events, calls the GitHub Action API to invoke the GitHub workflow. Once it does the  Keptn sequence will wait until the GitHub workflow to send back a `finished` event.
 
 ## Use Case 1: Silent webhook
 
-This example shows a GitHub workflow that is triggered when a Keptn task called `myTask` sends its `finished` Keptn event within the `dev` or `staging` stage of the Keptn project. 
+This example shows a GitHub workflow that is triggered when a Keptn task called `evaluation` sends its `finished` Keptn event within the `dev` or `staging` stage of the Keptn project. 
 
 1. In a Keptn project, go to `Uniform page > Uniform`, select the `webhook-service`, and click the `Add subscription` button.
 1. For the subscription section, fill in the following:
@@ -228,7 +212,7 @@ The previous use case just triggers a GitHub action workflow. This use case will
             curl -X POST "${{ secrets.KEPTN_API_URL }}/v1/event" -H "Content-Type: application/json" -H "accept: application/json" -H "x-token: ${{ secrets.KEPTN_API_TOKEN }}" -d "$json"
     ```
 
-1. With those steps done, Keptn will trigger a GitHub Action whenever an `mysequence.triggered` event occurs.  To test this example setup:
+1. With those steps done, Keptn will trigger a GitHub Action whenever an `mytask-interactive.triggered` event occurs.  To test this example, you need to send in an `mysequence.triggered` event to start the sequence.  
 
   * Create a file called `triggered-event.json` with the following contents:
       ```
@@ -245,6 +229,7 @@ The previous use case just triggers a GitHub action workflow. This use case will
       ```
 
   * Run this [Keptn CLI](https://keptn.sh/docs/0.10.x/reference/cli/) command `keptn send event --file triggered-event.json` 
+  * Once the sequence starts, the `mytask-interactive.triggered` event will occur and be picked up by the webhook subscription.
   * Monitor the Keptn sequence progress in the Keptn Bridge sequence page
   * Monitor the GitHub workflow execution on the GitHub actions page.
 
