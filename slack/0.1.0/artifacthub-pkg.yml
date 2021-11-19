@@ -1,25 +1,27 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
-version: 0.2.0
-name: slack-service
-displayName: Slack Service
-createdAt: 2020-08-26T00:00:00Z
-description: Keptn service that listens to Keptn Cloud Events and sends a notification about the event to a chat app.
+version: 0.1.0
+name: slack-webhook
+displayName: Slack Webhook Integration
+createdAt: 2021-11-17T00:00:00Z
+description: Sending notifications to Slack for all sorts of Keptn events such as deployment, test, or evaluation finished. This integration leverages Keptn's webhook-service.
 logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/2560px-Slack_Technologies_Logo.svg.png
-digest: 2021-10-12T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
+  - webhook
   - slack
   - sandbox
   - notification
 links:
   - name: Source
-    url: https://github.com/keptn-sandbox/slack-service
+    url: https://keptn.sh/docs/0.10.x/integrations/webhooks/
+  - name: Video
+    url: https://www.youtube.com/watch?v=0vJS7ecayGw&t=7s
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "notification"
   keptn/org: "sandbox"
-  keptn/version: "0.9.x"
+  keptn/version: ">=0.10.x"
