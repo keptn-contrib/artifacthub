@@ -41,7 +41,11 @@ if __name__ == '__main__':
                 artifacthub_config = yaml.safe_load(stream)
                 repository_name = get_repo_url(artifacthub_config)
 
-                repo = g.get_repo(repository_name)
+                try:
+                    repo = g.get_repo(repository_name)
+                except:
+                    print(f'{d} has no public Github repository. Skipping!')
+                    continue
 
                 try:
                     release = repo.get_latest_release()
