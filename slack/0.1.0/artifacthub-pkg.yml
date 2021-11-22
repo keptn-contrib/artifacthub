@@ -1,7 +1,7 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 0.1.0
-name: slack-webhook
+name: slack
 displayName: Slack Webhook Integration
 createdAt: 2021-11-17T00:00:00Z
 description: Sending notifications to Slack for all sorts of Keptn events such as deployment, test, or evaluation finished. This integration leverages Keptn's webhook-service.
@@ -23,5 +23,5 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "notification"
-  keptn/org: "sandbox"
-  keptn/version: ">=0.10.x"
+  keptn/org: "keptn"
+  keptn/version: "0.10.x"
