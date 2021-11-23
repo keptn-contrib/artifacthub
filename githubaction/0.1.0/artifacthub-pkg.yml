@@ -22,5 +22,5 @@ links:
     url: https://www.youtube.com/watch?v=d32WHNmtqOs
 annotations:
   keptn/kind: "notification"
-  keptn/org: "sandbox"
+  keptn/org: "keptn"
   keptn/version: "0.10.x"
