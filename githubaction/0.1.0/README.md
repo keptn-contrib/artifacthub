@@ -2,7 +2,7 @@
 
 This integration shows how to invoke GitHub Action workflows leveraging [Keptn's Webhook Service](https://keptn.sh/docs/0.10.x/integrations/webhooks/).  With a GitHub actions integration, you can call existing GitHub workflows from Keptn sequences. 
 
-[WATCH THIS VIDEO TUTORIAL](https://www.youtube.com) to see this in action!
+[WATCH THIS VIDEO TUTORIAL](https://www.youtube.com/watch?v=d32WHNmtqOs) to see this in action!
 
 # Prerequisites
 
@@ -43,7 +43,7 @@ To secure the GitHub Access Token, a Keptn secret must be created.  To do this, 
 
 The completed form should look as follows:
 
-<img src="images/createsecret.png" width="50%" height="50%">
+![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/githubaction/0.1.0/images/createsecret.png)
 
 # GitHub integration Webhook options
 
@@ -88,7 +88,8 @@ This example shows a GitHub workflow that is triggered when a Keptn task called 
       ```
     * The completed form should look as follows:
     
-      <img src="images/silent-subscription.png" width="50%" height="50%">
+      ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/githubaction/0.1.0/images/silent-subscription.png)
+
 
     * Refer to the [GitHub documentation](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event) for more information on the repository dispatch event.
 
@@ -156,7 +157,7 @@ The previous use case just triggers a GitHub action workflow. This use case will
 
     * The completed form should look as follows:
 
-      <img src="images/interactive-subscription.png" width="50%" height="50%">
+      ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/githubaction/0.1.0/images/interactive-subscription.png)
 
     * Refer to the [GitHub documentation](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event) for more information on the repository dispatch event.
 
@@ -171,7 +172,7 @@ The previous use case just triggers a GitHub action workflow. This use case will
       * `KEPTN_API_TOKEN` = From the Bridge UI, click on the profile icon on the top right. From the profile popup window, copy the API token and use that for the secret value
     * The completed secrets should look as follows:
 
-      <img src="images/github-secret.png" width="50%" height="50%">
+      ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/githubaction/0.1.0/images/github-secret.png)
 
 1. Below is an example GitHib action script with the `repository_dispatch` set to match the value `interactive` that is passed in the  `client_payload` values sent by the Keptn webhook.  This example extracts the values from the passed in `client_payload` to construct and send back the Keptn task `finished` event.
 
