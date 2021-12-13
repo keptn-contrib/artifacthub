@@ -19,4 +19,4 @@ recommendations:
 annotations:
   keptn/kind: "testing"
   keptn/org: "keptn"
-  keptn/version: "0.9.x"
+  keptn/version: "0.10.x"

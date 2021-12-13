@@ -23,7 +23,7 @@ kubectl scale deployment/jmeter-service -n "keptn" --replicas=0
 Since JMeter has no official Docker image you will have to build your own one. Here is a Dockerfile with a basic JMeter installation.
 
 ```docker
-FROM alpine:3.13
+FROM alpine:3.15
 ENV env=production
 ARG JMETER_VERSION="5.1.1"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
@@ -63,7 +63,7 @@ WORKDIR	/keptn/jmeter
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-The entrypoint file executes JMeter using the passed arguments. You can also uncomment the commands below to enable some debugging steps.
+The `entrypoint.sh` file executes JMeter using the passed arguments. You can also uncomment the commands below to enable some debugging steps.
 
 ```bash
 #!/bin/bash
@@ -81,6 +81,13 @@ echo "END Running Jmeter on `date`"
 
 # echo "log.tlf"
 # cat /keptn/jmeter/log.tlf
+```
+
+Now you will need to build the Docker image and push it to your image registry.
+
+```bash
+docker build -t yourorg/jmeter:latest .
+docker push yourorg/jmeter:latest
 ```
 
 ## Configure JMeter using the Job-Executor
@@ -107,7 +114,7 @@ actions:
      files:
       - jmeter/basiccheck.jmx
       - jmeter/load.jmx
-     image: "gabrieltanner/jmeter:latest"
+     image: "docker.io/yourorg/jmeter:latest"
      args:
      - '-n'
      - '-t'
