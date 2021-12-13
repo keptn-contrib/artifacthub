@@ -1,0 +1,22 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.1.0
+name: jmeter
+displayName: JMeter Job-Executor Integration
+createdAt: 2021-12-08T00:00:00Z
+description: Running JMeter tests using the Job-Executor service instead of the JMeter-Service
+logoURL: https://jmeter.apache.org/images/logo.svg
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - job-executor
+  - jmeter
+  - sandbox
+  - testing
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/org: "keptn"
+  keptn/version: "0.10.x"
