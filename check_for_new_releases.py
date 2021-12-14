@@ -13,9 +13,12 @@ def get_subdirectories(d: str) -> list:
 
 def get_repo_url(artifacthub_config) -> str:
     """Gets the repository url from the ArtifactHub config"""
-    for link in artifacthub_config['links']:
-        if link['name'] == 'Source':
-            return link['url'].replace('https://github.com/', '').partition('/tree')[0]
+    if 'links' in artifacthub_config:
+        for link in artifacthub_config['links']:
+            if link['name'] == 'Source':
+                return link['url'].replace('https://github.com/', '').partition('/tree')[0]
+    else:
+        return None
 
 
 if __name__ == '__main__':
@@ -43,7 +46,7 @@ if __name__ == '__main__':
 
                 try:
                     repo = g.get_repo(repository_name)
-                except:
+                except Exception as e:
                     print(f'{d} has no public Github repository. Skipping!')
                     continue
 
