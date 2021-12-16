@@ -13,9 +13,11 @@ def get_subdirectories(d: str) -> list:
 
 def get_repo_url(artifacthub_config) -> str:
     """Gets the repository url from the ArtifactHub config"""
-    for link in artifacthub_config['links']:
-        if link['name'] == 'Source':
-            return link['url'].replace('https://github.com/', '').partition('/tree')[0]
+    if 'links' in artifacthub_config:
+        for link in artifacthub_config['links']:
+            if link['name'] == 'Source':
+                return link['url'].replace('https://github.com/', '').partition('/tree')[0]
+    return None
 
 
 if __name__ == '__main__':
