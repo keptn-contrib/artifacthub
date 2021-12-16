@@ -17,8 +17,7 @@ def get_repo_url(artifacthub_config) -> str:
         for link in artifacthub_config['links']:
             if link['name'] == 'Source':
                 return link['url'].replace('https://github.com/', '').partition('/tree')[0]
-    else:
-        return None
+    return None
 
 
 if __name__ == '__main__':
@@ -46,7 +45,7 @@ if __name__ == '__main__':
 
                 try:
                     repo = g.get_repo(repository_name)
-                except Exception as e:
+                except:
                     print(f'{d} has no public Github repository. Skipping!')
                     continue
 
