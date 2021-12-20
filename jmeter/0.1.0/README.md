@@ -4,7 +4,7 @@ This integration shows you how to run JMeter as a Kubernetes job using the [Jo
 
 **Note: This integration still has some restrictions! See the [restrictions section](#restrictions) for more information.**
 
-## Prerequisites 
+## Installation
 
 ### Step 1: Install the Job-Executor in your cluster
 
@@ -12,27 +12,38 @@ Please follow the [Job-Executor documentation](https://github.com/keptn-contrib/
 
 ### Step 2: Disable the JMeter-Service
 
-Disable normal jmeter-service (in case you don't want to run it in parallel):
+In case you have installed Keptns jmeter-service (e.g., `keptn install --use-case continuous-delivery` or `helm install jmeter-service https://github.com/keptn/keptn/releases/download/<KEPTN_VERSION>/jmeter-service-<KEPTN_VERSION>.tgz -n keptn --create-namespace --wait`), you can either temporarily disable or uninstall jmeter-service:
 
-```
+**Temporary disable keptn/jmeter-service:**
+
+```bash
 kubectl scale deployment/jmeter-service -n "keptn" --replicas=0
 ```
 
+Use
+```bash
+kubectl scale deployment/jmeter-service -n "keptn" --replicas=1
+```
+to re-enable it.
+
+**Uninstall keptn/jmeter-service:**
+
+```bash
+helm uninstall jmeter-service -n keptn
+```
+
+
 ### Step 3: Build your own JMeter Docker image
 
-Since JMeter has no official Docker image you will have to build your own one. Here is a Dockerfile with a basic JMeter installation.
+Since there are no official JMeter Docker images, we recommend to build your own (and customize it). Here is a Dockerfile with a basic JMeter installation, feel free to adapt!
 
 ```docker
 FROM alpine:3.15
 ENV env=production
-ARG JMETER_VERSION="5.1.1"
+ARG JMETER_VERSION="5.4.2"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
 ENV	JMETER_BIN	${JMETER_HOME}/bin
 ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
-
-# Load additional extensions
-ARG DYNATRACE_EXTENSION_VERSION="1.3"
-ENV DYNATRACE_EXTENSION_URL https://github.com/dynatrace-oss/jmeter-dynatrace-plugin/releases/download/v${DYNATRACE_EXTENSION_VERSION}.snapshot/jmeter-dynatrace-plugin-${DYNATRACE_EXTENSION_VERSION}-SNAPSHOT.jar
 
 # Install extra packages
 # See https://github.com/gliderlabs/docker-alpine/issues/136#issuecomment-272703023
@@ -44,13 +55,14 @@ RUN    apk update \
 	&& update-ca-certificates \
 	&& apk add --update openjdk8-jre tzdata curl unzip bash \
 	&& apk add --no-cache nss \
-	&& rm -rf /var/cache/apk/* \
-	&& mkdir -p /tmp/dependencies  \
+	&& rm -rf /var/cache/apk/*
+
+# install jmeter
+RUN mkdir -p /tmp/dependencies  \
 	&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
 	&& mkdir -p /opt  \
 	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
-	&& rm -rf /tmp/dependencies \
-	&& curl -L --silent ${DYNATRACE_EXTENSION_URL} > /opt/apache-jmeter-${JMETER_VERSION}/lib/ext/jmeter-dynatrace-plugin-${DYNATRACE_EXTENSION_VERSION}-SNAPSHOT.jar
+	&& rm -rf /tmp/dependencies
 
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
@@ -59,6 +71,8 @@ ENV PATH $PATH:$JMETER_BIN
 COPY entrypoint.sh /
 
 WORKDIR	/keptn/jmeter
+
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 ```
@@ -94,50 +108,45 @@ docker push yourorg/jmeter:latest
 
 ### Step 1: Add the Job-Executor configuration file
 
-The following configuration will allow you to run the `basiccheck.jmx` on the Keptn Sockshop project using the Job-Executor-Service whenever a test event is triggered.
+The following configuration will allow you to run the `basiccheck.jmx` (e.g., from the [Keptn Carts example](https://github.com/keptn/examples/tree/master/onboarding-carts/jmeter)) using the Job-Executor-Service whenever a test event is triggered.
 
-```bash
+```yaml
 apiVersion: v2
 actions:
   - name: "Run JMeter"
-   events:
-    - name: "sh.keptn.event.test.triggered"
-     jsonpath:
-      property: "$.data.test.teststrategy"
-      match: "functional"
-    - name: "sh.keptn.event.test.triggered"
-     jsonpath:
-      property: "$.data.test.teststrategy"
-      match: "performance"
-   tasks:
-    - name: "Run jmeter smoke tests"
-     files:
-      - jmeter/basiccheck.jmx
-      - jmeter/load.jmx
-     image: "docker.io/yourorg/jmeter:latest"
-     args:
-     - '-n'
-     - '-t'
-     - '/keptn/jmeter/basiccheck.jmx'
-     - '-JPROTOCOL=http'
-     - '-JSERVER_PROTOCOL=http'
-     - '-JVUCount=10'
-     - '-JLoopCount=10'
-     - '-JSERVER_URL=ENDPOINT'
-     - '-j'
-     - '/keptn/jmeter/test.log'
-     - '-l'
-     - '/keptn/jmeter/log.tlf'
-     env:
-      - name: HOST
-       value: "$.data.deployment.deploymentURIsLocal[0]"
-       valueFrom: event
-      - name: DEPLOYMENT
-       value: "$.data.deployment"
-       valueFrom: event
+    events:
+      - name: "sh.keptn.event.test.triggered"
+        jsonpath:
+          property: "$.data.test.teststrategy"
+          match: "performance"
+    tasks:
+      - name: "Run jmeter smoke tests"
+        files:
+          - jmeter/load.jmx
+        image: "docker.io/yourorg/jmeter:latest"
+        args:
+          - '-n'
+          - '-t'
+          - '/keptn/jmeter/load.jmx'
+          - '-JPROTOCOL=http'
+          - '-JSERVER_PROTOCOL=http'
+          - '-JVUCount=10'
+          - '-JLoopCount=10'
+          - '-JSERVER_URL=ENDPOINT'
+          - '-j'
+          - '/keptn/jmeter/test.log'
+          - '-l'
+          - '/keptn/jmeter/log.tlf'
+        env:
+          - name: HOST
+            value: "$.data.deployment.deploymentURIsLocal[0]"
+            valueFrom: event
+          - name: DEPLOYMENT
+            value: "$.data.deployment"
+            valueFrom: event
 ```
 
-The following command can be used to add the configuration file to your Keptn service:
+Add the job-executor configuration file to your Keptn service:
 
 ```bash
 keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter.yaml --resourceUri=job/config.yaml
@@ -147,11 +156,10 @@ Now the Job-Executor service will execute the JMeter tests whenever you trigger 
 
 ## Restrictions
 
-Currently, there are a few problems with this approach that cannot be fixed/addressed using the Job-Executor-Service:
+Currently, there are a few open problems when using jmeter via Job Executor Service:
 
-- JMeter does not throw an error when the tests fail but instead just returns the results. These results cannot be evaluated without some custom code which cannot be added with the current Job-Executor features.
-- Tests on a non-existing endpoint take a very long time (15+ min) and currently don't have a timeout. Such a case triggers the `max poll count` defined by the Job which therefore fails. This could probably be addressed by adding a parameter to the JMeter command.
-- There is no official JMeter image and the users would have to provide their own one.
+- JMeter CLI does not throw an error when the tests fail but instead just returns the results. These results cannot be evaluated without some custom code which cannot be added with the current Job-Executor features.
+- Tests on a non-existing endpoint take a very long time (15+ min) and currently don't have a timeout. Such a case triggers the `max poll count` defined by the Job which therefore fails. This could probably be addressed by customizing JMeter CLI parameters.
 
 ## Feedback
 
