@@ -1,0 +1,12 @@
+##############################################################
+#
+# Lists the owners of this project
+#
+##############################################################
+#
+# Learn about CODEOWNERS file format:
+#  https://help.github.com/en/articles/about-code-owners
+#
+* @christian-kreuzberger-dtx
+* @TannerGilbert
+* @oleg-nenashev
