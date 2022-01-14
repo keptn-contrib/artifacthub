@@ -1,0 +1,89 @@
+version: 0.1.5
+name: job-executor-service
+displayName: Job Executor Service
+createdAt: '2022-01-13T14:05:17Z'
+description: Keptn service to run any container as a Kubernetes Job orchestrated by
+  keptn.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
+digest: '2022-01-13T14:05:17Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- kubernetes
+- sandbox
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/job-executor-service
+install: 'The *job-executor-service* can be installed as a part of [Keptn''s uniform](https://keptn.sh).
+
+
+  ### Deploy in your Kubernetes cluster
+
+
+  To deploy the current version of the *job-executor-service* in your Keptn Kubernetes
+  cluster, apply
+
+  the [`deploy/service.yaml`](deploy/service.yaml) file:
+
+
+  ```console
+
+  kubectl apply -f deploy/service.yaml
+
+  ```
+
+
+  This should install the `job-executor-service` together with a Keptn `distributor`
+  into the `keptn` namespace, which you
+
+  can verify using
+
+
+  ```console
+
+  kubectl -n keptn get deployment job-executor-service -o wide
+
+  kubectl -n keptn get pods -l run=job-executor-service
+
+  ```
+
+
+  ### Up- or Downgrading
+
+
+  Adapt and use the following command in case you want to up- or downgrade your installed
+  version (specified by
+
+  the `$VERSION` placeholder):
+
+
+  ```console
+
+  kubectl -n keptn set image deployment/job-executor-service job-executor-service=keptnsandbox/job-executor-service:$VERSION
+  --record
+
+  ```
+
+
+  ### Uninstall
+
+
+  To delete a deployed *job-executor-service*, use the file `deploy/*.yaml` files
+  from this repository and delete the
+
+  Kubernetes resources:
+
+
+  ```console
+
+  kubectl delete -f deploy/service.yaml
+
+  ```
+
+  '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/org: sandbox
+  keptn/version: 0.8.6-0.8.7
