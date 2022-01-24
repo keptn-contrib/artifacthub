@@ -132,17 +132,20 @@ actions:
           - '-JSERVER_PROTOCOL=http'
           - '-JVUCount=10'
           - '-JLoopCount=10'
-          - '-JSERVER_URL=ENDPOINT'
+          - '-JSERVER_URL=$SERVICE.$PROJECT-$STAGE.svc.cluster.local'
           - '-j'
           - '/keptn/jmeter/test.log'
           - '-l'
           - '/keptn/jmeter/log.tlf'
         env:
-          - name: HOST
-            value: "$.data.deployment.deploymentURIsLocal[0]"
+          - name: SERVICE
+            value: "$.data.service"
             valueFrom: event
-          - name: DEPLOYMENT
-            value: "$.data.deployment"
+          - name: PROJECT
+            value: "$.data.project"
+            valueFrom: event
+          - name: STAGE
+            value: "$.data.stage"
             valueFrom: event
 ```
 
