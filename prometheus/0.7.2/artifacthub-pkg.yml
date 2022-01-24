@@ -24,7 +24,7 @@ install: '## Execute the following steps to install prometheus-service:
   ### Install Role and RoleBinding to permit prometheus-service for performing operations in the Prometheus installed namespace:
 
   ```bash
-  kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/prometheus-service/release-<VERSION>/deploy/role.yaml -n <PROMETHEUS_NS>
+  kubectl -n <PROMETHEUS_NS> apply -f https://raw.githubusercontent.com/keptn-contrib/prometheus-service/<VERSION>/deploy/role.yaml
   ```
 
   ### Execute the following command to install Prometheus and set up the rules for
