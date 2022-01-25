@@ -27,7 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python check_for_new_releases.py
+          python check_for_new_releases.py -t 1
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
@@ -35,6 +35,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "New releases"
           signoff: true
+          branch-suffix: timestamp
           delete-branch: true
           base: main
           title: "New releases"

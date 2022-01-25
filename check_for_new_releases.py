@@ -1,6 +1,8 @@
 import os
 import yaml
+import argparse
 from github import Github
+import datetime
 from utils import replace_relative_paths, DATETIME_FORMAT
 
 
@@ -21,6 +23,11 @@ def get_repo_url(artifacthub_config) -> str:
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--timeframe', type=int, default=-1,
+                        help='Number of days in the past to check for new releases. Default (check as far as needed)')
+    args = parser.parse_args()
+
     directories = get_subdirectories('./')
     directories = [d for d in directories if not d.startswith(
         '.') and not d in ['workflow', '__pycache__']]
@@ -29,7 +36,7 @@ if __name__ == '__main__':
     if github_token:
         g = Github(github_token)
     else:
-        g = Github()
+        g = Github('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')
 
     for d in directories:
         try:
@@ -50,38 +57,43 @@ if __name__ == '__main__':
                     continue
 
                 try:
-                    release = repo.get_latest_release()
+                    releases_paginated_list = repo.get_releases()
+                    releases = []
+                    for release in releases_paginated_list:
+                        if release.prerelease == False and (args.timeframe == -1 or release.published_at > datetime.datetime.now() - datetime.timedelta(days=args.timeframe)):
+                            releases.append(release)
                 except:
                     print(f'{d} has no release. Skipping!')
                     continue
 
-                release_version = release.tag_name.strip().replace('release-', '')
+                for release in releases:
+                    release_version = release.tag_name.strip().replace('release-', '')
 
-                if release_version not in get_subdirectories(d):
-                    release_folder = os.path.join(d, release_version)
-                    os.makedirs(release_folder)
+                    if release_version not in get_subdirectories(d):
+                        release_folder = os.path.join(d, release_version)
+                        os.makedirs(release_folder)
 
-                    branch_name = release.target_commitish
+                        branch_name = release.target_commitish
 
-                    # https://github.com/PyGithub/PyGithub/issues/1157#issuecomment-507498931
-                    readme = repo.get_contents(
-                        'README.md', ref=branch_name).decoded_content.decode('utf-8')
+                        # https://github.com/PyGithub/PyGithub/issues/1157#issuecomment-507498931
+                        readme = repo.get_contents(
+                            'README.md', ref=branch_name).decoded_content.decode('utf-8')
 
-                    # Replace relative image paths with absolute paths pointing to the github repo
-                    readme = replace_relative_paths(
-                        readme, repository_name, branch_name)
+                        # Replace relative image paths with absolute paths pointing to the github repo
+                        readme = replace_relative_paths(
+                            readme, repository_name, branch_name)
 
-                    with open(os.path.join(release_folder, 'README.md'), 'w') as f:
-                        f.write(readme)
+                        with open(os.path.join(release_folder, 'README.md'), 'w') as f:
+                            f.write(readme)
 
-                    artifacthub_config['version'] = release_version
-                    artifacthub_config['createdAt'] = release.created_at.strftime(
-                        DATETIME_FORMAT)
-                    artifacthub_config['digest'] = release.created_at.strftime(
-                        DATETIME_FORMAT)
+                        artifacthub_config['version'] = release_version
+                        artifacthub_config['createdAt'] = release.created_at.strftime(
+                            DATETIME_FORMAT)
+                        artifacthub_config['digest'] = release.created_at.strftime(
+                            DATETIME_FORMAT)
 
-                    with open(os.path.join(release_folder, 'artifacthub-pkg.yml'), 'w') as f:
-                        yaml.dump(artifacthub_config, f, sort_keys=False)
+                        with open(os.path.join(release_folder, 'artifacthub-pkg.yml'), 'w') as f:
+                            yaml.dump(artifacthub_config, f, sort_keys=False)
 
             except yaml.YAMLError as exc:
                 print(exc)
