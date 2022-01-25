@@ -36,7 +36,7 @@ if __name__ == '__main__':
     if github_token:
         g = Github(github_token)
     else:
-        g = Github('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')
+        g = Github()
 
     for d in directories:
         try:
