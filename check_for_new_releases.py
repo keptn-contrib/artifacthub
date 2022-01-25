@@ -36,7 +36,7 @@ if __name__ == '__main__':
     if github_token:
         g = Github(github_token)
     else:
-        g = Github('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')
+        g = Github('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')
 
     for d in directories:
         try:
@@ -58,10 +58,10 @@ if __name__ == '__main__':
 
                 try:
                     releases_paginated_list = repo.get_releases()
-                    releases = []
-                    for release in releases_paginated_list:
-                        if release.prerelease == False and (args.timeframe == -1 or release.published_at > datetime.datetime.now() - datetime.timedelta(days=args.timeframe)):
-                            releases.append(release)
+                    min_time = datetime.datetime.min if args.timeframe == - \
+                        1 else datetime.datetime.now() - datetime.timedelta(days=args.timeframe)
+                    releases = [release for release in releases_paginated_list if release.prerelease ==
+                                False and release.published_at > min_time]
                 except:
                     print(f'{d} has no release. Skipping!')
                     continue
