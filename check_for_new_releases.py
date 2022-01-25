@@ -7,7 +7,7 @@ from utils import replace_relative_paths, DATETIME_FORMAT
 def get_subdirectories(d: str) -> list:
     """Gets all the subdirectors of directory d"""
     # https://stackoverflow.com/a/973492
-    return [o for o in os.listdir(d)
+    return [o for o in sorted(os.listdir(d))
             if os.path.isdir(os.path.join(d, o))]
 
 
