@@ -4,6 +4,7 @@ version: 0.1.0
 name: jmeter
 displayName: JMeter Job-Executor Integration
 createdAt: 2021-12-08T00:00:00Z
+digest: 2022-01-28T00:00:00Z
 description: Running JMeter tests using the Job-Executor service instead of the JMeter-Service
 logoURL: https://jmeter.apache.org/images/logo.svg
 license: Apache-2.0
