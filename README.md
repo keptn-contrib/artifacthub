@@ -16,3 +16,7 @@ optional arguments:
   -v VERSION, --version VERSION
                         Version (default=latest)
 ```
+
+## Update existing version of a service
+
+In order for updates of an existing version to take effect on Artifacthub the `digest` parameter needs to be updated or added to the `artifacthub-pkg.yml` file of that version. A change of the digest parameter signals the Artifacthub backend to reprocess that version. To make sure the new `digest` value is unqiue we use the current date of the change with the same format as the `createdAt` argument (RFC3339).
