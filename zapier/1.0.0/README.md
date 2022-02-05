@@ -34,4 +34,4 @@ Create 2 zaps.
 - The first Zap lets you email Zapier with a formatted email. It then parses the email for Keptn details and triggers a sequence (using the Keptn API webhook).
 - The second Zap relies on the Keptn webhook service listening for whatever event you like, the zap takes that payload and emails it to you.
   
-![assets/2zaps.png]
+![keptn zapier integration](assets/2zaps.png)
