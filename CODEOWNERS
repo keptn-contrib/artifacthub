@@ -23,7 +23,7 @@ argo/ @TannerGilbert
 
 artillery/ @TannerGilbert
 
-dynatrace/ @TannerGilbert
+dynatrace/ @arthurpitman @heckelmann @jskelin @j-poecher @Kavindu-Dodan
 
 githubaction/ @robertjahn
 
@@ -31,13 +31,13 @@ grafana/ @TannerGilbert
 
 ifttt/ @Dynatrace-Adam-Gardner
 
-jenkins-library/ @TannerGilbert
+jenkins-library/ @keptn-contrib/keptn-ecosystem
 
-jira/ @TannerGilbert
+jira/ @Dynatrace-Adam-Gardner
 
 jmeter/ @TannerGabriel
 
-job-executor/ @TannerGilbert
+job-executor/ @keptn-contrib/keptn-ecosystem
 
 litmus/ @TannerGilbert
 
@@ -49,9 +49,9 @@ neoload/ @TannerGilbert @guillaumebert
 
 notification/ @TannerGilbert
 
-onechart/ @TannerGilbert
+onechart/ @laszlocph
 
-prometheus/ @TannerGilbert @christian-kreuzberger-dtx
+prometheus/ @keptn-contrib/keptn-ecosystem
 
 servicenow/ @TannerGilbert
 
