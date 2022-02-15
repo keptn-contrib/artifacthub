@@ -1,10 +1,64 @@
-##############################################################
-#
-# Lists the owners of this project
-#
-##############################################################
-#
+#################################################################################
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+# These owners will be the default owners for everything in the repo.
+#################################################################################
 # Learn about CODEOWNERS file format:
-#  https://help.github.com/en/articles/about-code-owners
-#
-* @christian-kreuzberger-dtx @TannerGilbert @oleg-nenashev
+# https://help.github.com/en/articles/about-code-owners
+#################################################################################
+# FYI: Owners will be auto-assigned for code reviews as well
+#################################################################################
+
+# The Keptn Ecosystem team owns everything not owned by anyone else: Keptn Ecosystem https://github.com/orgs/keptn-contrib/teams/keptn-ecosystem/members
+* @keptn-contrib/keptn-ecosystem
+
+# Keptn Ecosystem team owns automations
+*.py @keptn-contrib/keptn-ecosystem
+
+#################################################################################
+# Services are owned by individual people (by default the person that initialy created the service)
+#################################################################################
+
+argo/ @TannerGilbert
+
+artillery/ @TannerGilbert
+
+dynatrace/ @arthurpitman @heckelmann @jskelin @j-poecher @Kavindu-Dodan
+
+githubaction/ @robertjahn
+
+grafana/ @TannerGilbert
+
+ifttt/ @Dynatrace-Adam-Gardner
+
+jenkins-library/ @keptn-contrib/keptn-ecosystem
+
+jira/ @Dynatrace-Adam-Gardner
+
+jmeter/ @TannerGabriel
+
+job-executor/ @keptn-contrib/keptn-ecosystem
+
+litmus/ @TannerGilbert
+
+locust/ @TannerGilbert
+
+monaco/ @TannerGilbert
+
+neoload/ @TannerGilbert @guillaumebert
+
+notification/ @TannerGilbert
+
+onechart/ @laszlocph
+
+prometheus/ @keptn-contrib/keptn-ecosystem
+
+servicenow/ @TannerGilbert
+
+slack/ @johannes-b
+
+slackbot/ @TannerGilbert
+
+unleash/ @TannerGilbert
+
+zapier/ @Dynatrace-Adam-Gardner
