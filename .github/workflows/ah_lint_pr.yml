@@ -1,14 +1,9 @@
-name: ArtifactHub Linter
+name: ArtifactHub Linter PR
 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
+  # Triggers the workflow on pull request events but only for the main branch
   pull_request:
     branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 jobs:
   lint:
@@ -41,7 +36,7 @@ jobs:
 
       - name: Send PR comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: always() && github.event_name == 'pull_request'
+        if: always()
         with:
           header: Lint result
           hide_and_recreate: true
