@@ -34,17 +34,20 @@ jobs:
         id: run_linter
         working-directory: ./changed_services
         run: | 
-          OUTPUT=$(./ah lint --kind keptn .)
+          OUTPUT=$(./ah lint --kind keptn . || true )
           OUTPUT="${OUTPUT//'%'/'%25'}​【7,6 m】"
           OUTPUT="${OUTPUT//$'\n'/'%0A'}"
           OUTPUT="${OUTPUT//$'\r'/'%0D'}"
           echo "::set-output name=output::$OUTPUT"
+          
+          ./ah lint --kind keptn .
 
       - name: Send PR comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: always() && github.event_name == 'pull_request'
         with:
           header: Lint result
-          append: true
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
           message: |
             AH Linter output: ${{ steps.run_linter.outputs.output }}
