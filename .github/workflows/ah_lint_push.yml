@@ -1,0 +1,24 @@
+name: ArtifactHub Linter Push
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Download ArtifactHUB CLI
+        run: |
+          wget https://github.com/artifacthub/hub/releases/download/v1.6.0/ah_1.6.0_linux_amd64.tar.gz
+          tar -xvf ah_1.6.0_linux_amd64.tar.gz
+      
+      - name: Run linter
+        run: ./ah lint --kind keptn .
