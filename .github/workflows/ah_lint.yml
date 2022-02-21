@@ -21,8 +21,12 @@ jobs:
       
       - id: files
         uses: Ana06/get-changed-files@v2.1.0
+        with:
+          filter: '*artifacthub-pkg.yml'
+      
       - run: |
-          mkdir changed_services && cp -pv --parents ${{ steps.files.outputs.all }} changed_services
+          # Copy artifacthub-pkg.yml and parent folder into new folder
+          mkdir changed_services && cp -pv --parents ${{ steps.files.outputs.added_modified }} changed_services
       
       - name: Download ArtifactHUB CLI
         working-directory: ./changed_services
@@ -33,14 +37,7 @@ jobs:
       - name: Run linter
         id: run_linter
         working-directory: ./changed_services
-        run: | 
-          OUTPUT=$(./ah lint --kind keptn . || true )
-          OUTPUT="${OUTPUT//'%'/'%25'}​【7,6 m】"
-          OUTPUT="${OUTPUT//$'\n'/'%0A'}"
-          OUTPUT="${OUTPUT//$'\r'/'%0D'}"
-          echo "::set-output name=output::$OUTPUT"
-          
-          ./ah lint --kind keptn .
+        run: ./ah lint --kind keptn . 2>&1 > output.txt
 
       - name: Send PR comment
         uses: marocchino/sticky-pull-request-comment@v2
@@ -49,5 +46,4 @@ jobs:
           header: Lint result
           hide_and_recreate: true
           hide_classify: "OUTDATED"
-          message: |
-            AH Linter output: ${{ steps.run_linter.outputs.output }}
+          path: ./changed_services/output.txt
