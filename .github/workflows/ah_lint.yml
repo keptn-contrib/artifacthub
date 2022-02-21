@@ -17,15 +17,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Go environment
-        uses: actions/setup-go@v2
+      - id: files
+        uses: jitterbit/get-changed-files@v1
         with:
-          go-version: '^1.13.1'
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
+
+      #- name: Setup Go environment
+      #  uses: actions/setup-go@v2
+      #  with:
+      #    go-version: '^1.13.1'
       
-      - name: Download ArtifactHUB CLI
-        run: |
-          wget https://github.com/artifacthub/hub/releases/download/v1.4.0/ah_1.4.0_linux_amd64.tar.gz
-          tar -xvf ah_1.4.0_linux_amd64.tar.gz
+      #- name: Download ArtifactHUB CLI
+      #  run: |
+      #    wget https://github.com/artifacthub/hub/releases/download/v1.4.0/ah_1.4.0_linux_amd64.tar.gz
+      #    tar -xvf ah_1.4.0_linux_amd64.tar.gz
       
-      - name: Run linter
-        run: ./ah lint --kind keptn .
+      #- name: Run linter
+      #  run: ./ah lint --kind keptn .
