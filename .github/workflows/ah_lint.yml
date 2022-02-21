@@ -16,16 +16,34 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Setup Go environment
-        uses: actions/setup-go@v2
         with:
-          go-version: '^1.13.1'
+          fetch-depth: 0
+      
+      - id: files
+        uses: Ana06/get-changed-files@v2.1.0
+        with:
+          filter: '*artifacthub-pkg.yml'
+      
+      - run: |
+          # Copy artifacthub-pkg.yml and parent folder into new folder
+          mkdir changed_services && cp -pv --parents ${{ steps.files.outputs.added_modified }} changed_services
       
       - name: Download ArtifactHUB CLI
+        working-directory: ./changed_services
         run: |
-          wget https://github.com/artifacthub/hub/releases/download/v1.4.0/ah_1.4.0_linux_amd64.tar.gz
-          tar -xvf ah_1.4.0_linux_amd64.tar.gz
+          wget https://github.com/artifacthub/hub/releases/download/v1.6.0/ah_1.6.0_linux_amd64.tar.gz
+          tar -xvf ah_1.6.0_linux_amd64.tar.gz
       
       - name: Run linter
-        run: ./ah lint --kind keptn .
+        id: run_linter
+        working-directory: ./changed_services
+        run: ./ah lint --kind keptn . 2>&1 > output.txt
+
+      - name: Send PR comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: always() && github.event_name == 'pull_request'
+        with:
+          header: Lint result
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+          path: ./changed_services/output.txt
