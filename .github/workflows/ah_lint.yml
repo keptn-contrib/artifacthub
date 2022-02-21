@@ -16,16 +16,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Setup Go environment
         uses: actions/setup-go@v2
         with:
           go-version: '^1.13.1'
+
+      - name: Copy changed services to new directory
+        run: mkdir changed_services && cp -pv --parents $(git diff --name-only) changed_services
       
       - name: Download ArtifactHUB CLI
+        working-directory: ./changed_services
         run: |
-          wget https://github.com/artifacthub/hub/releases/download/v1.4.0/ah_1.4.0_linux_amd64.tar.gz
-          tar -xvf ah_1.4.0_linux_amd64.tar.gz
+          wget https://github.com/artifacthub/hub/releases/download/v1.6.0/ah_1.6.0_linux_amd64.tar.gz
+          tar -xvf ah_1.6.0_linux_amd64.tar.gz
       
       - name: Run linter
+        working-directory: ./changed_services
         run: ./ah lint --kind keptn .
