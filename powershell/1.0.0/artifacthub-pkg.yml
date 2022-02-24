@@ -1,0 +1,23 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: powershell
+displayName: Powershell
+createdAt: 2022-02-02T00:00:00Z
+description: Run any Powershell with Keptn
+logoURL: https://upload.wikimedia.org/wikipedia/commons/a/af/PowerShell_Core_6.0_icon.png
+digest: 2021-02-02T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - powershell
+links:
+  - name: Source
+    url: https://keptn.sh
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "deployment"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0-0.12.2"
