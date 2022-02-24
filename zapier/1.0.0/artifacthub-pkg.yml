@@ -55,6 +55,7 @@ install: |
   - The second Zap relies on the Keptn webhook service listening for whatever event you like, the zap takes that payload and emails it to you.
   
   ![keptn zapier integration](assets/2zaps.png)
+
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:

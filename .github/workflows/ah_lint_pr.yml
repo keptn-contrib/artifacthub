@@ -1,0 +1,48 @@
+name: ArtifactHub Linter PR
+
+on:
+  # Triggers the workflow on pull request events but only for the main branch
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - id: files
+        uses: Ana06/get-changed-files@v2.1.0
+        with:
+          filter: '*artifacthub-pkg.yml'
+      
+      - id: copy_files
+        if: steps.files.outputs.added_modified
+        run: |
+          # Copy artifacthub-pkg.yml and parent folder into new folder
+          mkdir changed_services && cp -pv --parents ${{ steps.files.outputs.added_modified }} changed_services
+      
+      - name: Download ArtifactHUB CLI
+        if: steps.files.outputs.added_modified
+        working-directory: ./changed_services
+        run: |
+          wget https://github.com/artifacthub/hub/releases/download/v1.6.0/ah_1.6.0_linux_amd64.tar.gz
+          tar -xvf ah_1.6.0_linux_amd64.tar.gz
+      
+      - name: Run linter
+        id: run_linter
+        if: steps.files.outputs.added_modified
+        working-directory: ./changed_services
+        run: ./ah lint --kind keptn . 2>&1 > output.txt
+
+      - name: Send PR comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: always() && steps.files.outputs.added_modified
+        with:
+          header: Lint result
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+          path: ./changed_services/output.txt
