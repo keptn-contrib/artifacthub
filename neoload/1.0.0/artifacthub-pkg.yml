@@ -1,0 +1,24 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.9.0
+name: neoload
+displayName: NeoLoad Webhook Integration
+createdAt: 2022-01-11T00:00:00Z
+description: This integration shows how to run a load test leveraging Keptn's webhook service.
+logoURL: https://neoload.saas.neotys.com/VAADIN/themes/neoload/images/neoload-logo-with-text-color.png
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - webhook
+  - neoload
+  - testing
+  - load testing
+  - contrib
+links:
+  - name: Source
+    url: https://keptn.sh/docs/0.13.x/integrations/webhooks/
+annotations:
+  keptn/kind: "testing"
+  keptn/org: "contrib"
+  keptn/version: "0.10.0-0.13.0"
