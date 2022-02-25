@@ -1,6 +1,6 @@
 # IFTTT Integration with Keptn
 
-![ifttt.com integration with keptn](assets/output.png)
+![ifttt.com integration with keptn](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/ifttt/1.0.0/assets/output.png)
 
 Keptn can be integrated with IFTTT by using the webhook-service. This integrations means any IFTTT applet can be executed.
 
