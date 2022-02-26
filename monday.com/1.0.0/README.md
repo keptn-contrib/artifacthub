@@ -5,11 +5,11 @@ Create Monday.com Items from Keptn
 ## Step 1: Gather Monday.com Details
 1. Go to Monday.com and copy your Personal API token. "User Circle Icon" > Admin > API
   
-![monday.com api](assets/1.png)
+![monday.com api](/assets/1.png)
 
 2. Go to your board and make a note of the board ID from the url:
 
-![monday.com board id](assets/2.png)
+![monday.com board id](/assets/2.png)
 
 3. Each "group" of items in the UI has a unique ID.
 Use the Monday API to get the `id` of the group where you want to create items.
@@ -40,12 +40,12 @@ The output should look like this. Here you need to use either `topics` and `grou
 }
 ```
 
-![monday.com group ids](assets/3.png)
+![monday.com group ids](/assets/3.png)
 
 ## Step 2: Save Secrets
 Save each of the items above into a Keptn secret making sure to set the `scope` as `keptn-webhook-service`
 
-![keptn secret](assets/4.png)
+![keptn secret](/assets/4.png)
 
 ## Step 3: Configure Webhook
 
@@ -73,9 +73,9 @@ For example:
 }
 ```
 
-![webhook config](assets/5.png)
+![webhook config](/assets/5.png)
 
 ## Output
 Your Monday.com item will be created. You can also use variables from the previous Keptn events such as the project `{{ .data.project }}`, service `{{ .data.service }}`, stage `{{ .data.stage }}` or any other content you need to send to Monday.com (such as quality gate evalution results).
 
-![output](assets/6.png)
+![output](/assets/6.png)
