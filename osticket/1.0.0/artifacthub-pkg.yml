@@ -1,0 +1,69 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: osTicket Integration
+displayName: osTicket Integration
+createdAt: 2022-02-04T00:00:00Z
+description: Keptn integration with osTicket
+digest: 2022-02-04T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - osticket
+links:
+  - name: Source
+    url: https://osticket.com
+install: |
+    # Keptn osTicket Integration
+
+  osTicket is a popular open source ticketing system. Using the Keptn webhook-service it is possible to create tickets in osTicket from Keptn events.
+
+  ## Step 1: Create osTicket API key
+
+  Go to the osTicket Staff Control Panel and generate an API Key: `https://example.com/scp/apikeys.php`
+
+  Note that for tickets to be created, the IP address of the submitter (ie. Keptn) must be listed in the API key. Give your API key `Can Create Tickets` permission.
+
+  ![osticket api key](assets/1.png)
+
+  Save this API key as a Keptn secret:
+
+  ![keptn secret](assets/2.png)
+
+  ## Step 2: Configure Webhook Service
+
+  The osTicket endpoint to create tickets is a `POST` to `https://example.com/api/tickets.json`
+
+  You must add the `x-api-key` header.
+
+  A raw `curl` request would look like this:
+
+  ```
+  curl -X POST 'http://example.com/api/tickets.json' \
+    -H 'x-api-key: <OSTICKET_API_TOKEN_HERE>' \
+    --data-raw '{
+      "source": "API",
+      "name": "Angry User",
+      "email": "api@osticket.com",
+      "phone": "12345678",
+      "subject": "Keptn: Testing API",
+      "message": "Ticket content here..."
+    }'
+  ```
+
+  Create that in the webhook UI:
+
+  ![keptn webhook](assets/3.png)
+
+  Execute a Keptn sequence and you should receive a ticket.
+
+  ![osticket ticket](assets/4.png)
+
+  ## Troubleshooting
+  The most common issue is that the IP address of the sender (ie. Keptn) doesn't match the IP that osTicket allows to create tickets. Ensure the Keptn IP and the IP you have entered during API key creation match. There is no way to use domain names instead of IPs. This is an osTicket limitation, not a Keptn limitation.
+  
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/version: "0.8.0-0.13.1"
