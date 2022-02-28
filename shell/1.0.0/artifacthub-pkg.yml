@@ -21,4 +21,4 @@ recommendations:
 annotations:
   keptn/kind: "deployment"
   keptn/org: "keptn"
-  keptn/version: "0.10.0-0.12.2"
+  keptn/version: "0.10.0-0.13.1"
