@@ -24,7 +24,7 @@ You can find out the latest release on the [GitHub releases](https://github.com/
 | 4.1             | 0.8.x, 0.9.x  | Supporting Keptn 0.9.x, bug fixes                                 |
 | 5.0             | 0.9.x, 0.10.0 | Supporting Keptn 0.10.0, bug fixes, Cleanups                      |
 | 5.1             | 0.9.x, 0.10.0 | Bug fixes                                                         |
-| 6.0 *pending*   | 0.10.0 - 0.12.0 | Supporting Keptn 0.12.0, added `keptnConfigureMonitoring` command |
+| 6.0             | 0.10.0 - 0.12.0 | Supporting Keptn 0.12.0, added `keptnConfigureMonitoring` command |
 
 Please make sure to always specify a version when including the library in your Jenkinsfile, e.g.
 ```groovy
