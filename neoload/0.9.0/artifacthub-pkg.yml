@@ -6,6 +6,7 @@ displayName: NeoLoad Webhook Integration
 createdAt: 2022-01-11T00:00:00Z
 description: This integration shows how to run a load test leveraging Keptn's webhook service.
 logoURL: https://neoload.saas.neotys.com/VAADIN/themes/neoload/images/neoload-logo-with-text-color.png
+digest: 2022-03-05T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -19,6 +20,6 @@ links:
   - name: Source
     url: https://keptn.sh/docs/0.11.x/integrations/webhooks/
 annotations:
-  keptn/kind: "testing"
+  keptn/kind: "webhook,testing"
   keptn/org: "contrib"
   keptn/version: "0.11.x"

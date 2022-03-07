@@ -6,6 +6,7 @@ displayName: Slack Webhook Integration
 createdAt: 2021-11-17T00:00:00Z
 description: Sending notifications to Slack for all sorts of Keptn events such as deployment, test, or evaluation finished. This integration leverages Keptn's webhook-service.
 logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/2560px-Slack_Technologies_Logo.svg.png
+digest: 2022-03-05T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -22,6 +23,6 @@ links:
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
-  keptn/kind: "notification"
+  keptn/kind: "webhook,notification"
   keptn/org: "keptn"
   keptn/version: "0.10.x"
