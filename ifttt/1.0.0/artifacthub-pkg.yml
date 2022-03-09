@@ -5,8 +5,8 @@ name: ifttt
 displayName: IFTTT Integration
 createdAt: 2022-02-02T00:00:00Z
 description: Keptn integration with IFTTT.com
-logoURL: assets/ifttt.png
-digest: 2021-02-02T00:00:00Z
+logoPath: assets/ifttt.png
+digest: 2022-03-05T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -19,6 +19,6 @@ links:
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
-  keptn/kind: "deployment"
+  keptn/kind: "webhook,deployment"
   keptn/org: "keptn"
   keptn/version: "0.10.0-0.12.0"
