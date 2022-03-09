@@ -5,7 +5,7 @@ name: Zapier Integration
 displayName: Zapier Integration
 createdAt: 2022-02-04T00:00:00Z
 description: Keptn integration with Zapier.com
-digest: 2022-03-05T00:00:00Z
+digest: 2022-03-09T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
