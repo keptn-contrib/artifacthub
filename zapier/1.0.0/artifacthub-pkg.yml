@@ -5,7 +5,8 @@ name: Zapier Integration
 displayName: Zapier Integration
 createdAt: 2022-02-04T00:00:00Z
 description: Keptn integration with Zapier.com
-digest: 2022-03-09T00:00:00Z
+logoURL: https://www.amocrm.com/static/images/pages/integrations/logo/zapier.png
+digest: 2022-03-11T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -54,7 +55,7 @@ install: |
   - The first Zap lets you email Zapier with a formatted email. It then parses the email for Keptn details and triggers a sequence (using the Keptn API webhook).
   - The second Zap relies on the Keptn webhook service listening for whatever event you like, the zap takes that payload and emails it to you.
   
-  ![keptn zapier integration](assets/2zaps.png)
+  ![keptn zapier integration](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/zapier/1.0.0/assets/2zaps.png)
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:

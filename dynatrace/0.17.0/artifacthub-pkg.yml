@@ -6,7 +6,7 @@ displayName: Dynatrace Service
 createdAt: 2021-09-27T00:00:00Z
 description: Keptn service that forwards Keptn events - occurring during a delivery workflow - to Dynatrace.
 logoURL: https://avatars.githubusercontent.com/u/6412311
-digest: 2022-01-18T00:00:00Z
+digest: 2022-03-11T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -101,7 +101,7 @@ install: |
 
   * When an event is sent out by Keptn, you see an event in Dynatrace for the correlating service:
 
-    ![Dynatrace events](images/events.png?raw=true "Dynatrace Events")
+    ![Dynatrace events](https://raw.githubusercontent.com/keptn-contrib/dynatrace-service/release-0.17.0/documentation/images/events.png)
 
   ### 4. (Optional) Set up Dynatrace monitoring for existing Keptn projects
 
