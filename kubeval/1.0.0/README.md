@@ -2,6 +2,16 @@
 
 Use kubeval to validate Kubernetes YAML files inside a Keptn sequence. More info on [kubeval.com](https://kubeval.com)
 
+Whenever valid files are provided, the Keptn task passes:
+
+![valid evaluation](assets/valid.png)
+
+Invalid YAML files cause the task to fail (as they should because kubeval is providing the error):
+
+![invalid evaluation](assets/invalid.png)
+
+
+
 Inside the stage folder on the correct stage branch, create a subfolder called `files` and store all YAML files to be validated. Files are copied into `/keptn/` so these files will be available at `/keptn/files/*`
 
 Below is the equivalent of:
