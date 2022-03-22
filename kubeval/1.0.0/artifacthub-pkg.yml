@@ -1,0 +1,53 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: shell
+displayName: Kubeval Integration
+createdAt: 2022-02-02T00:00:00Z
+description: Validate Kubernetes YAML files with kubeval and Keptn
+digest: 2021-02-02T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - kubeval
+links:
+  - name: Source
+    url: https://keptn.sh
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+install: |
+  # Kubeval Execution
+
+  Use kubeval to validate Kubernetes YAML files inside a Keptn sequence. More info on [kubeval.com](https://kubeval.com)
+
+  Inside the stage folder on the correct stage branch, create a subfolder called `files` and store all YAML files to be validated. Files are copied into `/keptn/` so these files will be available at `/keptn/files/*`
+
+  Below is the equivalent of:
+
+  ```
+  docker run -it -v `pwd`/files:/files garethr/kubeval -d /files -o json
+  ```
+
+  Validate all YAML files inside `files` directory:
+  ```
+  apiVersion: v2
+  actions:
+    - name: "Run kubeval to validate files"
+      events:
+        - name: "sh.keptn.event.validate.triggered"
+      tasks:
+        - name: "Run Kubeval"
+          files:
+            - '/files'
+          image: "garethr/kubeval:0.15.0"
+          args:
+            - '-d'
+            - '/keptn/files'
+            - '-o'
+            - 'json'
+  ```
+annotations:
+  keptn/kind: "testing,deployment"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0 upwards"
