@@ -3,10 +3,10 @@
 version: 1.0.0
 name: Zendesk Integration
 displayName: Zendesk Integration
-createdAt: 2022-02-04T00:00:00Z
+createdAt: 2022-03-22T00:00:00Z
 description: Keptn integration with Zendesk.com
-logoURL: https://en.wikipedia.org/wiki/Zendesk#/media/File:Zendesk_logo.svg
-digest: 2022-02-04T00:00:00Z
+logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Zendesk_logo.svg/1280px-Zendesk_logo.svg.png
+digest: 2022-03-22T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
