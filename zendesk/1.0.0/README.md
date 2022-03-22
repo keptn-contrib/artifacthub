@@ -7,7 +7,7 @@
   2. Generate an API token. Do so at: `https://myenvironment.zendesk.com/agent/admin/api/settings`
   3. Make a note of the email address of a User or Light user you wish to create tickets from Keptn: eg. `lightuser@example.com`
     
-  ![keptn secret](./assets/1.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/zendesk/1.0.0/assets/1.png)
 
   ## Step 2: Encode Basic Authentication String
 
@@ -21,7 +21,7 @@
   ## Step 3: Store Keptn Secret
   Store the above details in a Keptn secret that has `keptn-webhook-service` permissions:
 
-  ![keptn secret](./assets/2.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/zendesk/1.0.0/assets/2.png)
 
   ## Step 4: Create Keptn Webhook Subscription
 
@@ -40,11 +40,11 @@
         }
       }'
   ```
-  ![keptn secret](./assets/3.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/zendesk/1.0.0/assets/3.png)
 
   ## Step 5: See Ticket Output
 
   Execute a sequence and you should receive a new Zendesk ticket.
 
-  ![keptn secret](./assets/4.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/zendesk/1.0.0/assets/4.png)
 
