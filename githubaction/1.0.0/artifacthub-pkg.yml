@@ -1,0 +1,27 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: githubaction
+displayName: GitHub Actions Webhook Integration
+createdAt: 2021-11-19T00:00:00Z
+description: This integration shows how to invoke GitHub Action workflows leveraging Keptn's webhook service.
+logoURL: https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/githubaction/1.0.0/images/github-logo.png
+digest: 2022-03-05T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - webhook
+  - github
+  - sandbox
+  - notification
+  - githubaction
+links:
+  - name: Source
+    url: https://keptn.sh/docs/0.13.x/integrations/webhooks/
+  - name: Video
+    url: https://www.youtube.com/watch?v=d32WHNmtqOs
+annotations:
+  keptn/kind: "webhook,notification"
+  keptn/org: "keptn"
+  keptn/version: "0.13.x"
