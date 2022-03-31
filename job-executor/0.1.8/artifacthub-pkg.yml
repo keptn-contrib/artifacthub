@@ -1,0 +1,34 @@
+version: 0.1.8
+name: job-executor-service
+displayName: Job Executor Service
+createdAt: '2022-03-30T09:11:09Z'
+description: Keptn service to run any container as a Kubernetes Job orchestrated by
+  Keptn.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
+digest: '2022-03-30T09:11:09Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- kubernetes
+- contrib
+- job-executor
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/job-executor-service
+install: 'The *job-executor-service* can be installed as a part of [Keptns uniform](https://keptn.sh)
+  using `helm`:
+
+  ```bash helm install -n keptn job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/<VERSION>/job-executor-service-<VERSION>.tgz
+  ```
+
+  Please replace `<VERSION>` with the actual version you want to install from the
+  compatibility matrix above or the [GitHub releases page](https://github.com/keptn-contrib/job-executor-service/releases).
+
+  '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: testing,deployment,notification,observability
+  keptn/org: contrib
+  keptn/version: 0.10.0-0.11.3
