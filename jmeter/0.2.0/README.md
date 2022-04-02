@@ -108,7 +108,9 @@ docker push yourorg/jmeter:latest
 
 ### Step 1: Add the Job-Executor configuration file
 
-The following configuration will allow you to run the `basiccheck.jmx` (e.g., from the [Keptn Carts example](https://github.com/keptn/examples/tree/master/onboarding-carts/jmeter)) using the Job-Executor-Service whenever a test event is triggered.
+The following configuration will allow you to run the `load.jmx` (e.g., from the [Keptn Carts example](https://github.com/keptn/examples/tree/master/onboarding-carts/jmeter)) using the Job-Executor-Service whenever a test event is triggered.
+
+```jmeter.yaml```:
 
 ```yaml
 apiVersion: v2
@@ -145,7 +147,7 @@ Add the job-executor configuration file to your Keptn service:
 keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter.yaml --resourceUri=job/config.yaml
 ```
 
-Now the Job-Executor service will execute the JMeter tests whenever you trigger a new evaluation.
+Now the Job-Executor-Service will execute the JMeter tests whenever you trigger a delivery, e.g., `keptn trigger delivery --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.13.1 --stage=staging`
 
 ## Restrictions
 
