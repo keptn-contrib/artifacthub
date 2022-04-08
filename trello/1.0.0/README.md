@@ -26,7 +26,7 @@
   ## Step 2: Save as Keptn Secret
   Save the above details as a Keptn secret with the scope set to `keptn-webhook-service`
 
-  ![keptn secret](assets/1.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/trello/1.0.0/assets/1.png)
 
   ## Step 3: Create Webhook
   This is the raw curl request you will recreate in the Keptn webhook.
@@ -36,8 +36,8 @@
   curl -X POST 'https://api.trello.com/1/cards?key=<API_KEY>&token=<API_TOKEN>&idList=<LIST_ID>&name=Keptn%20List%20Item&desc=description%20here...'
   ```
 
-  ![keptn webhook](assets/2.png)
+  ![keptn webhook](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/trello/1.0.0/assets/2.png)
 
   ## Step 4: Run a Sequence and Get a Card
 
-  ![trello card](assets/3.png)
+  ![trello card](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/trello/1.0.0/assets/3.png)
