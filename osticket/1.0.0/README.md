@@ -8,11 +8,11 @@
 
   Note that for tickets to be created, the IP address of the submitter (ie. Keptn) must be listed in the API key. Give your API key `Can Create Tickets` permission.
 
-  ![osticket api key](assets/1.png)
+  ![osticket api key](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/osticket/1.0.0/assets/1.png)
 
   Save this API key as a Keptn secret:
 
-  ![keptn secret](assets/2.png)
+  ![keptn secret](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/osticket/1.0.0/assets/2.png)
 
   ## Step 2: Configure Webhook Service
 
@@ -37,11 +37,11 @@
 
   Create that in the webhook UI:
 
-  ![keptn webhook](assets/3.png)
+  ![keptn webhook](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/osticket/1.0.0/assets/3.png)
 
   Execute a Keptn sequence and you should receive a ticket.
 
-  ![osticket ticket](assets/4.png)
+  ![osticket ticket](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/osticket/1.0.0/assets/4.png)
 
   ## Troubleshooting
   The most common issue is that the IP address of the sender (ie. Keptn) doesn't match the IP that osTicket allows to create tickets. Ensure the Keptn IP and the IP you have entered during API key creation match. There is no way to use domain names instead of IPs. This is an osTicket limitation, not a Keptn limitation.
