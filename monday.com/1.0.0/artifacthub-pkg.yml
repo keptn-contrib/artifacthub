@@ -7,6 +7,7 @@ createdAt: 2022-04-08T00:00:00Z
 description: Keptn integration with Monday.com
 digest: 2022-04-08T00:00:00Z
 license: Apache-2.0
+logoURL: https://upload.wikimedia.org/wikipedia/commons/c/c6/Monday_logo.svg
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
