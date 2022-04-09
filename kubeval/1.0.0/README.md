@@ -4,11 +4,11 @@ Use kubeval to validate Kubernetes YAML files inside a Keptn sequence. More info
 
 Whenever valid files are provided, the Keptn task passes:
 
-![valid evaluation](/assets/valid.png)
+![valid evaluation](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/kubeval/1.0.0/assets/valid.png)
 
 Invalid YAML files cause the task to fail (as they should because kubeval is providing the error):
 
-![invalid evaluation](/assets/invalid.png)
+![invalid evaluation](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/kubeval/1.0.0/assets/invalid.png)
 
 
 
