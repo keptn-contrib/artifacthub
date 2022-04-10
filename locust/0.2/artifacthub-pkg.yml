@@ -1,0 +1,22 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.2.0
+name: locust-service
+displayName: Locust Service
+createdAt: 2022-04-10T00:00:00Z
+description: Keptn service to perform performance test on your application triggered by Keptn using the Locust performance testing tool.
+logoURL: https://pbs.twimg.com/profile_images/1867636195/locust-logo-orignal_400x400.png
+digest: 2022-04-10T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - testing
+  - locust
+  - job-executor
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/org: "keptn"
+  keptn/version: "0.12.x-0.14.x"
