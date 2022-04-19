@@ -17,12 +17,12 @@ links:
     url: https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using
 install: |
   # Keptn Microsoft Teams Webhook Integration
-  ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/msteams/1.0.0/images/1.png)
+  ![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/msteams/1.0.0/assets/1.png)
 
   Configure MS Teams notifications from Keptn using the Keptn `webhook service` and the incoming Webhooks connector of Microsoft Teams
 
   ## Step 1: MS Teams Incoming Webhook Connector
-  ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/msteams/1.0.0/images/2.png)
+  ![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/msteams/1.0.0/assets/2.png)
 
   Create a new `Incoming webhook connector` in Teams. Click on the channel and go to `Connectors`. Create an incoming webhook named `Keptn`.triggered
 
@@ -82,7 +82,7 @@ install: |
   }
   ```
 
-  ![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/msteams/1.0.0/images/3.png)
+  ![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/msteams/1.0.0/assets/3.png)
   
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
