@@ -1,0 +1,23 @@
+version: 0.9.3
+name: argo-service
+displayName: Argo Service
+createdAt: '2022-04-29T14:53:12Z'
+description: Keptn service for Argo CD - Declarative GitOps CD for Kubernetes.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/argo/stacked/color/argo-stacked-color.svg
+digest: '2022-04-29T14:53:12Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- argo
+- deployment
+- contrib
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/argo-service
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: deployment
+  keptn/org: contrib
+  keptn/version: 0.10.x
