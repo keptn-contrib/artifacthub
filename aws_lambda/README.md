@@ -12,7 +12,7 @@
   
   1. Have the Keptn webhook trigger your lambda function
 
-  Keptn needs a `task.finished` event so it knows teh task has been actioned so EITHER:
+  Keptn needs a `task.finished` event so it knows the task has been actioned so EITHER:
   1. Instruct the webhook service to send the `task.finished` event automatically (returns immediately so will not accurately time lamda execution time) OR
   1. Craft a `task.finished` event in Lambda and send from your function (enables accurate Lambda execution time tracking in Keptn & ability to send data back to Keptn)
   
