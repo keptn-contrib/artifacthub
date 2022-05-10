@@ -6,7 +6,7 @@ displayName: k6
 createdAt: 2022-02-02T00:00:00Z
 description: Run k6 Load Testing Tool from Keptn
 logoURL: https://raw.githubusercontent.com/grafana/k6/master/assets/logo.svg
-digest: 2022-05-10T00:00:00Z
+digest: 2022-05-10T00:01:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
