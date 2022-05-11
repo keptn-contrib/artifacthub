@@ -40,4 +40,4 @@ recommendations:
 annotations:
   keptn/kind: observability
   keptn/org: contrib
-  keptn/version: 0.10.0-0.11.3
+  keptn/version: 0.13.x
