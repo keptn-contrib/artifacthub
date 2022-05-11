@@ -1,8 +1,8 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 1.0.0
-name: k6
-displayName: k6
+name: k6 Keptn Integration
+displayName: k6 Load Testing Integration with Keptn
 createdAt: 2022-02-02T00:00:00Z
 description: Run k6 Load Testing Tool from Keptn
 logoURL: https://raw.githubusercontent.com/grafana/k6/master/assets/logo.svg
@@ -14,35 +14,13 @@ keywords:
   - k6
   - grafana
 links:
-  - name: Source
+  - name: Keptn
     url: https://keptn.sh
+  - name: k6
+    url: https://github.com/grafana/k6
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "testing"
   keptn/org: "keptn"
   keptn/version: "0.10.0-0.15.0"
-install: |
-  # Run k6 with Keptn
-
-  [k6](https://k6.io) is an open source load generation tool. Keptn can be used to trigger k6 by using the [Job Executor Service](https://github.com/keptn-contrib/job-executor-service).
-
-  1. At the root of your stage branch, create two folders. `files` and `job`
-  1. Inside the `files` folder, create a folder to hold your k6 files called `k6`
-  1. Inside `files/k6` drop your k6 load test `.js` file (eg. `test.js`)
-  1. Inside the `job` folder, create a file called `config.yaml`
-
-  ```
-  apiVersion: v2
-  actions:
-    - name: "Run k6"
-      events:
-        - name: "sh.keptn.event.test.triggered"
-      tasks:
-        - name: "Run k6 with Keptn"
-          files:
-            - /k6
-          image: "loadimpact/k6"
-          cmd: ["k6"]
-          args: ["run", "--duration", "30s", "--vus", "60", "/keptn/k6/test.js"]
-  ```
