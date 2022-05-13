@@ -1,0 +1,26 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: k6 Keptn Integration
+displayName: k6 Load Testing Integration with Keptn
+createdAt: 2022-02-02T00:00:00Z
+description: Run k6 Load Testing Tool from Keptn
+logoURL: https://raw.githubusercontent.com/grafana/k6/master/assets/logo.svg
+digest: 2022-05-10T00:01:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - k6
+  - grafana
+links:
+  - name: Keptn
+    url: https://keptn.sh
+  - name: k6
+    url: https://github.com/grafana/k6
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0-0.15.0"
