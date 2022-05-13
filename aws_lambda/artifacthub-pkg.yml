@@ -1,0 +1,23 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: aws-lambda
+displayName: AWS Lambda Integration
+createdAt: 2022-05-10T00:00:00Z
+description: Use AWS Lambda with Keptn
+logoURL: https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws_lambda/1.0.0/assets/Lambda.svg
+digest: 2022-05-11T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - aws
+  - lambda
+links:
+  - name: Source
+    url: https://aws.amazon.com/lambda
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "webhook"
+  keptn/version: "0.10.0-0.15.0"
