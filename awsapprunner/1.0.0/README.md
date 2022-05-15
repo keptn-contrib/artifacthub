@@ -9,7 +9,7 @@ Keptn can integrate with AWS App Runner in 3 ways:
 
 # Fire and Forget Trigger App Runner
 
-![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/aws-app-runner/assets/fire-and-forget-sequence.svg)
+![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws-app-runner/assets/fire-and-forget-sequence.svg)
 
 This is the most basic integration. Trigger AppRunner from a Keptn task event.
 
@@ -27,11 +27,11 @@ This is easy and very quick to get started but it has two behaviours that should
 1. AppRunner is always assumed to finish immediately
 1. AppRunner is always assumed to finish successfully
 
-![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/aws-app-runner/assets/fire-and-forget-webhook.png)
+![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws-app-runner/assets/fire-and-forget-webhook.png)
 
 # Fire and Wait Trigger App Runner
 
-![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/aws-app-runner/assets/fire-and-wait-sequence.svg)
+![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws-app-runner/assets/fire-and-wait-sequence.svg)
 
 This is a more complex integration which requires modification of your AppRunner and the ability for it to send the `task.finished` event back to Keptn.
 
@@ -54,7 +54,7 @@ In this integration style, AppRunner is responsible for sending the finished eve
 
 This is an integration the opposite way around. Here, AppRunner is triggering a Keptn sequence.
 
-![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/aws-app-runner/1.0.0/assets/app-runner-trigger-keptn-sequence.svg)
+![](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws-app-runner/1.0.0/assets/app-runner-trigger-keptn-sequence.svg)
 
 
 The AppRunner code needs to craft a `sequence.triggered` payload and `POST` it to the Keptn `/api/v1/event` endpoint.
