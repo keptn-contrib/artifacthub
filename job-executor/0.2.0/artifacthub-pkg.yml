@@ -19,19 +19,32 @@ links:
 install: '''The *job-executor-service* can be installed as a part of [Keptns uniform](https://keptn.sh)
   using `helm`:
 
-
   ```bash
+  JES_VERSION="0.2.0"
+  JES_NAMESPACE="keptn-jes"
+  TASK_SUBSCRIPTION="sh.keptn.event.remote-task.triggered" # Add the relevant events here in a comma-separated list
 
-  helm upgrade --install -n keptn-jes job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/<VERSION>/job-executor-service-<VERSION>.tgz
-  --reuse-values
-
+  helm upgrade --install --create-namespace -n ${JES_NAMESPACE} \
+    job-executor-service "https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz" \
+  --set remoteControlPlane.autoDetect.enabled="true",remoteControlPlane.topicSubscription="${TASK_SUBSCRIPTION}",remoteControlPlane.api.token="",remoteControlPlane.api.hostname="",remoteControlPlane.api.protocol=""
   ```
 
+  To upgrade to a newer version of *job-executor-service* keeping the previous version helm values, first save the existing installation values
+  to a helm override file
+  ```shell
+  JES_NAMESPACE="keptn-jes"
+  helm -n ${JES_NAMESPACE} get values job-executor-service > values.yaml
+  ```
+  then upgrade using the previous installation value file as an override
+  ```bash
+  JES_VERSION="0.2.0"
+  JES_NAMESPACE="keptn-jes"
+  helm upgrade -n ${JES_NAMESPACE} \
+    job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz \
+    -f values.yaml
+  ```
 
-  Please replace `<VERSION>` with the actual version you want to install from the
-
-  compatibility matrix above or the [GitHub releases page](https://github.com/keptn-contrib/job-executor-service/releases).
-
+  For more info about installing or upgrading `job-executor-service` please refer to the [installation instructions](docs/INSTALL.md)
 
   ''
 
