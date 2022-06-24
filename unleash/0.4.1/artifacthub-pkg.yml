@@ -1,0 +1,45 @@
+version: 0.4.1
+name: unleash-service
+displayName: Unleash Service
+createdAt: '2022-06-23T13:53:55Z'
+description: Keptn service for interacting with the open source feature toggle system
+  unleash
+logoURL: https://raw.githubusercontent.com/Unleash/unleash/master/.github/Logo_DarkBlue_Transparent_Portrait.svg
+digest: '2022-06-23T13:53:55Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- unleash
+- contrib
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/unleash-service
+install: '## To deploy the `unleash-service` in version 0.3.2, execute the following
+  command:
+
+
+  ```bash
+
+  kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml
+  -n keptn
+
+  ```
+
+
+  ## Uninstall the unleash-service
+
+
+  ```bash
+
+  kubectl delete -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml
+  -n keptn
+
+  ```
+
+  '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/org: contrib
+  keptn/version: 0.8.4-0.8.7
