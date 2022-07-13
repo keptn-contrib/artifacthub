@@ -14,7 +14,7 @@ links:
   url: https://github.com/keptn-sandbox/datadog-service/tree/release-0.15.0
 annotations:
   keptn/org: sandbox
-install: '## Execute the following steps to install prometheus-service:
+install: '## Execute the following steps to install datadog-service:
 
   ```bash 
   export DD_API_KEY="<your-datadog-api-key>" DD_APP_KEY="<your-datadog-app-key>" DD_SITE="datadoghq.com"
