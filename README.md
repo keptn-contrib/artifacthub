@@ -24,6 +24,18 @@ optional arguments:
   -v VERSION, --version VERSION
                         Version (default=latest)
 ```
+Example:
+```bash
+# cd artifacthub
+python3 generate_config.py -r keptn-sandbox/datadog-service -v 0.2.0
+```
+Use pip to install the dependencies like this:
+```bash
+# cd artifacthub
+pip install -r requirements.txt 
+```
+The script was tested with python 3.8.10 (available by default on Ubuntu 20.04) and pip 3.8 
+
 
 ## Update existing version of a service
 
