@@ -14,8 +14,8 @@ This integration enables developers, performance engineers, DevOps, and SREs to 
     - Make an application directory such as /usr/local/keptn
     - In the application directory, download the files below.
       ```bash
-      curl https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/docker-compose.yml
-      curl https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/env.templ
+      curl -O https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/docker-compose.yml
+      curl -O https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/env.templ
       ```
     - Edit the `docker-compose.yml` file by specifying the certificate folder and corresponding files in order to expose the integration API called by Keptn webhook via HTTPS. This is the same folder specified when enabling HTTPS on Akamas.
     - Rename the `env.templ` file to `.env`, then edit the file by replacing the values of the `KEPTN_URL` and `KEPTN_TOKEN` variables with your own values. 
