@@ -15,14 +15,13 @@ keywords:
 links:
 - name: Source
   url: https://github.com/keptn-contrib/unleash-service
-install: '## To deploy the `unleash-service` in version 0.3.2, execute the following
+install: '## To deploy the `unleash-service` in version 0.4.1, execute the following
   command:
 
 
   ```bash
 
-  kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml
-  -n keptn
+  helm -n keptn install unleash-service https://github.com/keptn-contrib/unleash-service/releases/download/0.4.1/unleash-service-0.4.1.tgz
 
   ```
 
@@ -32,8 +31,7 @@ install: '## To deploy the `unleash-service` in version 0.3.2, execute the follo
 
   ```bash
 
-  kubectl delete -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.3.2/deploy/service.yaml
-  -n keptn
+  helm uninstall -n keptn unleash-service
 
   ```
 
@@ -42,4 +40,4 @@ recommendations:
 - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/org: contrib
-  keptn/version: 0.8.4-0.8.7
+  keptn/version: 0.14.2-0.16.0
