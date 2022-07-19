@@ -38,7 +38,6 @@ python3 generate_config.py -r keptn-sandbox/datadog-service -v 0.2.0
 
 The script was tested with Python 3.8.10.
 
-
 ## Update existing version of a service
 
 For updates of an existing version to take effect on Artifacthub, the `digest` parameter needs to be updated or added to the `artifacthub-pkg.yml` file of that version. A change of the digest parameter signals the Artifacthub backend to reprocess that version. To ensure the new `digest` value is unique, we use the current date of the change with the same format as the `createdAt` argument (RFC3339).
