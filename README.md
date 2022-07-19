@@ -36,7 +36,7 @@ Generate the config like this (should be executed from the root of the repositor
 python3 generate_config.py -r keptn-sandbox/datadog-service -v 0.2.0
 ```
 
-The script was tested with Python 3.
+The script was tested with Python 3.8.10.
 
 
 ## Update existing version of a service
