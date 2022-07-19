@@ -12,7 +12,7 @@ Images can be added to the README or `artifacthub-pkg.yml` file using [Markdown 
 
 ## Generate draft from a Github repository
 
-To quickly generate a draft of the `README.md` and `artifacthub-pkg.yml` for a new service, use the [`generate_config.py` file](generate_config.py).
+To quickly generate a draft of the `README.md` and `artifacthub-pkg.yml` for a new service, use the [`generate_config.py` file](generate_config.py). 
 
 ```
 usage: generate_config.py [-h] -r REPOSITORY [-v VERSION]
@@ -24,6 +24,19 @@ optional arguments:
   -v VERSION, --version VERSION
                         Version (default=latest)
 ```
+
+Before the script can be executed the first time, the required dependencies have to be installed via pip (should be executed from the root of the repository):
+
+```bash
+pip install -r requirements.txt 
+```
+
+Generate the config like this (should be executed from the root of the repository):
+```bash
+python3 generate_config.py -r keptn-sandbox/datadog-service -v 0.2.0
+```
+
+The script was tested with Python 3.8.10.
 
 ## Update existing version of a service
 
