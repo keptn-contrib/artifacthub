@@ -19,9 +19,11 @@ annotations:
 install: '## Execute the following steps to install datadog-service:
 
   ```bash 
-  export DD_API_KEY="<your-datadog-api-key>" DD_APP_KEY="<your-datadog-app-key>" DD_SITE="datadoghq.com"
-  helm install -n keptn datadog-service https://github.com/keptn-sandbox/datadog-service/releases/download/0.15.0/datadog-service-0.15.0.tar.gz --set datadogservice.ddApikey=${DD_API_KEY} --set datadogservice.ddAppKey=${DD_APP_KEY} --set datadogservice.ddSite=${DD_SITE}
-  ```
+  export DD_API_KEY="<your-datadog-api-key>" DD_APP_KEY="<your-datadog-app-key>" DD_SITE="datadoghq.com"  
+
+  helm install -n keptn datadog-service https://github.com/keptn-sandbox/datadog-service/releases/download/0.15.0/datadog-service-0.15.0.tar.gz --set datadogservice.ddApikey=${DD_API_KEY} --set datadogservice.ddAppKey=${DD_APP_KEY} --set datadogservice.ddSite=${DD_SITE}  
+  ```  
+  
   Check [the official docs](https://docs.datadoghq.com/account_management/api-app-keys/) for how to create Datadog API key and Application key
 
 
