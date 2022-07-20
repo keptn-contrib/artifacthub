@@ -1,0 +1,21 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.1.0
+name: Akamas
+displayName: Akamas webhook integration
+createdAt: 2022-06-28T00:00:00Z
+description: Manage the execution of an Akamas study and receive the suggested configuration. This integration leverages Keptn's webhook-service.
+logoURL: https://www.akamas.io/wp-content/uploads/2022/06/Logo-Akamas.png
+digest: 2022-06-28T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - akamas
+  - optimization
+links:
+  - name: Video
+    url: https://www.youtube.com/watch?v=O-tNcGGLQX8&t=1s
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "webhook,optimization"
