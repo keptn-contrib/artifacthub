@@ -26,12 +26,12 @@ install: "# Installation\n\nThe dynatrace-service can be installed in three step
   \ credentials\n\nThe dynatrace-service requires access to the Keptn API consisting\
   \ of `KEPTN_API_URL`, `KEPTN_API_TOKEN` and optionally `KEPTN_BRIDGE_URL`.\n\n*\
   \ To get the values for `KEPTN_API_URL` (also known as `KEPTN_ENDPOINT`), please\
-  \ see [Authenticate Keptn CLI](https://keptn.sh/docs/0.10.x/operate/install/#authenticate-keptn-cli).\n\
+  \ see [Authenticate Keptn CLI](https://keptn.sh/docs/0.16.x/operate/install/#authenticate-keptn-cli).\n\
   \n* By default, the `KEPTN_API_TOKEN` is read from the `keptn-api-token` secret\
   \ (i.e., the secret from the control-plane) and does not need to be set during installation.\n\
   \n* If you would like to use backlinks from your Dynatrace tenant to the Keptn Bridge,\
   \ provide the service with `KEPTN_BRIDGE_URL`. For further details about this value,\
-  \ please see [Authenticate Keptn Bridge](https://keptn.sh/docs/0.10.x/operate/install/#authenticate-keptn-bridge).\n\
+  \ please see [Authenticate Keptn Bridge](https://keptn.sh/docs/0.16.x/operate/install/#authenticate-keptn-bridge).\n\
   \nIf running on a Linux or Unix based system, you can assign these to environment\
   \ variables to simplify the installation process: \n\n```console\nKEPTN_API_URL=<KEPTN_API_URL>\n\
   KEPTN_BRIDGE_URL=<KEPTN_BRIDGE_URL> # optional\n```\n\nAlternatively, replace the\
@@ -41,11 +41,10 @@ install: "# Installation\n\nThe dynatrace-service can be installed in three step
   \ dynatrace-service -n keptn \\\n    <HELM_CHART_FILENAME> \\\n    --set dynatraceService.config.keptnApiUrl=$KEPTN_API_URL\
   \ \\\n    --set dynatraceService.config.keptnBridgeUrl=$KEPTN_BRIDGE_URL\n```\n\n\
   **Note:** \n- You can select additional installation options by appending key-value\
-  \ pairs with the syntax `--set key=value`. Further details are provided in [Additional\
-  \ installation options](additional-installation-options.md).\n"
+  \ pairs with the syntax `--set key=value`.\n"
 recommendations:
 - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: observability
   keptn/org: contrib
-  keptn/version: 0.11.x
+  keptn/version: 0.16.x
