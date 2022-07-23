@@ -1,0 +1,27 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: infracost
+displayName: Infracost Integration
+createdAt: 2022-07-23T00:00:00Z
+description: Keptn integration with Infracost
+logoPath: assets/infracost.png
+digest: 2022-07-23T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - infracost
+  - cost control
+  - cloud cost control
+  - cicd
+  - devops
+links:
+  - name: Source
+    url: https://infracost.io
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "cost,cost control,finops"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0-0.17.0"
