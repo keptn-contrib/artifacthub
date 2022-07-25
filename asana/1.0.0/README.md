@@ -9,7 +9,7 @@ The [keptn webhook service](https://github.com/keptn/keptn/tree/master/webhook-s
 
 Examples:
   - Create a new task every time a deployment occurs. Include the pass / fail status of the deployment
-  - Create a new task every time a load test or evaluation is finished. Include the results any output of the test / evaluation
+  - Create a new task every time a load test or evaluation is finished. Include the results and any output of the test / evaluation
   - Tag Asana users in tasks to notify them that action is required
 
 ## Step 1: Gather Asana Details
