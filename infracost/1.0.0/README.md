@@ -43,12 +43,12 @@ In your Git upstream, add the following files to your stage branch (eg. `dev`). 
 
 For example: `service1/job/config.yaml` on the `dev` branch.
 
-- [Job Executor Config File](https://github.com/agardnerIT/keptninfracost2/blob/dev/service1/job/config.yaml)
-- [Terraform plan.json file](https://github.com/agardnerIT/keptninfracost2/blob/dev/service1/files/plan.json)
+- [Job Executor Config File](https://github.com/agardnerIT/keptn-infracost-demo/blob/dev/service1/job/config.yaml)
+- [Terraform plan.json file](https://github.com/agardnerIT/keptn-infracost-demo/blob/dev/service1/files/plan.json)
 
 ## Example Shipyard
 
-[Here is an example Shipyard file.](https://github.com/agardnerIT/keptninfracost2/blob/master/shipyard.yaml)
+[Here is an example Shipyard file.](https://github.com/agardnerIT/keptn-infracost-demo/blob/master/shipyard.yaml)
 ```
 apiVersion: "spec.keptn.sh/0.2.2"
 kind: "Shipyard"
