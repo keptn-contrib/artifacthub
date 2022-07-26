@@ -1,6 +1,6 @@
 # Infracost Integration with Keptn
 
-![infracost running in keptn](./assets/infracost-keptn.png)
+![infracost running in keptn](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/infracost/1.0.0/assets/infracost-keptn.png)
 
 This integration uses the [job executor service](https://github.com/keptn-contrib/job-executor-service).
 
