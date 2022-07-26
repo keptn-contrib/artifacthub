@@ -70,7 +70,7 @@ The *unleash-service* can be installed as a part of [Keptn's uniform](https://ke
 You can deploy the current version of the *unleash-service* in your Kubernetes cluster into the same namespace as your Keptn control-plane (e.g., `keptn`):
 
 ```console
-helm -n keptn install unleash-service https://github.com/keptn-contrib/unleash-service/releases/download/0.4.0/unleash-service-0.4.0.tgz
+helm -n keptn install unleash-service https://github.com/keptn-contrib/unleash-service/releases/download/0.4.1/unleash-service-0.4.1.tgz
 ```
 
 If you're installing versions of 0.3.2 and older, please use
