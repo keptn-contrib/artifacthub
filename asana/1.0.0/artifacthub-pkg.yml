@@ -19,4 +19,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.15.0"
+  keptn/version: "0.10.0-0.17.0"
