@@ -6,7 +6,7 @@ This integration enables developers, performance engineers, DevOps, and SREs to 
 
 1. Install Akamas (make sure you have a valid license).
 2. Port 6000 must be open on the Akamas server. 
-3. Install the Akamas pre-built container. This container will act as a bi-directional bridge between Akamas Studies and Keptn webhooks. 
+3. Install the Akamas pre-built container on the Akamas server. This container will act as a bi-directional bridge between Akamas Studies and Keptn webhooks. Make sure host and port 6000 is publicly reachable on the Akamas server. Port 6000 is the predefined port and if you need to use a different host, or certificate, then please contact Akamas support.
 
     <details>
     <summary>How to install the Akamas container</summary>
@@ -15,10 +15,10 @@ This integration enables developers, performance engineers, DevOps, and SREs to 
     - In the application directory, download the files below.
       ```bash
       curl https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/docker-compose.yml -o docker-compose.yml
-      curl https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/env.templ -o env.templ
+      curl https://akamas.s3.us-east-2.amazonaws.com/integrations/keptn/env.templ -o .env
       ```
-    - Edit the `docker-compose.yml` file by specifying the certificate folder and corresponding files in order to expose the integration API called by Keptn webhook via HTTPS. This is the same folder specified when enabling HTTPS on Akamas.
-    - Rename the `env.templ` file to `.env`, then edit the file by replacing the values of the `KEPTN_URL` and `KEPTN_TOKEN` variables with your own values. 
+    - Edit the `docker-compose.yml` file by specifying the certificate folder and corresponding files in order to expose the integration API called by Keptn webhook via HTTPS. This is the same folder specified when enabling HTTPS on Akamas. The predefined names for the certificates are `akamas.pem` and `akamas.key`.
+    - Edit the `.env` file by replacing the values of the `KEPTN_URL` and `KEPTN_TOKEN` variables with your own values. 
     - Start the container.
       ```bash
       docker-compose up -d
