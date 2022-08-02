@@ -7,14 +7,6 @@ If you want to learn more about Keptn visit us on [keptn.sh](https://keptn.sh)
 
 Check the issue here for more info: https://github.com/keptn/integrations/issues/20
 
-
-**BEFORE YOU START**, please be aware that there are more ways to integrate with your service that don't require creating a service from this template, see https://keptn.sh/docs/0.15.x/integrations/how_integrate/ for more details.
-
-Examples:
-
-* Webhooks: https://keptn.sh/docs/0.15.x/integrations/webhooks/
-* Job-Executor-Service: https://github.com/keptn-sandbox/job-executor-service
-
 ## Quickstart
 If you are on Mac or Linux, you can use [examples/kup.sh](https://raw.githubusercontent.com/keptn-sandbox/sumologic-service/release-0.15.0/examples/kup.sh) to set up a local Keptn installation that uses Sumo Logic. This script creates a local minikube cluster, installs Keptn, Istio, Sumo Logic and the Sumo Logic integration for Keptn (check the script for pre-requisites). 
 
@@ -26,13 +18,13 @@ examples/kup.sh
 Check [the official docs](https://help.sumologic.com/Manage/Security/Access-Keys#manage-your-access-keys-on-preferences-page) for how to create the Sumo Logic access ID and access key
 
 ## If you already have a Keptn cluster running
-1. Install Sumo Logic
+**1. Install Sumo Logic**
 ```bash
 export ACCESS_ID="<your-sumologic-access-id>" ACCESS_KEY="<your-sumologic-access-key>"
 helm upgrade --install my-sumo sumologic/sumologic   --set sumologic.accessId="${ACCESS_ID}"   --set sumologic.accessKey="${ACCESS_KEY}"   --set sumologic.clusterName="keptn-sumo"
 
 ```
-2. Install Keptn sumologic-service to integrate Sumo Logic with Keptn
+**2. Install Keptn sumologic-service to integrate Sumo Logic with Keptn**
 ```bash
 export ACCESS_ID="<your-sumologic-access-id>" ACCESS_KEY="<your-sumologic-access-key>"
 # cd sumologic-service
@@ -40,7 +32,7 @@ helm install sumologic-service ../helm --set sumologicservice.accessId=${ACCESS_
 
 ```
 
-3. Add SLI and SLO
+**3. Add SLI and SLO**
 ```bash
 keptn add-resource --project="<your-project>" --stage="<stage-name>" --service="<service-name>" --resource=/path-to/your/sli-file.yaml --resourceUri=sumologic/sli.yaml
 keptn add-resource --project="<your-project>"  --stage="<stage-name>" --service="<service-name>" --resource=/path-to/your/slo-file.yaml --resourceUri=slo.yaml
@@ -58,8 +50,25 @@ Use keptn CLI version [0.15.0](https://github.com/keptn/keptn/releases/tag/0.15.
 ```bash
 keptn configure monitoring sumologic --project <project-name>  --service <service-name>
 ``` -->
+**4. Configure Keptn to use Sumo Logic SLI provider**  
 
-5. Trigger delivery
+There's an [open PR](https://github.com/keptn/keptn/pull/8546) to support `keptn configure monitoring sumologic` in the future releases but for now, you need to configure Keptn to use Sumo Logic manually by creating a ConfigMap like this:
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: lighthouse-config-<your-project-name>
+  namespace: keptn
+data:
+  sli-provider: "sumologic"
+
+```
+[Example](https://raw.githubusercontent.com/keptn-sandbox/sumologic-service/release-0.15.0/examples/quickstart/lighthouse_config.yaml)
+```
+kubectl apply -f <above-configmap-file>
+```
+
+**5. Trigger delivery**
 ```bash
 keptn trigger delivery --project=<project-name> --service=<service-name> --image=<image> --tag=<tag>
 ```
@@ -83,7 +92,7 @@ Based on https://help.sumologic.com/Metrics/Metric-Queries-and-Alerts/07Metrics_
 3. Quantize should be strictly defined as `query | quantize to [TIME INTERVAL] using [ROLLUP]` (this differs from how Sumo Logic quantize works. You need to be explicit here. Dropping [TIME INTERVAL] or `using` or `[ROLLUP]` won't work)  
 
 Why so many rules? Because [Sumo Logic API does not support quantize in the query](https://api.sumologic.com/docs/#operation/runMetricsQueries). We have implemented a wrapper
-which mimics quantize which works well if you adhere to 
+which mimics quantize which works well if you adhere to the above rules.
 
 ## Compatibility Matrix
 
@@ -106,6 +115,22 @@ helm upgrade --install my-sumo sumologic/sumologic   --set sumologic.accessId="$
 ```bash
 keptn configure monitoring sumologic --project <project-name>  --service <service-name>
 ``` -->
+
+Tell Keptn to use Sumo Logic as the SLI provider for your project/service ([future releases will support a better way to do this](https://github.com/keptn/keptn/pull/8546)):
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: lighthouse-config-<your-project-name>
+  namespace: keptn
+data:
+  sli-provider: "sumologic"
+
+```
+[Example](https://raw.githubusercontent.com/keptn-sandbox/sumologic-service/release-0.15.0/examples/quickstart/lighthouse_config.yaml)
+```
+kubectl apply -f <above-configmap-file>
+```
 
 This should install the `sumologic-service` together with a Keptn `distributor` into the `keptn` namespace, which you can verify using
 
