@@ -96,8 +96,6 @@ which mimics quantize which works well if you adhere to the above rules.
 
 ## Compatibility Matrix
 
-*Please fill in your versions accordingly*
-
 | Keptn Version    | [sumologic-service Docker Image](https://github.com/keptn-sandbox/sumologic-service/pkgs/container/sumologic-service) |
 |:----------------:|:----------------------------------------:|
 |       0.15.0      | keptn-sandbox/sumologic-service:0.15.0 |
