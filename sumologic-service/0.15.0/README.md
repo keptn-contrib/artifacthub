@@ -5,7 +5,7 @@
 This implements the `sumologic-service` that integrates the [Sumo Logic](https://en.wikipedia.org/wiki/Sumo_Logic) observability platform with Keptn. This enables you to use Sumo Logic as the source for the Service Level Indicators ([SLIs](https://keptn.sh/docs/0.15.x/reference/files/sli/)) that are used for Keptn [Quality Gates](https://keptn.sh/docs/concepts/quality_gates/).
 If you want to learn more about Keptn visit us on [keptn.sh](https://keptn.sh)
 
-Check the issue here for more info: https://github.com/keptn/integrations/issues/20
+You can find more information about the service in the [proposal issue](https://github.com/keptn/integrations/issues/20)
 
 ## Quickstart
 If you are on Mac or Linux, you can use [examples/kup.sh](https://raw.githubusercontent.com/keptn-sandbox/sumologic-service/release-0.15.0/examples/kup.sh) to set up a local Keptn installation that uses Sumo Logic. This script creates a local minikube cluster, installs Keptn, Istio, Sumo Logic and the Sumo Logic integration for Keptn (check the script for pre-requisites). 
@@ -96,9 +96,9 @@ which mimics quantize which works well if you adhere to the above rules.
 
 ## Compatibility Matrix
 
-| Keptn Version    | [sumologic-service Docker Image](https://github.com/keptn-sandbox/sumologic-service/pkgs/container/sumologic-service) |
-|:----------------:|:----------------------------------------:|
-|       0.15.0      | keptn-sandbox/sumologic-service:0.15.0 |
+| Keptn Version    | [sumologic-service Docker Image](https://github.com/keptn-sandbox/sumologic-service/pkgs/container/sumologic-service) | Sumo Logic chart |
+|:----------------:|:----------------------------------------:| :----------------------------------------: |
+|       0.15.0      | keptn-sandbox/sumologic-service:0.15.0 | [2.14.1](https://github.com/SumoLogic/sumologic-kubernetes-collection/tree/v2.14.1/deploy/helm/sumologic) | 
 
 ## Installation
 
