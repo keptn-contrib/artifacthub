@@ -21,7 +21,13 @@
 
 argo/ @TannerGilbert
 
+aws_lambda/ @agardnerIT
+
+awsapprunner/ @agardnerIT
+
 artillery/ @TannerGilbert
+
+cloudcustodian/ @agardnerIT
 
 dynatrace/ @arthurpitman @heckelmann @jskelin @j-poecher @Kavindu-Dodan
 
@@ -29,15 +35,21 @@ githubaction/ @robertjahn
 
 grafana/ @TannerGilbert
 
-ifttt/ @agardnerit
+ifttt/ @agardnerIT
+
+infracost/ @agardnerIT
 
 jenkins-library/ @keptn-contrib/keptn-ecosystem
 
-jira/ @agardnerit
+jira/ @agardnerIT
 
 jmeter/ @TannerGabriel
 
 job-executor/ @keptn-contrib/keptn-ecosystem
+
+k6/ @jainammm
+
+kubeval/ @agardnerIT
 
 litmus/ @TannerGilbert
 
@@ -45,20 +57,34 @@ locust/ @TannerGilbert
 
 monaco/ @TannerGilbert
 
+monday.com/ @agardnerIT
+
 neoload/ @TannerGilbert @guillaumebert
 
 notification/ @TannerGilbert
 
 onechart/ @laszlocph
 
+osticket/ @agardnerIT
+
+powershell/ @agardnerIT
+
 prometheus/ @keptn-contrib/keptn-ecosystem
 
 servicenow/ @TannerGilbert
+
+shell/ @agardnerIT
 
 slack/ @johannes-b
 
 slackbot/ @TannerGilbert
 
+trello/ @agardnerIT
+
 unleash/ @TannerGilbert
 
-zapier/ @agardnerit
+wrike/ @agardnerIT
+
+zapier/ @agardnerIT
+
+zendesk/ @agardnerIT
