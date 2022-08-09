@@ -2,6 +2,9 @@
 
 This repository holds the metadata for Keptn integrations to be listed on the [ArtifactHub](https://artifacthub.io). Each Keptn integration listed needs to have an [`artifacthub-pkg.yml` file](https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml) and a `README.md` file.
 
+## Contributing
+We're glad you want to contribute to Keptn. See [CONTRIBUTING](CONTRIBUTING) for more info.
+
 ## `artifacthub-pkg.yml` structure
 
 For the integration to be displayed correctly, the `artifacthub-pkg.yml` file needs to meet the [syntax requirements described on the AH repository](https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml). The `version`, `name`, `displayName`, `createdAt`, and `description` attributes are required by AH. Additionally to the before-mentioned attributes, it's also recommended to add the `digest` as described in more detail in the ['Update existing version of a service' section](#update-existing-version-of-a-service).
