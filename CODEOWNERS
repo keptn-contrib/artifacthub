@@ -29,11 +29,11 @@ githubaction/ @robertjahn
 
 grafana/ @TannerGilbert
 
-ifttt/ @Dynatrace-Adam-Gardner
+ifttt/ @agardnerit
 
 jenkins-library/ @keptn-contrib/keptn-ecosystem
 
-jira/ @Dynatrace-Adam-Gardner
+jira/ @agardnerit
 
 jmeter/ @TannerGabriel
 
@@ -61,4 +61,4 @@ slackbot/ @TannerGilbert
 
 unleash/ @TannerGilbert
 
-zapier/ @Dynatrace-Adam-Gardner
+zapier/ @agardnerit
