@@ -20,7 +20,8 @@ When your integration is ready and tested:
 6. Modify the `artifacthub-pkg.yml` file with your details.
 7. Modify the `README.md` file with your instructions.
 8. If you have no screenshots, you can delete the `assets` folder.
-9. Create a PR back on the parent repo and someone will review.
+9. Modify the `CODEOWNERS` file and add yourself as an owner. On a new line, add the following syntax: `folderName + @YourGitHubUsername` eg. `myToolX @me`
+10. Create a PR back on the parent repo and someone will review.
 
 ## `artifacthub-pkg.yml` structure
 
