@@ -1,0 +1,49 @@
+version: 0.2.4
+name: job-executor-service
+displayName: Job Executor Service
+createdAt: '2022-08-11T05:37:58Z'
+description: Keptn service to run any container as a Kubernetes Job orchestrated by
+  Keptn.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
+digest: '2022-08-11T05:37:58Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- kubernetes
+- contrib
+- job-executor
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/job-executor-service
+install: '''The *job-executor-service* can be installed as a part of [Keptns uniform](https://keptn.sh)
+  using `helm`:
+
+  ```bash JES_VERSION="0.2.0" JES_NAMESPACE="keptn-jes" TASK_SUBSCRIPTION="sh.keptn.event.remote-task.triggered"
+  # Add the relevant events here in a comma-separated list
+
+  helm upgrade --install --create-namespace -n ${JES_NAMESPACE} \ job-executor-service
+  "https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz"
+  \ --set remoteControlPlane.autoDetect.enabled="true",remoteControlPlane.topicSubscription="${TASK_SUBSCRIPTION}",remoteControlPlane.api.token="",remoteControlPlane.api.hostname="",remoteControlPlane.api.protocol=""
+  ```
+
+  To upgrade to a newer version of *job-executor-service* keeping the previous version
+  helm values, first save the existing installation values to a helm override file
+  ```shell JES_NAMESPACE="keptn-jes" helm -n ${JES_NAMESPACE} get values job-executor-service
+  > values.yaml ``` then upgrade using the previous installation value file as an
+  override ```bash JES_VERSION="0.2.0" JES_NAMESPACE="keptn-jes" helm upgrade -n ${JES_NAMESPACE}
+  \ job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz
+  \ -f values.yaml ```
+
+  For more info about installing or upgrading `job-executor-service` please refer
+  to the [installation instructions](docs/INSTALL.md)
+
+  ''
+
+  '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: testing,deployment,notification,observability
+  keptn/org: contrib
+  keptn/version: 0.14.0-0.16.x
