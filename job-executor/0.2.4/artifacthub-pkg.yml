@@ -19,7 +19,7 @@ links:
 install: '''The *job-executor-service* can be installed as a part of [Keptns uniform](https://keptn.sh)
   using `helm`:
 
-  ```bash JES_VERSION="0.2.0" JES_NAMESPACE="keptn-jes" TASK_SUBSCRIPTION="sh.keptn.event.remote-task.triggered"
+  ```bash JES_VERSION="0.2.4" JES_NAMESPACE="keptn-jes" TASK_SUBSCRIPTION="sh.keptn.event.remote-task.triggered"
   # Add the relevant events here in a comma-separated list
 
   helm upgrade --install --create-namespace -n ${JES_NAMESPACE} \ job-executor-service
@@ -31,7 +31,7 @@ install: '''The *job-executor-service* can be installed as a part of [Keptns uni
   helm values, first save the existing installation values to a helm override file
   ```shell JES_NAMESPACE="keptn-jes" helm -n ${JES_NAMESPACE} get values job-executor-service
   > values.yaml ``` then upgrade using the previous installation value file as an
-  override ```bash JES_VERSION="0.2.0" JES_NAMESPACE="keptn-jes" helm upgrade -n ${JES_NAMESPACE}
+  override ```bash JES_VERSION="0.2.4" JES_NAMESPACE="keptn-jes" helm upgrade -n ${JES_NAMESPACE}
   \ job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz
   \ -f values.yaml ```
 
@@ -46,4 +46,4 @@ recommendations:
 annotations:
   keptn/kind: testing,deployment,notification,observability
   keptn/org: contrib
-  keptn/version: 0.14.0-0.16.x
+  keptn/version: 0.15.0-0.18.x
