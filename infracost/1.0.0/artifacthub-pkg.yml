@@ -5,8 +5,8 @@ name: infracost
 displayName: Infracost Integration
 createdAt: 2022-07-23T00:00:00Z
 description: Keptn integration with Infracost
-logoPath: "https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/infracost/1.0.0/assets/infracost.png"
-digest: 2022-07-23T00:00:00Z
+logoURL: https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/infracost/1.0.0/assets/infracost.png
+digest: 2022-078-16T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
