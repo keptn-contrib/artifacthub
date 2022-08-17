@@ -21,4 +21,4 @@ recommendations:
 annotations:
   keptn/kind: "observability,sli-provider"
   keptn/org: "keptn"
-  keptn/version: "0.10.0-0.18.*"
+  keptn/version: "0.10.0-0.18.x"
