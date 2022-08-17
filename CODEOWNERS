@@ -43,6 +43,8 @@ infracost/ @agardnerIT
 
 jenkins-library/ @keptn-contrib/keptn-ecosystem
 
+jes-metric-exporter/ @agardnerIT
+
 jira/ @agardnerIT
 
 jmeter/ @TannerGabriel

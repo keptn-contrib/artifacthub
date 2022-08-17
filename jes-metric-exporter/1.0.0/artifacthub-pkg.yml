@@ -1,0 +1,24 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: infracost
+displayName: Metric Exporter
+createdAt: 2022-08-11T00:00:00Z
+description: Export metrics from the Job Executor Service to Prometheus or Dynatrace
+digest: 2022-08-11T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - job executor service
+  - prometheus
+  - dynatrace
+links:
+  - name: Source
+    url: https://github.com/agardnerit/jes-metric-exporter
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "observability,sli-provider"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0-0.18.x"
