@@ -1,7 +1,7 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
 version: 1.0.0
-name: "metric exporter"
+name: metric-exporter
 displayName: Metric Exporter
 createdAt: 2022-08-11T00:00:00Z
 description: Export metrics from the Job Executor Service to Prometheus or Dynatrace
