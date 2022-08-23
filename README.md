@@ -1,7 +1,9 @@
-# Artifact Integration
+# Keptn Integrations ArtifactHub
 
-This repository holds the metadata for Keptn integrations to be listed on the [ArtifactHub](https://artifacthub.io). Each Keptn integration listed needs to have an [`artifacthub-pkg.yml` file](https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml) and a `README.md` file.
+This repository holds the metadata for Keptn integrations to be listed on the [ArtifactHub](https://artifacthub.io) and consequently [Keptn docs integration page](https://keptn.sh/docs/integrations/). 
 
-To be listed on the [Keptn docs integration page](https://keptn.sh/docs/integrations/), you must raise a PR in this repository.
+Each Keptn integration listed consists of at least an
+* [`artifacthub-pkg.yml` file](https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml), as well as
+* `README.md` file.
 
-To contribute, follow the [Contributors Guide](CONTRIBUTING.md).
+To get started, take a look at our [Contributors Guide](CONTRIBUTING.md).
