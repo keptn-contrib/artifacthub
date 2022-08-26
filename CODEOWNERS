@@ -9,14 +9,9 @@
 # FYI: Owners will be auto-assigned for code reviews as well
 #################################################################################
 
-# The Keptn Ecosystem team owns everything not owned by anyone else: Keptn Ecosystem https://github.com/orgs/keptn-contrib/teams/keptn-ecosystem/members
-* @keptn-contrib/keptn-ecosystem
-
-# Keptn Ecosystem team owns automations
-*.py @keptn-contrib/keptn-ecosystem
 
 #################################################################################
-# Services are owned by individual people (by default the person that initialy created the service)
+# Integrations are owned by individual people or teams (please add yourself when you add a new service/integration)
 #################################################################################
 
 argo/ @TannerGilbert
