@@ -4,8 +4,8 @@ version: 1.0.0
 name: jenkins-webhook
 displayName: Jenkins Webhook
 createdAt: 2022-08-26T00:00:00Z
-description: Keptn - Jenkins integration for Keptn > 0.12.*
-digest: 2022-08-26T00:00:00Z
+description: Keptn - Jenkins integration for Keptn versions 0.12.x and newer.
+digest: 2022-08-28T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
