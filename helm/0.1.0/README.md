@@ -210,7 +210,7 @@ SERVICE=helloservice
 keptn add-resource --project=$PROJECT --service=$SERVICE --all-stages --resource=./helm/helloservice.tgz --resourceUri=charts/$SERVICE.tgz
 ```
 
-## Test it
+## Run it
 
 The way this example is provided, it should integrate nicely with the Keptn CLI as well as Keptn Bridge. In order to test it, you just need to trigger a delivery sequence, e.g.,
 ```bash
@@ -226,6 +226,10 @@ SLOW_VERSION=v0.1.2
 
 keptn trigger delivery --project=$PROJECT --service=helloservice --image=$IMAGE:$SLOW_VERSION --labels=version=$SLOW_VERSION,slow=true
 ```
+
+## Limitations
+
+* Using this approach, you can not set any output fields in the `deployment.finished` Cloud Event, such as the `deploymentNames` or `deploymentURIs`. This means that any subsequent tasks can not automatically infer the `deploymentURI` themselves (e.g., `test` task of JMeter/Locust/...) and therefore this needs to be configured manually (e.g., `-JSERVER_URL=$(KEPTN_SERVICE).$(KEPTN_PROJECT)-$(KEPTN_STAGE).svc.cluster.local` for jmeter).
 
 ## Feedback
 
