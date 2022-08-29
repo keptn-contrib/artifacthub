@@ -8,16 +8,23 @@ This integration shows you how to leverage [Job-executor-service](https://github
 
 ### Step 1: Install the Job-Executor in your cluster
 
-Install [Job-Executor documentation](https://github.com/keptn-contrib/job-executor-service), and make sure it is subscribed to the following Keptn Cloud Events:
+Install [Job-Executor](https://github.com/keptn-contrib/job-executor-service) in a version compatible with your Keptn installation (see [GitHub Releases page](https://github.com/keptn-contrib/job-executor-service/releases), e.g., version 0.2.5 is compatible with Keptn 0.17.x), and make sure it is subscribed to the following Keptn Cloud Events:
 
 * `sh.keptn.event.deployment.triggered` (for actual deployments)
 * `sh.keptn.event.rollback.triggered` (for rollback sequence, i.e., when a previous deployment does not go well)
 * `sh.keptn.event.action.triggered` (for remediation sequence)
 
+This can verified in Keptn Bridge -> Project -> Settings -> Integrations -> job-executor-service.
+
+![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/helm/0.1.0/images/bridge_subscriptions.png)
+
+
 **Example Installation Instruction for Job Executor**
+Please update `JES_VERSION` and `JES_NAMESPACE` in the example below according to your needs.
+
 ```bash
 TASK_SUBSCRIPTION='sh.keptn.event.deployment.triggered\,sh.keptn.event.rollback.triggered\,sh.keptn.event.action.triggered'
-JES_VERSION=0.2.5-next.0
+JES_VERSION=0.2.5
 JES_NAMESPACE=keptn-jes
 
 helm upgrade --install --create-namespace -n ${JES_NAMESPACE} \
@@ -32,7 +39,7 @@ helm uninstall jmeter-service -n keptn
 
 ### Step 2: Make sure your project is set up properly with the right tasks.
 
-While technically not part of the installation instructions, it is worthwhile to mention the coupling between Keptn's shipyard file, and the respective Cloud Event Types configured for Job-Executor-Service. 
+While technically not part of the installation instructions, it is worthwhile to mention the coupling between Keptn's shipyard file, and the respective Cloud Event Types configured for Job Executor. 
 
 In example, you should have a monitoring provider (e.g,. Prometheus) configured already for `evaluation` tasks. In addition, for best results, your shipyard should contain at least one, better two stages, a `delivery` sequence, a `rollback` sequence, and a `remediation` sequence.
 
@@ -94,9 +101,9 @@ spec:
 
 ### Step 3: Add the Job-Executor configuration file
 
-The following job-executor configuration file (referred to as job config or `job/config.yaml`) allows you to
+The following Job Executor configuration file (referred to as job config or `job/config.yaml`) allows you to
 * deploy using `helm upgrade`,
-* rollback using `helm rollback`, and
+* rollback your deployment using `helm rollback`, and
 * scale up as a remediation action using `kubectl`
 
 Add the following content to a file called *helm-job-config.yaml* in your current working directory:
