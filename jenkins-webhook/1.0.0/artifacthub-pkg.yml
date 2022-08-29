@@ -1,0 +1,23 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: jenkins-webhook
+displayName: Jenkins Webhook
+createdAt: 2022-08-26T00:00:00Z
+description: Keptn - Jenkins integration for Keptn versions 0.12.x and newer.
+digest: 2022-08-28T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - jenkins
+  - webhook
+links:
+  - name: Source
+    url: https://www.youtube.com/watch?v=ehI23d7s-dY&t=50s
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "webhook,deployment,testing"
+  keptn/org: "keptn"
+  keptn/version: "0.12.0-0.19.x"
