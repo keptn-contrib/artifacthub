@@ -4,8 +4,8 @@ version: 0.2.0
 name: jmeter
 displayName: JMeter Job-Executor Integration
 createdAt: 2022-03-29T00:00:00Z
-digest: 2022-03-29T00:00:00Z
-description: Running JMeter tests using the Job-Executor service instead of the JMeter-Service
+digest: 2022-08-29T00:00:00Z
+description: Running JMeter tests using the Job-Executor service
 logoURL: https://jmeter.apache.org/images/logo.svg
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
