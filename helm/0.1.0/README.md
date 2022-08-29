@@ -227,6 +227,14 @@ SLOW_VERSION=v0.1.2
 keptn trigger delivery --project=$PROJECT --service=helloservice --image=$IMAGE:$SLOW_VERSION --labels=version=$SLOW_VERSION,slow=true
 ```
 
+**Expected Result in Keptn Bridge**
+
+![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/helm/0.1.0/images/bridge_deployment.png)
+
+
+![](https://raw.githubusercontent.com/keptn-sandbox/artifacthub/main/helm/0.1.0/images/bridge_rollback.png)
+
+
 ## Limitations
 
 * Using this approach, you can not set any output fields in the `deployment.finished` Cloud Event, such as the `deploymentNames` or `deploymentURIs`. This means that any subsequent tasks can not automatically infer the `deploymentURI` themselves (e.g., `test` task of JMeter/Locust/...) and therefore this needs to be configured manually (e.g., `-JSERVER_URL=$(KEPTN_SERVICE).$(KEPTN_PROJECT)-$(KEPTN_STAGE).svc.cluster.local` for jmeter).
