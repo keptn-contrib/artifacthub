@@ -12,7 +12,7 @@ This video explains both asynchronous and synchronous methods:
 [![Keptn Jenkins Webhook Integration](https://img.youtube.com/vi/ehI23d7s-dY/0.jpg)](https://www.youtube.com/watch?v=ehI23d7s-dY&t=50s)
 
 ## Asynchronously Trigger Jenkins
-In the bridge, navigate to a project and go to the Settings > Integrations page.
+In Keptn bridge, navigate to a project and go to the Settings > Integrations page.
 
 Select the webhook service and click the `+ Add subscription` button.
 
@@ -32,9 +32,9 @@ The task will look like this:
 
 ## Synchronously Trigger Jenkins
 
-In the bridge, navigate to a project and go to the Settings > Integrations page.
+In Keptn bridge, navigate to a project and go to the Settings > Integrations page.
 
-Select the webhook service and click the `+ Add subscription` button.
+Select the webhook-service and click the `+ Add subscription` button.
 
 When configuring the webhook, set `Send started event` to `automatically`. Set `Send finished event` to `by webhook receiver`.
 
@@ -44,7 +44,7 @@ With these settings, the webhook service will automatically generate and send a 
 
 Should Jenkins fail to send the `taskName.finished` event, the task will never end.
 
-1. Store the Keptn API token as a Jenkins credential
+1. Store the Keptn URL and Keptn API token as Jenkins credentials (shown as `keptn-url` and `keptn-api-token` below)
 2. Parameterise the Jenkins build
 3. Trigger the job using `/buildWithParameters` endpoint
 4. On triggering a job, send important Keptn parameters to Jenkins as Job parameters (see below)
@@ -60,7 +60,7 @@ Parameterise the Jenkins job and add the following parameters:
 
 ### Craft Webhook Requests
 
-The URL should be a POST and look something like this:
+The URL should be a `POST` and look something like this:
 
 ```
 https://myJenkins.com/job/JobName/buildWithParameters?keptnProject={{.data.project}}&keptnService={{.data.service}}&keptnStage={{.data.stage}}&keptnContext={{.shkeptncontext}}&keptnId={{.id}}&keptnTask=<YourTaskName>
@@ -74,6 +74,8 @@ These parameters are required so you can build a `taskName.finished` event when 
 
 Sending one or more `taskName.status.changed` event(s) **during** execution is also possible. Adjust the example below so the `type` is `sh.keptn.event.<taskName>.status.changed` rather than `sh.keptn.event.<taskName>.finished`.
 
+The `status` and `result` fields are important. They allow you to influence the status of the task and indicate what occurred during the job execution. The `status` field indicates whether the service executing the task was able to perform the task without any unexpected errors. Possible values are `succeeded`, `errored`,or `unknown`. The `result` field indicates the result of a successful task execution without unexpected problems. Possible values are `pass`, `warning`, or `fail`.
+
 ### Sample Pipeline
 
 ```
@@ -86,10 +88,20 @@ pipeline {
                 
                 echo 'Hello World'
                 sleep 10
+
+                // Perhaps craft and send a taskName.status.changed event here to inform Keptn of progress
+                sleep 10
+
+                // Tasks completed...
+                //Send the taskName.finished event 
+
                 
-                withCredentials([string(credentialsId: 'keptn-api-token', variable: 'KEPTN_API_TOKEN')]) {
-                  sh """
-                    curl -X POST http://myKeptn.com/api/v1/event \
+                withCredentials([
+                    string(credentialsId: 'keptn-url', variable: 'KEPTN_URL'),
+                    string(credentialsId: 'keptn-api-token', variable: 'KEPTN_API_TOKEN')
+                ]) {
+                  sh ""
+                    curl -X POST ${KEPTN_URL}/api/v1/event \
                     -H 'x-token: ${KEPTN_API_TOKEN}' \
                     -H 'Content-Type: application/json' \
                     --data-raw '{
