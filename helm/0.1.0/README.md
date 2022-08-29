@@ -2,7 +2,7 @@
 
 This integration shows you how to leverage [Job-executor-service](https://github.com/keptn-contrib/job-executor-service) for deployment with `helm` on your Kubernetes cluster.
 
-**Please note, that the instructions provided here serve the purpose of enabling you to run and configure your Kubernetes deployments using job-executor-service. They are in no way intended to be a complete reference of Kubernetes, nor Helm, nor Keptn.**
+**Please note, that the instructions provided here enable you to run and configure your Kubernetes deployments using the job-executor-service. They are in no way intended to be a complete reference of Kubernetes, nor Helm, nor Keptn.**
 
 ## Installation and Configuration
 
@@ -25,12 +25,12 @@ helm upgrade --install --create-namespace -n ${JES_NAMESPACE} \
   --set remoteControlPlane.autoDetect.enabled="true",remoteControlPlane.topicSubscription="${TASK_SUBSCRIPTION}",remoteControlPlane.api.token="",remoteControlPlane.api.hostname="",remoteControlPlane.api.protocol=""
 ```
 
-**In case you have installed helm-service, please uninstall it**
+**If you have installed helm-service, please uninstall it**
 ```bash
 helm uninstall jmeter-service -n keptn
 ```
 
-### Step 2: Make sure your project is setup properly with the right tasks
+### Step 2: Make sure your project is set up properly with the right tasks.
 
 While technically not part of the installation instructions, it is worthwhile to mention the coupling between Keptn's shipyard file, and the respective Cloud Event Types configured for Job-Executor-Service. 
 
@@ -159,7 +159,7 @@ keptn add-resource --project=$PROJECT --service=$SERVICE --all-stages --resource
 
 **Accessing the Kubernetes API**
 
-By default, job-executor-service does not grant access to the Kubernetes api, the respective jobs (e.g., `helm install` or `helm upgrade`) would fail with `The connection to the server localhost:8080 was refused - did you specify the right host or port?`.
+By default, `job-executor-service` does not grant access to the Kubernetes API, so the respective jobs (e.g., `helm install` or `helm upgrade`) would fail with `The connection to the server localhost:8080 was refused - did you specify the right host or port?`.
 
 The easiest (and also most insecure) way to have such a service account on Kubernetes is to apply the following Kubernetes manifest. 
 Please create a file called *k8s-jes-deploy-using-helm.yaml* with the following content:
