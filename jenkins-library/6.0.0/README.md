@@ -1,8 +1,10 @@
 # Keptn Jenkins Shared Library
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/keptn-sandbox/keptn-jenkins-library)
 
-Jenkins shared library for integrating Keptn Use Cases within your Jenkins Pipelines.
+- Using Keptn version 0.10.x, 0.11.x or 0.12.x? Use this integration method.
+- Using a Keptn version above 0.12.x? Use the [Keptn Jenkins Webhook Integration](https://artifacthub.io/packages/keptn/keptn-integrations/jenkins-webhook).
 
+Jenkins shared library for integrating Keptn Use Cases within your Jenkins Pipelines.
 
 ## Compatibility matrix
 
