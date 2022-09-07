@@ -3,8 +3,8 @@ name: jenkins-library
 displayName: Jenkins Shared Library
 createdAt: '2022-03-03T15:56:24Z'
 description: Jenkins shared library for integrating Keptn Use Cases with your Jenkins
-  Pipelines
-digest: '2022-03-03T15:56:24Z'
+  Pipelines. Use with Keptn versions 0.12.x and lower.
+digest: '2022-08-29T00:00:00Z'
 license: Apache-2.0
 logoURL: https://landscape.cd.foundation/logos/jenkins.svg
 homeURL: https://keptn.sh/docs/integrations/

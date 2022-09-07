@@ -100,7 +100,7 @@ pipeline {
                     string(credentialsId: 'keptn-url', variable: 'KEPTN_URL'),
                     string(credentialsId: 'keptn-api-token', variable: 'KEPTN_API_TOKEN')
                 ]) {
-                  sh ""
+                  sh """
                     curl -X POST ${KEPTN_URL}/api/v1/event \
                     -H 'x-token: ${KEPTN_API_TOKEN}' \
                     -H 'Content-Type: application/json' \

@@ -1,39 +1,39 @@
 # JMeter Job-Executor Integration
 
-This integration shows you how to run JMeter as a Kubernetes job using the [Job-executor-service](https://github.com/keptn-contrib/job-executor-service), reducing resource usage on the cluster since JMeter will only run if a test is triggered.
+This integration shows you how to leverage [Job-executor-service](https://github.com/keptn-contrib/job-executor-service) for running load tests using `JMeter` on your Kubernetes cluster.
 
-**Note: This integration still has some restrictions! See the [restrictions section](#restrictions) for more information.**
+**Please note, that the instructions provided here enable you to run and configure your Kubernetes deployments using the job-executor-service. They are in no way intended to be a complete reference of Kubernetes, nor JMeter, nor Keptn.**
 
-## Installation
+## Installation and Configuration
 
 ### Step 1: Install the Job-Executor in your cluster
 
-Please follow the [Job-Executor documentation](https://github.com/keptn-contrib/job-executor-service) for the installation process.
+Install [Job-Executor](https://github.com/keptn-contrib/job-executor-service) in a version compatible with your Keptn installation (see [GitHub Releases page](https://github.com/keptn-contrib/job-executor-service/releases), e.g., version 0.2.0 is compatible with Keptn 0.13.x), and make sure it is subscribed to the following Keptn Cloud Events:
 
-### Step 2: Disable the JMeter-Service
+* `sh.keptn.event.test.triggered`
 
-In case you have installed Keptns jmeter-service (e.g., `keptn install --use-case continuous-delivery` or `helm install jmeter-service https://github.com/keptn/keptn/releases/download/<KEPTN_VERSION>/jmeter-service-<KEPTN_VERSION>.tgz -n keptn --create-namespace --wait`), you can either temporarily disable or uninstall jmeter-service:
+This can verified in Keptn Bridge -> Project -> Settings -> Integrations -> job-executor-service.
 
-**Temporary disable keptn/jmeter-service:**
+**Example Installation Instructions**
+ Please update `JES_VERSION` and `JES_NAMESPACE` in the example below according to your needs.
 
 ```bash
-kubectl scale deployment/jmeter-service -n "keptn" --replicas=0
-```
+TASK_SUBSCRIPTION=sh.keptn.event.test.triggered
+JES_VERSION=0.2.0
+JES_NAMESPACE=keptn-jes
 
-Use
-```bash
-kubectl scale deployment/jmeter-service -n "keptn" --replicas=1
-```
-to re-enable it.
+helm upgrade --install --create-namespace -n $JES_NAMESPACE \
+  job-executor-service https://github.com/keptn-contrib/job-executor-service/releases/download/${JES_VERSION}/job-executor-service-${JES_VERSION}.tgz \
+ --set remoteControlPlane.autoDetect.enabled=true,remoteControlPlane.topicSubscription=${TASK_SUBSCRIPTION},remoteControlPlane.api.token="",remoteControlPlane.api.hostname="",remoteControlPlane.api.protocol=""
+ ```
 
-**Uninstall keptn/jmeter-service:**
+**If you have installed jmeter-service, uninstall it**
 
 ```bash
 helm uninstall jmeter-service -n keptn
 ```
 
-
-### Step 3: Build your own JMeter Docker image
+### Step 2: Build your own JMeter Docker image
 
 Since there are no official JMeter Docker images, we recommend to build your own (and customize it). Here is a Dockerfile with a basic JMeter installation, feel free to adapt!
 
