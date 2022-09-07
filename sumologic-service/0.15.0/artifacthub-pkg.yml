@@ -3,7 +3,7 @@ name: sumologic-service
 displayName: sumologic-service
 createdAt: '2022-07-29T18:15:46Z'
 description: Sumo Logic SLI provider for Keptn
-digest: '2022-07-29T23:48:51Z'
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:

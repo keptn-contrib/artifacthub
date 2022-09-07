@@ -5,7 +5,7 @@ createdAt: '2022-08-16T09:29:18Z'
 description: Keptn service that forwards Keptn events - occurring during a delivery
   workflow - to Dynatrace.
 logoURL: https://avatars.githubusercontent.com/u/6412311
-digest: '2022-08-16T09:29:18Z'
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:

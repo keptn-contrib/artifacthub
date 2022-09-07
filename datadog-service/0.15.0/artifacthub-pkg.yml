@@ -3,7 +3,7 @@ name: datadog-service
 displayName: datadog-service
 createdAt: '2022-07-12T06:21:51Z'
 description: Keptn SLI provider for datadog
-digest: '2022-07-12T11:58:42Z'
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
