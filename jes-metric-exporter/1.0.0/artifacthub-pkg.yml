@@ -13,6 +13,7 @@ keywords:
   - job executor service
   - prometheus
   - dynatrace
+  - sli-provider
 links:
   - name: Source
     url: https://github.com/agardnerit/jes-metric-exporter

@@ -13,6 +13,7 @@ keywords:
 - dynatrace
 - contrib
 - observability
+- sli-provider
 links:
 - name: Source
   url: https://github.com/keptn-contrib/dynatrace-service

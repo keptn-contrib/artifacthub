@@ -13,6 +13,7 @@ keywords:
 - monitoring
 - sumologic
 - sumo
+- sli-provider
 links:
 - name: Source
   url: https://github.com/keptn-sandbox/sumologic-service/tree/release-0.15.0

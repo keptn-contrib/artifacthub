@@ -11,6 +11,7 @@ keywords:
 - sandbox
 - observability
 - monitoring
+- sli-provider
 links:
 - name: Source
   url: https://github.com/keptn-sandbox/datadog-service/tree/release-0.15.0
