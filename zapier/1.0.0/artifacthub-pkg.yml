@@ -13,6 +13,8 @@ keywords:
   - keptn
   - monitoring
   - zapier
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://zapier.com
@@ -60,4 +62,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.8.0-0.12.0"
+  keptn/version: "0.10.x-0.18.x"

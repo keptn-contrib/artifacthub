@@ -6,13 +6,15 @@ displayName: AWS App Runner Keptn Integration
 createdAt: 2021-05-13T00:00:00Z
 description: Use AWS App Runner with Keptn
 logoURL: https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/awsapprunner/1.0.0/assets/Arch_AWS-App-Runner_64.svg
-digest: 2021-05-15T00:00:00Z
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - aws
   - apprunner
+  - webhook
+  - notification
 links:
   - name: Keptn
     url: https://keptn.sh
@@ -22,4 +24,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.15.0"
+  keptn/version: "0.10.0-0.18.x"

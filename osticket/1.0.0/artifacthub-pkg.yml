@@ -5,13 +5,15 @@ name: osTicket Integration
 displayName: osTicket Integration
 createdAt: 2022-04-08T00:00:00Z
 description: Keptn integration with osTicket
-digest: 2022-04-08T00:00:00Z
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 logoURL: https://github.com/osTicket/osTicket/raw/master/images/oscar-favicon-32x32.png
 keywords:
   - keptn
   - osticket
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://osticket.com

@@ -6,13 +6,14 @@ displayName: AWS Lambda Integration
 createdAt: 2022-05-10T00:00:00Z
 description: Use AWS Lambda with Keptn
 logoURL: https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/aws_lambda/1.0.0/assets/Lambda.svg
-digest: 2022-05-13T00:00:00Z
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - aws
   - lambda
+  - webhook
 links:
   - name: Source
     url: https://aws.amazon.com/lambda
@@ -20,4 +21,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.15.0"
+  keptn/version: "0.10.0-0.18.x"

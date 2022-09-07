@@ -13,6 +13,8 @@ keywords:
   - keptn
   - monitoring
   - zendesk
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://zendesk.com
@@ -71,4 +73,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.13.4"
+  keptn/version: "0.10.x-0.18.x"
