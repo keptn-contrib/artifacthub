@@ -35,7 +35,7 @@ helm uninstall jmeter-service -n keptn
 
 ### Step 2: Build your own JMeter Docker image
 
-Since there are no official JMeter Docker images, we recommend to build your own (and customize it). Here is a Dockerfile with a basic JMeter installation, feel free to adapt!
+Since there are no official JMeter Docker images, we recommend that you  build and customize your own. Here is a Dockerfile with a basic JMeter installation, feel free to adapt it!
 
 ```docker
 FROM alpine:3.15
@@ -106,9 +106,9 @@ docker push docker.io/yourorg/jmeter:latest
 
 ### Step 3: Make sure your project is set up properly with the right tasks.
 
-While technically not part of the installation instructions, it is worthwhile to mention the coupling between Keptn's shipyard file, and the respective Cloud Event Types configured for Job Executor. 
+While technically not part of the installation instructions, it is worthwhile to mention the coupling between the Keptn shipyard file, and the respective Cloud Event Types configured for Job Executor. 
 
-In example, you should have a monitoring provider (e.g,. Prometheus) configured already for `evaluation` tasks. In addition, your shipyard should contain at least one stages with a `delivery` sequence. Last but not least, the example below also contains a `deployment` step. You can skip this, and just adapt the `JSERVER_URL` in the job-executor config below.
+For example, you should already have a monitoring provider (e.g,. Prometheus) configured for `evaluation` tasks. In addition, your shipyard should contain one or more stages with a `delivery` sequence. Last but not least, the example below also contains a `deployment` step. You can skip this, and just adapt the `JSERVER_URL` in the job-executor config below.
 
 Example:
 ```yaml
@@ -130,7 +130,7 @@ spec:
 
 ### Step 4: Add the Job-Executor configuration file
 
-The following Job Executor configuration (referred to as job config or `job/config.yaml`) allows you to run jmeter with the `load.jmx` file (e.g., from the [Keptn Carts example](https://github.com/keptn/examples/tree/master/onboarding-carts/jmeter)) using whenever a `test.triggered` with `teststrategy=performance` event is sent by Keptn.
+The following Job Executor configuration (referred to as job config or `job/config.yaml`) allows you to run jmeter with the `load.jmx` file (e.g., from the [Keptn Carts example](https://github.com/keptn/examples/tree/master/onboarding-carts/jmeter)) used whenever a `test.triggered` with `teststrategy=performance` event is sent by Keptn.
 
 Add the following content to a file called *jmeter-job-config.yaml* in your current working directory:
 ```yaml
@@ -173,7 +173,7 @@ keptn add-resource --project=$PROJECT --service=$SERVICE --stage=staging --resou
 
 ## Run it
 
-Now the Job-Executor-Service will execute the JMeter tests whenever you trigger a delivery, e.g., 
+Now the Job-Executor-Service executes the JMeter tests whenever you trigger a delivery, e.g., 
 ```bash
 IMAGE="docker.io/keptnexamples/carts"
 VERSION=0.13.1
