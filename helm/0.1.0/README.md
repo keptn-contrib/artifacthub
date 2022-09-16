@@ -39,9 +39,9 @@ helm uninstall jmeter-service -n keptn
 
 ### Step 2: Make sure your project is set up properly with the right tasks.
 
-While technically not part of the installation instructions, it is worthwhile to mention the coupling between Keptn's shipyard file, and the respective Cloud Event Types configured for Job Executor. 
+While technically not part of the installation instructions, it is worthwhile to mention the coupling between the Keptn shipyard file, and the respective Cloud Event Types configured for Job Executor. 
 
-In example, you should have a monitoring provider (e.g,. Prometheus) configured already for `evaluation` tasks. In addition, for best results, your shipyard should contain at least one, better two stages, a `delivery` sequence, a `rollback` sequence, and a `remediation` sequence.
+In example, you should already have a monitoring provider (e.g,. Prometheus) configured for `evaluation` tasks. In addition, for best results, your shipyard should contain one or more stages with a `delivery` sequence, a `rollback` sequence, and a `remediation` sequence.
 
 Example:
 ```yaml

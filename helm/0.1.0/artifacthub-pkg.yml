@@ -4,7 +4,7 @@ version: 0.1.0
 name: helm
 displayName: Helm Job-Executor Integration
 createdAt: 2022-08-26T00:00:00Z
-digest: 2022-08-26T00:00:00Z
+digest: 2022-09-16T11:00:00Z
 description: Running Helm upgrade and rollback using the Job-Executor service instead of the Helm-Service
 logoURL: https://cncf-branding.netlify.app/img/projects/helm/horizontal/color/helm-horizontal-color.svg
 license: Apache-2.0
