@@ -1,5 +1,7 @@
 # Infracost Integration with Keptn
 
+[![Keptn Infracost Quality Gate Example](https://img.youtube.com/vi/L8AWjCAHv-4/0.jpg)](https://www.youtube.com/watch?v=L8AWjCAHv-4 "Keptn Infracost Quality Gate Example")
+
 ![infracost running in keptn](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/infracost/1.0.0/assets/infracost-keptn.png)
 
 This integration uses the [job executor service](https://github.com/keptn-contrib/job-executor-service).
@@ -9,6 +11,8 @@ This integration uses the [job executor service](https://github.com/keptn-contri
 You will need:
 
 - An infracost API token (see [get an API token](https://www.infracost.io/docs/#2-get-api-key))
+- To install the job executor service (see below)
+- (optional) Install an SLI provider (eg. Dynatrace, Prometheus, DataDog etc.)
 
 ## How it Works
 The Job executor service is configured to listen for a `sh.keptn.event.{task}.triggered` event (if following the example files, this is `sh.keptn.event.checkcost.triggered`).
@@ -466,3 +470,13 @@ actions:
 	}
 }
 ```
+
+## Infracost as a Quality Gate (Pushing Metrics)
+
+Most users will wish to export the Infracost metric into a metric storage system like Dynatrace or Prometheus. From there, the metrics can be retrieved later and used in a Keptn quality gate evaluation.
+
+To do so, ensure you have an SLI provider service installed (eg. Dynatrace, Prometheus etc.).
+
+Then instead of directly running the Infracost container, run a Python script / shell script or some other "Wrapper" which will trigger Infracost and then push the metrics when Infracost has finished running.
+
+Sample code for this for both Dynatrace and Prometheus is available on the [metric exporter instructions page](https://artifacthub.io/packages/keptn/keptn-integrations/metric-exporter).

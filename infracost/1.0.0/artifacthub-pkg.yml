@@ -6,7 +6,7 @@ displayName: Infracost Integration
 createdAt: 2022-07-23T00:00:00Z
 description: Keptn integration with Infracost
 logoURL: https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/infracost/1.0.0/assets/infracost.png
-digest: 2022-078-16T00:00:00Z
+digest: 2022-09-17T00:00:00Z
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -16,12 +16,15 @@ keywords:
   - cloud cost control
   - cicd
   - devops
+  - finops
 links:
   - name: Source
     url: https://infracost.io
+  - name: Metric Exporter
+    url:  https://artifacthub.io/packages/keptn/keptn-integrations/metric-exporter
 recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "cost,cost control,finops"
   keptn/org: "keptn"
-  keptn/version: "0.10.0-0.17.0"
+  keptn/version: "0.10.x-0.19.x"
