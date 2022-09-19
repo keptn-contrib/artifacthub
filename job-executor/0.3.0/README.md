@@ -67,7 +67,7 @@ For now, we advise to install Job-Executor-Service in a separate namespace, and 
 Install `job-executor-service` on a kubernetes cluster where `Keptn` is already installed:
 
 ```shell
-JES_VERSION="0.2.3"
+JES_VERSION="0.3.0"
 JES_NAMESPACE="keptn-jes"
 TASK_SUBSCRIPTION="sh.keptn.event.remote-task.triggered" # Add the relevant events here in a comma-separated list
 
