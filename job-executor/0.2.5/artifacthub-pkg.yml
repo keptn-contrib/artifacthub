@@ -5,7 +5,7 @@ createdAt: '2022-08-29T08:21:45Z'
 description: Keptn service to run any container as a Kubernetes Job orchestrated by
   Keptn.
 logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
-digest: '2022-08-29T08:21:45Z'
+digest: '2022-09-16T08:21:45Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
@@ -13,6 +13,7 @@ keywords:
 - kubernetes
 - contrib
 - job-executor
+- remediation
 links:
 - name: Source
   url: https://github.com/keptn-contrib/job-executor-service
