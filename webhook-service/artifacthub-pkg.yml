@@ -1,10 +1,10 @@
 version: 0.4.1
 name: webhook-service
 displayName: Webhook Service
-createdAt: '2022-09-16T00:00:00Z'
+createdAt: '2022-09-19T00:00:00Z'
 description: Core Keptn service for interacting third party systems via webhooks
-logoURL: https://raw.githubusercontent.com/Unleash/unleash/master/.github/Logo_DarkBlue_Transparent_Portrait.svg
-digest: '2022-09-16T00:00:00Z'
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
+digest: '2022-09-19T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
