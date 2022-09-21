@@ -1,0 +1,29 @@
+version: 0.18.1
+name: datadog-service
+displayName: datadog-service
+createdAt: '2022-09-19T18:42:23Z'
+description: Keptn SLI provider for datadog
+digest: '2022-09-19T18:42:23Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- sandbox
+- observability
+- monitoring
+- sli-provider
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/datadog-service/tree/release-0.15.0
+annotations:
+  keptn/org: sandbox
+  keptn/kind: observability
+  keptn/version: 0.15.x
+install: "## Execute the following steps to install datadog-service:\n\n ```\n   export\
+  \ DD_API_KEY='<your-datadog-api-key>' DD_APP_KEY='<your-datadog-app-key>' DD_SITE='datadoghq.com'\
+  \ \n\n   helm install -n keptn datadog-service https://github.com/keptn-sandbox/datadog-service/releases/download/0.15.0/\
+  \    datadog-service-0.15.0.tar.gz --set datadogservice.ddApikey=${DD_API_KEY} --set\
+  \ datadogservice.ddAppKey=${DD_APP_KEY} --set  datadogservice.ddSite=${DD_SITE}\
+  \ \n ``` \n\n   Check [the official docs](https://docs.datadoghq.com/account_management/api-app-keys/)\
+  \ for \n   how to create Datadog API key and Application key \n\n\n ### More Information\
+  \ \n\n More information can be found in our [GitHub repository](https://github.com/keptn-sandbox/datadog-service)."
