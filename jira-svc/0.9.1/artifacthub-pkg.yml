@@ -1,0 +1,22 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.9.1
+name: Jira Software
+displayName: Jira
+createdAt: 2022-09-29T00:00:00Z
+description: Jira Webhook integration for Keptn
+logoURL: https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg
+digest: 2022-09-29T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - jira
+links:
+  - name: Source
+    url: https://www.atlassian.com/software/jira
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "webhook"
+  keptn/version: "0.13.0-0.18.2"
