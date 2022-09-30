@@ -1,8 +1,9 @@
 version: 0.15.0
 name: datadog-service
-displayName: datadog-service
+displayName: Datadog Service
 createdAt: '2022-07-12T06:21:51Z'
 description: Keptn SLI provider for datadog
+logoURL: https://imgix.datadoghq.com/img/about/presskit/logo-v/dd_vertical_purple.png
 digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
