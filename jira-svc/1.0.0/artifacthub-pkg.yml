@@ -1,6 +1,6 @@
 # Artifact Hub package metadata file
 # https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
-version: 0.9.1
+version: 1.0.0
 name: Jira Software
 displayName: Jira
 createdAt: 2022-09-29T00:00:00Z
