@@ -10,6 +10,11 @@ homeURL: https://keptn.sh/docs/integrations/
 keywords:
 - keptn
 - sandbox
+- obsevability
+- monitoring
+- sli-provider
+- datadog
+- datadog-service
 links:
 - name: Source
   url: https://github.com/keptn-sandbox/datadog-service/tree/release-0.18.1
