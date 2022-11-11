@@ -1,0 +1,22 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 0.8.4
+name: argo-service-jes
+displayName: Argo Service JES
+createdAt: 2022-11-11T00:00:00Z
+description: Keptn service for Argo CD - Declarative GitOps CD for Kubernetes.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/argo/stacked/color/argo-stacked-color.svg
+digest: 2022-11-11T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - argo
+  - deployment
+  - contrib
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "deployment"
+  keptn/org: "keptn"
+  keptn/version: "0.18.x"
