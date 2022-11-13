@@ -4,7 +4,21 @@ This integration shows you how to run the [Argo-Service](https://github.com/kept
 
 ## Installation
 
+### Step 1: Install the Job-Executor in your cluster
+
 Please follow the [Job-Executor documentation](https://github.com/keptn-contrib/job-executor-service) for the installation process.
+
+### Step 2: Subscribe to Keptn events
+
+The configuration below listens to three events, so you must ensure that the `Job-Executor` also subscribes to these events. The subscriptions of the `Job-Executor` are defined in the `pubsubTopic` variable inside the Helm `values.yaml` file and should include the following three events.
+
+- `sh.keptn.event.release.triggered`
+- `sh.keptn.event.rollback.triggered`
+- `sh.keptn.event.test.triggered`
+
+You can also view and edit your subscriptions on the Keptn bridge **Uniform** page ([documentation](https://keptn.sh/docs/0.19.x/bridge/#createedit-subscriptions-view)).
+
+**Note: These events are set by default.**
 
 ## Configure Argo using the Job-Executor
 
