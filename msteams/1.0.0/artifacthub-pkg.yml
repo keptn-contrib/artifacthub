@@ -12,6 +12,8 @@ homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - microsoft teams
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using
@@ -19,4 +21,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.8.0-0.14.1"
+  keptn/version: "0.8.0-0.18.x"

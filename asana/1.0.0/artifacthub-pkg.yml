@@ -6,12 +6,14 @@ displayName: Asana
 createdAt: 2022-05-16T00:00:00Z
 description: Asana integration for Keptn
 logoURL: https://upload.wikimedia.org/wikipedia/commons/3/3b/Asana_logo.svg
-digest: 2022-05-16T00:00:00Z
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - asana
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://asana.com
@@ -19,4 +21,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.17.0"
+  keptn/version: "0.10.0-0.18.x"

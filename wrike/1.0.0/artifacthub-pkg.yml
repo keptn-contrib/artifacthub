@@ -6,12 +6,14 @@ displayName: Wrike Integration
 createdAt: 2022-05-18T00:00:00Z
 description: Wrike Integration for Keptn
 logoURL: https://upload.wikimedia.org/wikipedia/commons/2/24/Wrike_logo.png
-digest: 2022-05-18T00:00:00Z
+digest: '2022-09-06T00:00:00Z'
 license: Apache-2.0
 homeURL: https://keptn.sh/docs/integrations/
 keywords:
   - keptn
   - wrike
+  - webhook
+  - notification
 links:
   - name: Source
     url: https://wrike.com
@@ -19,4 +21,4 @@ recommendations:
   - url: https://artifacthub.io/packages/helm/keptn/keptn
 annotations:
   keptn/kind: "webhook"
-  keptn/version: "0.10.0-0.15.0"
+  keptn/version: "0.10.x-0.18.x"
