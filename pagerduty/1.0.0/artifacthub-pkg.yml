@@ -1,0 +1,22 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: PagerDuty
+displayName: PagerDuty
+createdAt: 2022-10-16T00:00:00Z
+description: PagerDuty integration for Keptn
+logoURL: https://upload.wikimedia.org/wikipedia/commons/0/0f/PagerDuty-GreenRGB.svg
+digest: 2022-05-16T00:00:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - PagerDuty
+links:
+  - name: Source
+    url: https://www.pagerduty.com/
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "webhook"
+  keptn/version: "0.13.0-0.18.2"
