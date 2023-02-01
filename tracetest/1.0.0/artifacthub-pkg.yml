@@ -1,0 +1,25 @@
+# Artifact Hub package metadata file
+# https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-pkg.yml
+version: 1.0.0
+name: Tracetest
+displayName: Tracetest integration with Keptn
+createdAt: 2022-02-02T00:00:00Z
+description: Run Tracetest Testing Tool from Keptn
+logoURL: https://raw.githubusercontent.com/kubeshop/tracetest/main/assets/tracetest-logo-color-w-white-text.svg
+digest: 2023-02-01T00:01:00Z
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+  - keptn
+  - tracetest
+links:
+  - name: Keptn
+    url: https://keptn.sh
+  - name: Tracetest
+    url: https://tracetest.io/
+recommendations:
+  - url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: "testing"
+  keptn/org: "keptn"
+  keptn/version: "0.10.0-0.15.0"
