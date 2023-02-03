@@ -39,7 +39,7 @@ Here we will show how to use Tracetest to run these tests and help in your deliv
 
 In your Kubernetes cluster you should have:
 
-1. `Keptn 1.0.x` [installed](https://keptn.sh/docs/1.0.x/install/)
+1. `Keptn 1.1.0 LTS` [installed](https://keptn.sh/docs/1.0.x/install/)
 2. `Job Executor Service 0.3.x` [installed](https://github.com/keptn-contrib/job-executor-service/blob/main/docs/INSTALL.md)
 3. `Tracetest` server [installed](https://docs.tracetest.io/deployment/kubernetes) on `tracetest` namespace 
 
