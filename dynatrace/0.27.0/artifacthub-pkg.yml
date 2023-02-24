@@ -1,0 +1,51 @@
+version: 0.27.0
+name: dynatrace-service
+displayName: Dynatrace Service
+createdAt: '2023-02-23T09:56:59Z'
+description: Keptn service that forwards Keptn events - occurring during a delivery
+  workflow - to Dynatrace.
+logoURL: https://avatars.githubusercontent.com/u/6412311
+digest: '2023-02-23T09:56:59Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- dynatrace
+- contrib
+- observability
+- sli-provider
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/dynatrace-service
+install: "# Installation\n\nThe dynatrace-service can be installed in three steps:\n\
+  \n## 1. Download the latest dynatrace-service Helm chart\n\nDownload [the latest\
+  \ dynatrace-service Helm chart](https://github.com/keptn-contrib/dynatrace-service/releases/latest/)\
+  \ from GitHub. Please ensure that the version of the dynatrace-service is compatible\
+  \ with the version of Keptn you have installed by consulting the [Compatibility\
+  \ Matrix](compatibility.md). Details on installing or upgrading Keptn can be found\
+  \ on the [Keptn website](https://keptn.sh/docs/quickstart/).\n\n## 2. Gather Keptn\
+  \ credentials\n\nThe dynatrace-service requires access to the Keptn API consisting\
+  \ of `KEPTN_API_URL`, `KEPTN_API_TOKEN` and optionally `KEPTN_BRIDGE_URL`.\n\n*\
+  \ To get the values for `KEPTN_API_URL` (also known as `KEPTN_ENDPOINT`), please\
+  \ see [Authenticate Keptn CLI](https://keptn.sh/docs/0.16.x/operate/install/#authenticate-keptn-cli).\n\
+  \n* By default, the `KEPTN_API_TOKEN` is read from the `keptn-api-token` secret\
+  \ (i.e., the secret from the control-plane) and does not need to be set during installation.\n\
+  \n* If you would like to use backlinks from your Dynatrace tenant to the Keptn Bridge,\
+  \ provide the service with `KEPTN_BRIDGE_URL`. For further details about this value,\
+  \ please see [Authenticate Keptn Bridge](https://keptn.sh/docs/0.16.x/operate/install/#authenticate-keptn-bridge).\n\
+  \nIf running on a Linux or Unix based system, you can assign these to environment\
+  \ variables to simplify the installation process: \n\n```console\nKEPTN_API_URL=<KEPTN_API_URL>\n\
+  KEPTN_BRIDGE_URL=<KEPTN_BRIDGE_URL> # optional\n```\n\nAlternatively, replace the\
+  \ variables with the actual values in the `helm upgrade` command in the following\
+  \ section.\n\n\n## 3. Install the dynatrace-service\n\nTo install the dynatrace-service\
+  \ in the standard `keptn` namespace, execute:\n\n```console\nhelm upgrade --install\
+  \ dynatrace-service -n keptn \\\n    <HELM_CHART_FILENAME> \\\n    --set dynatraceService.config.keptnApiUrl=$KEPTN_API_URL\
+  \ \\\n    --set dynatraceService.config.keptnBridgeUrl=$KEPTN_BRIDGE_URL\n```\n\n\
+  **Note:** \n- You can select additional installation options by appending key-value\
+  \ pairs with the syntax `--set key=value`.\n"
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: observability
+  keptn/org: contrib
+  keptn/version: 0.19.x
