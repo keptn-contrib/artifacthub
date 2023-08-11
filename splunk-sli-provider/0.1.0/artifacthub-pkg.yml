@@ -1,0 +1,38 @@
+version: 0.1.0
+name: splunk-sli-provider
+displayName: Splunk SLI-Provider
+createdAt: '2023-08-10T12:23:28Z'
+description: Keptn service for utilizing Splunk monitoring and alerting in Keptn
+digest: '2023-08-09T14:15:28Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- splunk
+- sandbox
+- observability
+- sli-provider
+- splunk-sli-provider
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/splunk-sli-provider
+install: '## Execute the following steps to install splunk-sli-provider:
+
+  ```bash helm upgrade --install -n keptn splunk-sli-provider https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz --set splunkservice.existingSecret=<mysecretname>
+
+  The existing secret must contain the following keys:
+  SP_HOST, SP_PORT, SP_API_TOKEN 
+  
+  ### Execute the following command to set up the alerts for Splunk
+
+  ```bash keptn configure monitoring splunk --project=sockshop --service=carts
+
+  ### More Information
+
+  More information can be found in our [GitHub repository](https://github.com/keptn-sandbox/splunk-sli-provider). '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: observability
+  keptn/org: sandbox
+  keptn/version: 0.18.x-1.y.z
