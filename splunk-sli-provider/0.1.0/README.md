@@ -37,7 +37,7 @@ Please replace the placeholders in the commands below. Examples are provided.
 
 - `<VERSION>`: splunk-sli-provider version, e.g., 0.1.0
 - `<SPLUNK_HOST>` : where the splunk enterprise is installed, e.g, http://localhost
-- `<SPLUNK_PORT>` : the port of the splunk enterprise server , e.g 8089
+- `<SPLUNK_PORT>` : the port of the splunk enterprise server , e.g, 8089
 - `<SPLUNK_USERNAME>` : the username of the splunk server (**admin** by default)
 - `<SPLUNK_PASSWORD>` : the password of the splunk server
   ``
