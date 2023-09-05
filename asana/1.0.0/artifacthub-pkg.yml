@@ -4,7 +4,7 @@ version: 1.0.0
 name: Asana
 displayName: Asana
 createdAt: 2022-05-16T00:00:00Z
-description: [DEPRECATED] Asana integration for Keptn
+description: "[DEPRECATED] Asana integration for Keptn"
 logoURL: https://upload.wikimedia.org/wikipedia/commons/3/3b/Asana_logo.svg
 digest: 2023-09-05T00:00:00Z
 license: Apache-2.0
