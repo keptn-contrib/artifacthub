@@ -1,3 +1,7 @@
+> This integration is for Keptn v1. It is no longer supported.
+>
+> Users are advised to use Keptn instead: https://keptn.sh
+
 # Use AWS Lambda with Keptn
 
   There are two ways AWS Lambda can be used with keptn/kind:
