@@ -1,3 +1,7 @@
+> This integration is for Keptn v1. It is no longer supported.
+>
+> Users are advised to use Keptn instead: https://keptn.sh
+
 # AWS App Runner Integration
 
 Keptn can integrate with AWS App Runner in 3 ways:
