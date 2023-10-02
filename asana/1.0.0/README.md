@@ -1,5 +1,9 @@
 # Asana Integration
 
+> This integration is for Keptn v1. It is no longer supported.
+>
+> Users are advised to use Keptn instead: https://keptn.sh
+
 [Asana](https://asana.com) is a project management and task tracking platform. This page describes how to integrate Keptn with Asana.
 
 ![tagged user](https://raw.githubusercontent.com/keptn-contrib/artifacthub/main/asana/1.0.0/assets/tagged-user.png)
