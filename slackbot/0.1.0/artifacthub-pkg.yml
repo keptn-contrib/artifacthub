@@ -1,0 +1,44 @@
+version: 0.1.0
+name: slackbot-service
+displayName: Slackbot Service
+createdAt: '2020-04-08T09:10:30Z'
+description: Keptn service responsible for interacting with Keptn via a Slack app.
+logoURL: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/2560px-Slack_Technologies_Logo.svg.png
+digest: '2020-04-08T09:10:30Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+deprecated: true
+keywords:
+- keptn
+- slack
+- sandbox
+- notification
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/slackbot-service
+install: "1. Create a **[classic Slack app](https://api.slack.com/apps?new_classic_app=1)**\
+  \ and give it a name, e.g., **Keptn-App** and select the development slack workspace.\n\
+  \n1. In the next screen, add bot to the app. \n\n    ![add bot](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/add-bot.png)\n\
+  \n1. Add a legacy bot user to the bot. \n\n    ![](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/add-legacy-bot-user.png)\n\
+  \n1. Give the Bot a name, e.g, **Keptn**. \n\n    ![](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/add-bot-user.png)\n\
+  \n1. Click on **Install App** in the left menu and **Install App to Workspace**.\
+  \ \n\n    ![](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/install-app.png)\n\
+  \n1. Confirm the next dialog.\n\n1. Copy the **Bot User OAuth Access Token** as\
+  \ we will need it later. \n\n    ![](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/copy-bot-token.png)\n\
+  \n1. We are finished with this integration by now. However, we need to change some\
+  \ settings later, so pleae keep this browser open.\n\n1. Go to your Slack workspace\
+  \ and create a new channel that will receive the approval notifications. You can\
+  \ name it, e.g., **Keptn-approvals**. \n\n    ![](https://raw.githubusercontent.com/keptn-sandbox/slackbot-service/master/images/add-slack-channel.png)\n\
+  \n1. Add the app to the channel by clicking on **Add an app** and select the newly\
+  \ created app from the list.\n\n1. In the left menu of Slack right-click on the\
+  \ channel that you just created and click on **Copy link**. Open this link in a\
+  \ browser or paste it into a textfile as we will need the channel ID for the integration\
+  \ to work. \n\n1. The link will look similar to *https://your-workspace.slack.com/archives/C018WDNTZKN*\
+  \ - please copy the last part of the URL after the last `/` as this is the channel\
+  \ ID that we'll need in a minute. In this example the channel ID is `C018WDNTZKN`.\n"
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: notification
+  keptn/org: sandbox
+  keptn/version: 0.7.x

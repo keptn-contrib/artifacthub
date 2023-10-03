@@ -1,0 +1,21 @@
+version: '2.1'
+name: jenkins-library
+displayName: Jenkins Shared Library
+createdAt: '2020-06-17T11:26:59Z'
+description: Jenkins shared library for integrating Keptn Use Cases with your Jenkins
+  Pipelines. Use with Keptn versions 0.12.x and lower.
+digest: '2020-06-17T11:26:59Z'
+license: Apache-2.0
+logoURL: https://landscape.cd.foundation/logos/jenkins.svg
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- sandbox
+- testing
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/keptn-jenkins-library/tree/master
+annotations:
+  keptn/kind: testing
+  keptn/org: sandbox
+  keptn/version: 0.10.0-0.12.0

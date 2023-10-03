@@ -1,0 +1,48 @@
+version: 0.1.1
+name: litmus-service
+displayName: Litmus Service
+createdAt: '2020-12-09T13:28:10Z'
+description: Keptn service to perform chaos tests on your applications triggered by
+  Keptn using the LitmusChaos framework.
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/litmus/stacked/color/litmus-stacked-color.svg
+digest: '2020-12-09T13:28:10Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- testing
+- sandbox
+links:
+- name: Source
+  url: https://github.com/keptn-sandbox/litmus-service
+install: 'To deploy the current version of the *litmus-service* in your Keptn Kubernetes
+  cluster, clone the repo and apply the [`deploy/service.yaml`](deploy/service.yaml)
+  file:
+
+
+  ```console
+
+  kubectl apply -f deploy/service.yaml
+
+  ```
+
+
+  This will install the `litmus-service` into the `keptn` namespace, which you can
+  verify using:
+
+
+  ```console
+
+  kubectl -n keptn get deployment litmus-service -o wide
+
+  kubectl -n keptn get pods -l run=litmus-service
+
+  ```
+
+  '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: testing
+  keptn/org: sandbox
+  keptn/version: 0.8.4-0.8.7

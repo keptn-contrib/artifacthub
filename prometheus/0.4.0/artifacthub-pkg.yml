@@ -1,0 +1,36 @@
+version: 0.4.0
+name: prometheus-service
+displayName: Prometheus Service
+createdAt: '2021-03-04T12:53:23Z'
+description: Keptn service for utilizing Prometheus monitoring and alerting in Keptn
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/stacked/color/prometheus-stacked-color.svg
+digest: '2021-03-04T12:53:23Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+keywords:
+- keptn
+- prometheus
+- contrib
+- observability
+- sli-provider
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/prometheus-service
+install: '## Execute the following steps to install prometheus-service:
+
+  ```bash helm install -n keptn prometheus-service https://github.com/keptn-contrib/prometheus-service/releases/download/<VERSION>/prometheus-service-<VERSION>.tgz
+
+  ### Execute the following command to install Prometheus and set up the rules for
+  the *Prometheus Alerting Manager*:
+
+  ```bash keptn configure monitoring prometheus --project=sockshop --service=carts
+
+  ### More Information
+
+  More information can be found in our [GitHub repository](https://github.com/keptn-contrib/prometheus-service). '
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: observability
+  keptn/org: contrib
+  keptn/version: 0.18.x

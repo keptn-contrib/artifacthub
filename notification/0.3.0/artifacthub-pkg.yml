@@ -1,0 +1,24 @@
+version: 0.3.0
+name: notification-service
+displayName: Notification Service
+createdAt: '2020-01-21T12:12:01Z'
+description: Keptn service responsible for sending specific events as a notification
+  to MS Teams, Slack and Webex Teams
+logoURL: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/stacked/color/keptn-stacked-color.svg
+digest: '2020-01-21T12:12:01Z'
+license: Apache-2.0
+homeURL: https://keptn.sh/docs/integrations/
+deprecated: true
+keywords:
+- keptn
+- notification
+- contrib
+links:
+- name: Source
+  url: https://github.com/keptn-contrib/notification-service
+recommendations:
+- url: https://artifacthub.io/packages/helm/keptn/keptn
+annotations:
+  keptn/kind: notification
+  keptn/org: contrib
+  keptn/version: 0.7.x
